@@ -1,0 +1,156 @@
+<!--VARIABLES {"title": "Basics", "SORT_ORDER": "030", "code": "basics"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+# Hello, world!
+
+The program is:
+
+<div class="blockSrc">project1/hello_world.groovy</div>
+
+````groovy
+println "Hello world!"
+````
+
+The execution is:
+
+````shell
+>groovy hello_world.groovy
+Hello world!
+````
+
+----------------------------------------------------------------------------------------------------
+<!--index ["variables", "destructuring", "print/println", "def", "var"]-->
+# Variables
+
+Also see [<!--ref groovy_site-->, [Semantics](https://groovy-lang.org/semantics.html)].
+
+<div class="blockSrc">project1/variables.groovy</div>
+
+````groovy
+<!--include project1/variables.groovy-->
+````
+
+----------------------------------------------------------------------------------------------------
+<!--index ["types, data", "data types"]-->
+# Data types
+
+Also see [<!--ref groovy_site-->, [Object orientation](http://groovy-lang.org/objectorientation.html)].
+
+
+## Numbers
+
+<div class="blockSrc">project1/data_types_numbers.groovy</div>
+
+````groovy
+<!--include project1/data_types_numbers.groovy-->
+````
+
+````shell
+>groovy data_types_numbers.groovy > data_types_numbers_out.txt
+````
+
+The result is:
+
+<!--include project1/data_types_numbers_out.txt-->
+
+
+<!--index ["strings"]-->
+## Strings
+
+Also see:
+
+- [<!--ref groovy_site-->, [4. Strings](http://groovy-lang.org/syntax.html#all-strings)]
+- [<!--ref str_types_gr_bae-->]
+
+<div class="blockSrc">project1/data_types_strings.groovy</div>
+
+````groovy
+<!--include project1/data_types_strings.groovy-->
+````
+
+
+<!--index ["boolean", "Groovy truth"]-->
+## Boolean
+
+Also see [<!--ref groovy_site-->, [The Groovy Truth](
+https://docs.groovy-lang.org/latest/html/documentation/core-semantics.html#the-groovy-truth)].
+
+Different value types may be converted to `boolean` when required.
+
+<div class="blockSrc">project1/data_types_boolean.groovy</div>
+
+````groovy
+<!--include project1/data_types_boolean.groovy-->
+````
+
+----------------------------------------------------------------------------------------------------
+<!--index ["operators", "ternary operator", "Elvis operator", "postfix increment/decrement", 
+"prefix increment/decrement", "increment", "decrement"]-->
+# Operators
+
+Also see [<!--ref groovy_site-->, [Operators](http://groovy-lang.org/operators.html)].
+
+<div class="blockSrc">project1/operators.groovy</div>
+
+````groovy
+<!--include project1/operators.groovy-->
+````
+
+----------------------------------------------------------------------------------------------------
+# Control structures
+
+<!--index ["conditional operators", "if operator", "switch-case operator"]-->
+## Conditionals
+
+Also see [<!--ref groovy_site-->, [1.3.1. Conditional structures](
+http://groovy-lang.org/semantics.html#_conditional_structures)].
+
+<div class="blockSrc">project1/conditionals.groovy</div>
+
+````groovy
+<!--include project1/conditionals.groovy-->
+````
+
+
+<!--index ["loops"]-->
+## Loops
+
+Also see [<!--ref groovy_site-->, [1.3.2. Looping structures](
+http://groovy-lang.org/semantics.html#_looping_structures)].
+
+<div class="blockSrc">project1/loops.groovy</div>
+
+````groovy
+<!--include project1/loops.groovy-->
+````
+
+
+<!--index ["exception handling"]-->
+## Exception handling
+
+Also see [<!--ref groovy_site-->, [1.3.3. Exception handling](
+http://groovy-lang.org/semantics.html#_looping_structures)].
+
+<div class="blockSrc">project1/exceptions.groovy</div>
+
+````groovy
+<!--include project1/exceptions.groovy-->
+````
+
+----------------------------------------------------------------------------------------------------
+<!--index ["methods", "closures"]-->
+# Methods and closures
+
+Also see [<!--ref groovy_site-->, [3.3. Methods](http://groovy-lang.org/structure.html#_methods)].
+
+<div class="blockSrc">project1/methods.groovy</div>
+
+````groovy
+<!--include project1/methods.groovy-->
+````
+
+
+
+

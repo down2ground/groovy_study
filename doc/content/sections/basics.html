@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Basics</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+</head>
+<body>
+
+<div class="header">
+<img id="burger" src="../../layout/pict/burger.png" 
+onclick="toggleSidebar();return false;" class="toggle_narrow_only_inline" alt="Sidebar">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a>
+<a href="../../../doc_src/sections/basics.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+<a href="installation.html" title="Previous: Installation"><img class="headerNavArrows"
+src="../../layout/pict/previous_page_h21px.png" alt="Back"></a>
+ 
+<a href="ref/references.html" title="Next: References"><img class="headerNavArrows"
+src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
+
+
+<span class="headerTitle">Basics</span>
+
+</div>
+
+<div class="sidebarWrapper">
+<div class="sidebar">
+    <table class="sidebarAligner">
+        <tr><td class="valign_top">
+            <div class="align_right toggle_narrow_only_block">
+            <a href="../../../doc_src/sections/basics.txt" class="sidebar_item_inline source_file align_right" 
+                title="Source text">&lt;/&gt;</a>
+            
+            </div>
+            <div class="sidebar_block">
+            
+            <a class="sidebar_item " href="../../../readme.html">Home</a>
+            <a class="sidebar_item " href="installation.html">Installation</a>
+            <a class="sidebar_item selected " href="basics.html">Basics</a>
+            </div><div class="sidebar_block">
+            
+            <a class="sidebar_item " href="ref/references.html">References</a>
+            </div>
+        </td></tr>
+        <tr><td class="bottom valign_bottom">        </td></tr>
+    </table>
+</div>
+</div>
+
+<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Basics</p>
+
+<div class="toc">
+<ul>
+<li><a href="#hello-world">Hello, world!</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#data-types">Data types</a><ul>
+<li><a href="#numbers">Numbers</a></li>
+<li><a href="#strings">Strings</a></li>
+<li><a href="#boolean">Boolean</a></li>
+</ul>
+</li>
+<li><a href="#operators">Operators</a></li>
+<li><a href="#control-structures">Control structures</a><ul>
+<li><a href="#conditionals">Conditionals</a></li>
+<li><a href="#loops">Loops</a></li>
+<li><a href="#exception-handling">Exception handling</a></li>
+</ul>
+</li>
+<li><a href="#methods-and-closures">Methods and closures</a></li>
+</ul>
+</div>
+<hr />
+<h1 id="hello-world">Hello, world!</h1>
+<p>The program is:</p>
+<div class="blockSrc">project1/hello_world.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">println "Hello world!"</code></pre>
+<p>The execution is:</p>
+<pre class="highlight"><code class="language-shell">&gt;groovy hello_world.groovy
+Hello world!</code></pre>
+<hr />
+<p><a name="index_entry_index_1"></a></p>
+<h1 id="variables">Variables</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://groovy-lang.org/semantics.html">Semantics</a>].</p>
+<div class="blockSrc">project1/variables.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">// variable type inference
+def _value1 = 52       // underscore may be the first symbol in identifier names
+println _value1.class  // class java.lang.Integer
+
+Double doubleValue = 52   // type may also be specified explicitly
+println doubleValue       // 52.0
+
+globalName = "Bob" // omitting type makes the variable global
+
+def printName() {
+    println globalName
+    // println doubleValue // ERROR
+    // groovy.lang.MissingPropertyException: No such property: doubleValue for class: variables
+}
+
+printName()  // Bob
+
+var interpolatedString = "${globalName}'s age is $doubleValue" // {} may be omitted
+// `var` is a synonym for `def`
+println interpolatedString  // Bob's age is 52.0
+
+def literalString = '${globalName} is $doubleValue years old'
+println literalString // ${globalName} is $doubleValue years old
+
+def (a, b, c) = ["first", 23, true]   // Multiple assignments (destructuring)
+print a; print b; print c; println() // first23true
+
+def (a1, b1, c1) = ["first", 23] // not all values provided - variable will get the default value
+print a1; print b1; print c1; println() // first23null
+
+def (int a2, int b2) = [100, 200, 300] // types specified, unused values will be ignored
+print a2; print b2; println() // 100200</code></pre>
+<hr />
+<p><a name="index_entry_index_2"></a></p>
+<h1 id="data-types">Data types</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/objectorientation.html">Object orientation</a>].</p>
+<h2 id="numbers">Numbers</h2>
+<div class="blockSrc">project1/data_types_numbers.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">println "Type | Min value | Max value"
+println "---- | --------: | --------:"
+println "byte | " + Byte.MIN_VALUE + " | " + Byte.MAX_VALUE
+println "short | " + Short.MIN_VALUE + " | " + Short.MAX_VALUE
+println "int | " + Integer.MIN_VALUE + " | " + Integer.MAX_VALUE
+println "long | " + Long.MIN_VALUE + " | " + Long.MAX_VALUE
+println "float | " + Float.MIN_VALUE + " | " + Float.MAX_VALUE
+println "double | " + Double.MIN_VALUE + " | " + Double.MAX_VALUE
+println "char | " + (int) Character.MIN_VALUE + " | " + (int) Character.MAX_VALUE</code></pre>
+<pre class="highlight"><code class="language-shell">&gt;groovy data_types_numbers.groovy &gt; data_types_numbers_out.txt</code></pre>
+<p>The result is:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th align="right">Min value</th>
+<th align="right">Max value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td align="right">-128</td>
+<td align="right">127</td>
+</tr>
+<tr>
+<td>short</td>
+<td align="right">-32768</td>
+<td align="right">32767</td>
+</tr>
+<tr>
+<td>int</td>
+<td align="right">-2147483648</td>
+<td align="right">2147483647</td>
+</tr>
+<tr>
+<td>long</td>
+<td align="right">-9223372036854775808</td>
+<td align="right">9223372036854775807</td>
+</tr>
+<tr>
+<td>float</td>
+<td align="right">1.4E-45</td>
+<td align="right">3.4028235E38</td>
+</tr>
+<tr>
+<td>double</td>
+<td align="right">4.9E-324</td>
+<td align="right">1.7976931348623157E308</td>
+</tr>
+<tr>
+<td>char</td>
+<td align="right">0</td>
+<td align="right">65535</td>
+</tr>
+</tbody>
+</table>
+<p><a name="index_entry_index_3"></a></p>
+<h2 id="strings">Strings</h2>
+<p>Also see:</p>
+<ul>
+<li>[<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/syntax.html#all-strings">4. Strings</a>]</li>
+<li>[<a class="ref" href="ref/references.html#str_types_gr_bae">str_types_gr_bae</a>]</li>
+</ul>
+<div class="blockSrc">project1/data_types_strings.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">def s1 = "a"
+println s1.getClass().getName() // java.lang.String
+
+def char c1 = "a" // double quotes may be used for the `char` data type
+println c1.getClass().getName() // java.lang.Character
+
+def gs = "value = ${2 + 2}"
+println gs.getClass().getName() // org.codehaus.groovy.runtime.GStringImpl
+println gs // value = 4
+
+String multiline = """
+ 1
+ 2
+""" // three single quotes may be also used
+println multiline.collect { String.format("0x%02X", (int) it) }
+// [0x0A, 0x20, 0x31, 0x0A, 0x20, 0x32, 0x0A]
+// 0x0A - newline, 0x20 - space
+
+def numbers = "abcde"
+println numbers[2] // c
+println numbers[-1] // e
+println numbers[1..3] // bcd
+println numbers[3..1] // dcb
+println numbers[0, 2, 4] // ace
+println numbers.substring(3) // de
+println numbers.subSequence(1, 3) // bc
+println numbers.toList() // [a, b, c, d, e]
+println numbers.equalsIgnoreCase("Abcde") // true
+
+def spaced = "May      there are always be sunshine!"
+println spaced.split() // [May, there, are, always, be, sunshine!]
+
+println "Groovy " * 3 // Groovy Groovy Groovy
+
+println(/"slashy" string/) // "slashy" string
+// println /"slashy" string/ // doesn't work without braces
+
+println(/Slashy strings 
+are multiline. \/Slashes\/ must be masked./) 
+// Slashy strings
+// are multiline. /Slashes/ must be masked.
+
+println($/Dollar slashy string. Dolar ($$) is the escape symbol./$)
+// Dollar slashy string. Dolar ($) is the escape symbol.</code></pre>
+<p><a name="index_entry_index_4"></a></p>
+<h2 id="boolean">Boolean</h2>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://docs.groovy-lang.org/latest/html/documentation/core-semantics.html#the-groovy-truth">The Groovy Truth</a>].</p>
+<p>Different value types may be converted to <code>boolean</code> when required.</p>
+<div class="blockSrc">project1/data_types_boolean.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">assert "a"
+assert !""
+assert [1, 2]
+assert ![]
+assert 1
+assert !0
+
+String process(int n) {
+    if (n &gt; 0) return ""
+    return "wrong argument"
+}
+
+assert process(0)
+assert !process(1)</code></pre>
+<hr />
+<p><a name="index_entry_index_5"></a></p>
+<h1 id="operators">Operators</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/operators.html">Operators</a>].</p>
+<div class="blockSrc">project1/operators.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">assert 3 + 5 == 8
+def (int a, int b) = [7, 4]
+assert a / b == 1.75 // normal division
+assert a.intdiv(b) == 1 // integer division
+assert 5 % 3 == 2   // modulo (remainder)
+assert 3 ** 3 == 27 // power
+
+int i = 3
+assert "${i++}, ${i}" == "3, 4" // postfix increment
+assert "${--i}, ${i}" == "3, 3" // prefix decrement
+
+i **= 2 // assignment operators
+assert i == 9
+
+assert 1 == 1 || 5 &gt;= 3
+assert false &amp;&amp; true || true       // &amp;&amp; has precedence
+assert !(false &amp;&amp; (true || true))
+
+// bitwise operators
+assert (0b0011 &amp; 0b0101) == 0b0001
+assert (0b0011 ^ 0b0101) == 0b0110
+assert (~0b01 &amp; 0b11)  == 0b10 // bitwise negation (we need the mask 0b11 to cut the sign digit)
+
+def result = i &gt; 0 ? "OK" : "" // ternary operator
+assert result // using the "Groovy truth" rules
+
+def String greeting(String name) {
+    return "Hello ${name ?: "stranger"}!" // Elvis operator ?:
+}
+
+assert greeting("Bob") == "Hello Bob!"
+assert greeting("") == "Hello stranger!"</code></pre>
+<hr />
+<h1 id="control-structures">Control structures</h1>
+<p><a name="index_entry_index_6"></a></p>
+<h2 id="conditionals">Conditionals</h2>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/semantics.html#_conditional_structures">1.3.1. Conditional structures</a>].</p>
+<div class="blockSrc">project1/conditionals.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">def n = 17
+if (n &gt; 0)
+    println 'positive'
+else if (n == 0)
+    println 'zero'
+else {
+    print 'unfortunately '
+    println 'negative'
+}
+// positive
+
+String result
+switch (n) {
+    case 0:
+        result = "zero"
+        break
+    case {n &gt; 0}:              // not like in Java
+        result = "positive"
+        break
+    case {n &lt; 0}:
+        result = "negative"
+        break
+    default:
+        result = "invalid"
+}
+println result // positive</code></pre>
+<p><a name="index_entry_index_7"></a></p>
+<h2 id="loops">Loops</h2>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/semantics.html#_looping_structures">1.3.2. Looping structures</a>].</p>
+<div class="blockSrc">project1/loops.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">for (def i = 0; i &lt; 5; ++i) 
+    print i + " "
+println() // 0 1 2 3 4
+
+for (def i in 1..5) 
+    print i + " "
+println() // 1 2 3 4 5
+
+for (int fib in [1, 1, 2, 3, 5, 8, 13]) 
+    print fib + " "
+println() // 1 1 2 3 5 8 13
+
+2.upto(5) {print it} // `it` is an explicit loop variable
+println() // 2345
+
+4.times {print it}
+println() // 0123
+
+3.step(10, 2) {print it}
+println() // 3579
+
+String result = ""
+Random random = new Random()
+while (result.length() &lt; 20)
+    result += random.nextInt(9) + " "
+println result // 5 7 1 7 8 4 3 1 4 1
+
+do {
+    println "This will be printed at least one time"
+} while (false)</code></pre>
+<p><a name="index_entry_index_8"></a></p>
+<h2 id="exception-handling">Exception handling</h2>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/semantics.html#_looping_structures">1.3.3. Exception handling</a>].</p>
+<div class="blockSrc">project1/exceptions.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">// def d = 5 / 0
+// Caught: java.lang.ArithmeticException: Division by zero
+// java.lang.ArithmeticException: Division by zero
+//         at exceptions.run(exceptions.groovy:2)
+
+try {
+    def d = 5 / 0
+} catch (ArithmeticException e) {
+    println e.getCause()     // null
+    println e.getMessage()   // Division by zero
+} finally {
+    println "This will be printed anyway." // This will be printed anyway.
+}
+
+class CloseMe implements Closeable {
+
+    private String name
+
+    public CloseMe(String name) {
+        this.name = name
+    }
+
+    @Override
+    void close() throws IOException {
+        println "closed $name"
+    }
+}
+
+CloseMe closeMe1 = new CloseMe("1")
+
+try (
+    closeMe1 // existing resource may be closed as well
+    CloseMe closeMe2 = new CloseMe("2")
+) {
+    // do something
+} // here the resource closing is done
+
+// The output is:
+// closed 2
+// closed 1</code></pre>
+<hr />
+<p><a name="index_entry_index_9"></a></p>
+<h1 id="methods-and-closures">Methods and closures</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/structure.html#_methods">3.3. Methods</a>].</p>
+<div class="blockSrc">project1/methods.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">def sum(int a, int b=0) { // parameter `b` has the default value
+    a + b // no need for the `return` operator (though it may be used if required)
+}
+
+println sum(7, 4) // 11
+println sum(7) // 7</code></pre>
+<p>&nbsp;</p>
+<hr />
+
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="installation.html" 
+title="Previous: Installation"><img src="../../layout/pict/previous_page.png"
+alt="Back"></a>
+<a href="ref/references.html" title="Next: References"><img 
+src="../../layout/pict/next_page.png" alt="Next"></a>
+</p>
+
+<script>
+function toggleSidebar() {
+    let sidebar = document.getElementsByClassName("sidebarWrapper")[0]
+    let display = sidebar.style.display
+    if (!display || display == "none") {
+        sidebar.style.display = "block"
+    } else {
+        sidebar.style.display = ""
+    }
+}
+</script>
+
+</body>
+</html>

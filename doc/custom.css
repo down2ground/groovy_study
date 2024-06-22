@@ -1,0 +1,46 @@
+/* Write your styles here. */
+
+.ref {
+    background-color: aliceblue;
+}
+
+.refDef {
+    font-weight: bold;
+    background-color: aliceblue;
+}
+
+pre>code.language-wrapped-groovy {
+    white-space: pre-wrap;
+    word-break: break-word;
+    min-width: unset;
+}
+
+pre>code.language-groovy, pre>code.language-wrapped-groovy {
+  padding-top: 40px;
+}
+
+pre>code.language-groovy::before, pre>code.language-wrapped-groovy::before {
+    display: block;
+    position: absolute;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 0.8rem;
+    margin-top: -32px;
+    padding-right: 7px;
+    padding-bottom: 3px;
+}
+
+pre>code.language-groovy::before, pre>code.language-wrapped-groovy::before {
+    content: "Groovy";
+}
+
+pre>code.language-groovy, pre>code.language-wrapped-groovy {
+    color: #1e282e;
+    border-color: #1e282e;
+    background-color: #d4e4ed;
+}
+
+
+
+

@@ -1,0 +1,138 @@
+{
+  "readme.html": [],
+  "doc/content/sections/installation.html": [
+    {
+      "entry": "IntelliJ IDEA",
+      "link": "sections/installation.html#index_entry_index_1",
+      "title": "Installation"
+    },
+    {
+      "entry": "IDEA, IntelliJ",
+      "link": "sections/installation.html#index_entry_index_1",
+      "title": "Installation"
+    }
+  ],
+  "doc/content/sections/basics.html": [
+    {
+      "entry": "variables",
+      "link": "sections/basics.html#index_entry_index_1",
+      "title": "Basics"
+    },
+    {
+      "entry": "destructuring",
+      "link": "sections/basics.html#index_entry_index_1",
+      "title": "Basics"
+    },
+    {
+      "entry": "print/println",
+      "link": "sections/basics.html#index_entry_index_1",
+      "title": "Basics"
+    },
+    {
+      "entry": "def",
+      "link": "sections/basics.html#index_entry_index_1",
+      "title": "Basics"
+    },
+    {
+      "entry": "var",
+      "link": "sections/basics.html#index_entry_index_1",
+      "title": "Basics"
+    },
+    {
+      "entry": "types, data",
+      "link": "sections/basics.html#index_entry_index_2",
+      "title": "Basics"
+    },
+    {
+      "entry": "data types",
+      "link": "sections/basics.html#index_entry_index_2",
+      "title": "Basics"
+    },
+    {
+      "entry": "strings",
+      "link": "sections/basics.html#index_entry_index_3",
+      "title": "Basics"
+    },
+    {
+      "entry": "boolean",
+      "link": "sections/basics.html#index_entry_index_4",
+      "title": "Basics"
+    },
+    {
+      "entry": "Groovy truth",
+      "link": "sections/basics.html#index_entry_index_4",
+      "title": "Basics"
+    },
+    {
+      "entry": "operators",
+      "link": "sections/basics.html#index_entry_index_5",
+      "title": "Basics"
+    },
+    {
+      "entry": "ternary operator",
+      "link": "sections/basics.html#index_entry_index_5",
+      "title": "Basics"
+    },
+    {
+      "entry": "Elvis operator",
+      "link": "sections/basics.html#index_entry_index_5",
+      "title": "Basics"
+    },
+    {
+      "entry": "postfix increment/decrement",
+      "link": "sections/basics.html#index_entry_index_5",
+      "title": "Basics"
+    },
+    {
+      "entry": "prefix increment/decrement",
+      "link": "sections/basics.html#index_entry_index_5",
+      "title": "Basics"
+    },
+    {
+      "entry": "increment",
+      "link": "sections/basics.html#index_entry_index_5",
+      "title": "Basics"
+    },
+    {
+      "entry": "decrement",
+      "link": "sections/basics.html#index_entry_index_5",
+      "title": "Basics"
+    },
+    {
+      "entry": "conditional operators",
+      "link": "sections/basics.html#index_entry_index_6",
+      "title": "Basics"
+    },
+    {
+      "entry": "if operator",
+      "link": "sections/basics.html#index_entry_index_6",
+      "title": "Basics"
+    },
+    {
+      "entry": "switch-case operator",
+      "link": "sections/basics.html#index_entry_index_6",
+      "title": "Basics"
+    },
+    {
+      "entry": "loops",
+      "link": "sections/basics.html#index_entry_index_7",
+      "title": "Basics"
+    },
+    {
+      "entry": "exception handling",
+      "link": "sections/basics.html#index_entry_index_8",
+      "title": "Basics"
+    },
+    {
+      "entry": "methods",
+      "link": "sections/basics.html#index_entry_index_9",
+      "title": "Basics"
+    },
+    {
+      "entry": "closures",
+      "link": "sections/basics.html#index_entry_index_9",
+      "title": "Basics"
+    }
+  ],
+  "doc/content/sections/ref/references.html": []
+}

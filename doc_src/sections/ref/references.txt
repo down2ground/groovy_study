@@ -1,0 +1,13 @@
+<!--VARIABLES {"title": "References", "SORT_ORDER": "020", "code": "refs"}-->
+
+<!--refdef groovy_wiki--> Wikipedia: [Apache Groovy](https://en.wikipedia.org/wiki/Apache_Groovy)
+
+<!--refdef groovy_site--> Groovy site: <https://groovy-lang.org/>
+
+<!--refdef groovy_github--> Groovy GitHub: <https://github.com/apache/groovy>
+
+<!--refdef str_types_gr_bae--> Groovy GitHub: [Types of Strings in Groovy](
+https://www.baeldung.com/groovy-strings)
+
+
+

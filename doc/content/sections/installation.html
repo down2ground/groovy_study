@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Installation</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+</head>
+<body>
+
+<div class="header">
+<img id="burger" src="../../layout/pict/burger.png" 
+onclick="toggleSidebar();return false;" class="toggle_narrow_only_inline" alt="Sidebar">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a>
+<a href="../../../doc_src/sections/installation.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+<a href="../../../readme.html" title="Previous: Home"><img class="headerNavArrows"
+src="../../layout/pict/previous_page_h21px.png" alt="Back"></a>
+ 
+<a href="basics.html" title="Next: Basics"><img class="headerNavArrows"
+src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
+
+
+<span class="headerTitle">Installation</span>
+
+</div>
+
+<div class="sidebarWrapper">
+<div class="sidebar">
+    <table class="sidebarAligner">
+        <tr><td class="valign_top">
+            <div class="align_right toggle_narrow_only_block">
+            <a href="../../../doc_src/sections/installation.txt" class="sidebar_item_inline source_file align_right" 
+                title="Source text">&lt;/&gt;</a>
+            
+            </div>
+            <div class="sidebar_block">
+            
+            <a class="sidebar_item " href="../../../readme.html">Home</a>
+            <a class="sidebar_item selected " href="installation.html">Installation</a>
+            <a class="sidebar_item " href="basics.html">Basics</a>
+            </div><div class="sidebar_block">
+            
+            <a class="sidebar_item " href="ref/references.html">References</a>
+            </div>
+        </td></tr>
+        <tr><td class="bottom valign_bottom">        </td></tr>
+    </table>
+</div>
+</div>
+
+<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Installation</p>
+
+<div class="toc">
+<ul>
+<li><a href="#download">Download</a></li>
+<li><a href="#consistency-check">Consistency check</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#check">Check</a></li>
+<li><a href="#intellij-idea">IntelliJ IDEA</a></li>
+</ul>
+</div>
+<hr />
+<h1 id="download">Download</h1>
+<p>Download page: [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://groovy.apache.org/download.html">https://groovy.apache.org/download.html</a>]</p>
+<p>Binary installation is used. The file is: <code>apache-groovy-binary-4.0.21.zip</code>.</p>
+<hr />
+<h1 id="consistency-check">Consistency check</h1>
+<pre class="highlight"><code class="language-shell">&gt;certutil -hashfile apache-groovy-binary-4.0.21.zip sha256
+SHA256 hash of apache-groovy-binary-4.0.21.zip:
+5ef878f70db8b642d204e9a410c519c1131a3e7a9ddb4b6910d214909cb2e98a
+
+&gt;type apache-groovy-binary-4.0.21.zip.sha256
+5ef878f70db8b642d204e9a410c519c1131a3e7a9ddb4b6910d214909cb2e98a</code></pre>
+<hr />
+<h1 id="installation">Installation</h1>
+<p>Installation instructions: [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>,
+<a href="https://groovy-lang.org/install.html#_install_binary">https://groovy-lang.org/install.html#_install_binary</a>]</p>
+<p>Unzip into a directory by choice. Set the <code>GROOVY_HOME</code> environment variable to the directory
+where the distribution was unpacked. Add <code>GROOVY_HOME/bin</code> to the <code>PATH</code> environment variable.
+Set the <code>JAVA_HOME</code> environment variable to point to the JDK.</p>
+<hr />
+<h1 id="check">Check</h1>
+<pre class="highlight"><code class="language-wrapped-shell">&gt;groovysh
+Jun 12, 2024 7:29:35 PM java.util.prefs.WindowsPreferences &lt;init&gt;
+WARNING: Could not open/create prefs root node Software\JavaSoft\Prefs at root 0x80000002. Windows RegCreateKeyEx(...) returned error code 5.
+Groovy Shell (4.0.21, JVM: 1.8.0_181)
+Type ':help' or ':h' for help.
+-------------------------------------------------------------------------------
+groovy:000&gt; 2+2
+===&gt; 4
+groovy:000&gt; :exit</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The warning above (on Windows) may be ignored, see Stack Overflow:
+<a href="https://stackoverflow.com/questions/16428098/groovy-shell-warning-could-not-open-create-prefs-root-node">Groovy Shell warning "Could not open/create prefs root node ..."</a>.</p>
+</div>
+<p>Also <em>Swing interactive console</em> (<code>groovyConsole</code> command) may be used:</p>
+<p><img alt="" src="../../pict/groovy_console.png" /></p>
+<hr />
+<p><a name="index_entry_index_1"></a></p>
+<h1 id="intellij-idea">IntelliJ IDEA</h1>
+<p><img alt="" src="../../pict/idea_libraries.png" /></p>
+<p>&nbsp;</p>
+<hr />
+
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="../../../readme.html" 
+title="Previous: Home"><img src="../../layout/pict/previous_page.png"
+alt="Back"></a>
+<a href="basics.html" title="Next: Basics"><img 
+src="../../layout/pict/next_page.png" alt="Next"></a>
+</p>
+
+<script>
+function toggleSidebar() {
+    let sidebar = document.getElementsByClassName("sidebarWrapper")[0]
+    let display = sidebar.style.display
+    if (!display || display == "none") {
+        sidebar.style.display = "block"
+    } else {
+        sidebar.style.display = ""
+    }
+}
+</script>
+
+</body>
+</html>
