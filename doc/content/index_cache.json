@@ -130,7 +130,12 @@
     },
     {
       "entry": "closures",
-      "link": "sections/basics.html#index_entry_index_9",
+      "link": "sections/basics.html#index_entry_index_10",
+      "title": "Basics"
+    },
+    {
+      "entry": "delegation",
+      "link": "sections/basics.html#index_entry_index_10",
       "title": "Basics"
     }
   ],

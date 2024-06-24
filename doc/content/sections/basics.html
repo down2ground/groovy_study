@@ -91,7 +91,8 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <li><a href="#exception-handling">Exception handling</a></li>
 </ul>
 </li>
-<li><a href="#methods-and-closures">Methods and closures</a></li>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#closures">Closures</a></li>
 </ul>
 </div>
 <hr />
@@ -431,7 +432,7 @@ try (
 // closed 1</code></pre>
 <hr />
 <p><a name="index_entry_index_9"></a></p>
-<h1 id="methods-and-closures">Methods and closures</h1>
+<h1 id="methods">Methods</h1>
 <p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/structure.html#_methods">3.3. Methods</a>].</p>
 <div class="blockSrc">project1/methods.groovy</div>
 
@@ -441,6 +442,46 @@ try (
 
 println sum(7, 4) // 11
 println sum(7) // 7</code></pre>
+<hr />
+<p><a name="index_entry_index_10"></a></p>
+<h1 id="closures">Closures</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/closures.html">Closures</a>].</p>
+<div class="blockSrc">project1/closures.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">def name = 'Bob'
+
+def sayHello() {
+    println "Hello, $name!" // CANNOT use external variables
+}
+// sayHello() // groovy.lang.MissingPropertyException: No such property: name for class: methods
+
+def myClosure = {-&gt; println "Hello, $name!"} // CAN use external variables
+// `-&gt;` restricts the closure to be called without arguments (otherwise it will be called with
+// the implicit argument `it`)
+myClosure.call() // Hello, Bob!
+myClosure()      // Hello, Bob!
+
+def myList = [1, 2, 3, 4, 5, 6, 7, 8]
+
+println myList.find {it &gt; 3} // 4 // `it` is the implicit argument 
+
+// Delegation
+
+class Alice {
+    public name = "Alice"
+}
+class Bob {
+    public name = "Bob"
+}
+
+def closure = {println delegate.name} // by now the `name` variable from the module is assumed
+
+println closure.delegate.class.getName() // closures
+
+closure.delegate = Alice
+closure() // Alice
+closure.delegate = Bob
+closure() // Bob</code></pre>
 <p>&nbsp;</p>
 <hr />
 

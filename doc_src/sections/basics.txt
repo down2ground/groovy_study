@@ -140,8 +140,8 @@ http://groovy-lang.org/semantics.html#_looping_structures)].
 ````
 
 ----------------------------------------------------------------------------------------------------
-<!--index ["methods", "closures"]-->
-# Methods and closures
+<!--index ["methods"]-->
+# Methods
 
 Also see [<!--ref groovy_site-->, [3.3. Methods](http://groovy-lang.org/structure.html#_methods)].
 
@@ -150,6 +150,20 @@ Also see [<!--ref groovy_site-->, [3.3. Methods](http://groovy-lang.org/structur
 ````groovy
 <!--include project1/methods.groovy-->
 ````
+
+----------------------------------------------------------------------------------------------------
+<!--index ["closures", "delegation"]-->
+# Closures
+
+Also see [<!--ref groovy_site-->, [Closures](http://groovy-lang.org/closures.html)].
+
+<div class="blockSrc">project1/closures.groovy</div>
+
+````groovy
+<!--include project1/closures.groovy-->
+````
+
+
 
 
 
