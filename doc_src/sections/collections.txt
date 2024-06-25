@@ -1,0 +1,35 @@
+<!--VARIABLES {"title": "Collections", "SORT_ORDER": "050",
+"code": "collections"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+<!--index ["lists"]-->
+# Lists
+
+Also see [<!--ref groovy_site-->]:
+
+- [7. Lists](http://groovy-lang.org/syntax.html#_lists)
+- [3.3.2. Working with collections](
+    https://docs.groovy-lang.org/latest/html/documentation/#_working_with_collections)
+    - [Sorting](https://docs.groovy-lang.org/latest/html/documentation/#_sorting)
+
+<div class="blockSrc">project1/lists.groovy</div>
+
+````groovy
+<!--include project1/lists.groovy-->
+````
+
+<!--index ["sorting"]-->
+As for sorting, Char GPT [<!--ref chat_gpt-->] explains it the following way:
+
+>  Groovy's `sort()` method does not simply convert all elements to strings. The sorting mechanism
+> in Groovy is a bit more sophisticated. Let's dive into how Groovy handles sorting when dealing
+> with mixed types.
+> 
+> In Groovy, the `sort()` method uses the `Comparable` interface to compare elements. When elements
+> of different types are present in the list, Groovy tries to compare them in a way that makes
+> sense, typically using their natural order. However, when a direct comparison isn't possible,
+> Groovy may convert them to strings for comparison.
+
+

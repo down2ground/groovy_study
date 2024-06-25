@@ -1,0 +1,39 @@
+<!--VARIABLES {"title": "Methods and Closures", "SORT_ORDER": "040",
+"code": "methods_and_closures"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+<!--index ["methods"]-->
+# Methods
+
+Also see [<!--ref groovy_site-->, [3.3. Methods](http://groovy-lang.org/structure.html#_methods)].
+
+<div class="blockSrc">project1/methods.groovy</div>
+
+````groovy
+<!--include project1/methods.groovy-->
+````
+
+----------------------------------------------------------------------------------------------------
+<!--index ["closures", "delegation"]-->
+# Closures
+
+Also see [<!--ref groovy_site-->, [Closures](http://groovy-lang.org/closures.html)].
+
+<div class="blockSrc">project1/closures.groovy</div>
+
+````groovy
+<!--include project1/closures.groovy-->
+````
+
+Interesting thing here is the fact that the `Alice` and the `Bob` classes are different and their 
+`name` attributes are resolved dynamically at run time. See more details by the link above.
+
+
+
+
+
+
+
+

@@ -61,7 +61,13 @@ Also *Swing interactive console* (`groovyConsole` command) may be used:
 
 ![](<!--path pict-->idea_libraries.png)
 
+The following items may be added into the `.gitignore` file:
 
+````
+.idea
+/code/project1/code.iml
+/code/project1/out/
+````
 
 
 

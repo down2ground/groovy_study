@@ -122,22 +122,36 @@
       "entry": "exception handling",
       "link": "sections/basics.html#index_entry_index_8",
       "title": "Basics"
-    },
+    }
+  ],
+  "doc/content/sections/ref/references.html": [],
+  "doc/content/sections/methods_and_closures.html": [
     {
       "entry": "methods",
-      "link": "sections/basics.html#index_entry_index_9",
-      "title": "Basics"
+      "link": "sections/methods_and_closures.html#index_entry_index_1",
+      "title": "Methods and Closures"
     },
     {
       "entry": "closures",
-      "link": "sections/basics.html#index_entry_index_10",
-      "title": "Basics"
+      "link": "sections/methods_and_closures.html#index_entry_index_2",
+      "title": "Methods and Closures"
     },
     {
       "entry": "delegation",
-      "link": "sections/basics.html#index_entry_index_10",
-      "title": "Basics"
+      "link": "sections/methods_and_closures.html#index_entry_index_2",
+      "title": "Methods and Closures"
     }
   ],
-  "doc/content/sections/ref/references.html": []
+  "doc/content/sections/collections.html": [
+    {
+      "entry": "lists",
+      "link": "sections/collections.html#index_entry_index_1",
+      "title": "Collections"
+    },
+    {
+      "entry": "sorting",
+      "link": "sections/collections.html#index_entry_index_2",
+      "title": "Collections"
+    }
+  ]
 }

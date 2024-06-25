@@ -9,5 +9,5 @@
 <!--refdef str_types_gr_bae--> Groovy GitHub: [Types of Strings in Groovy](
 https://www.baeldung.com/groovy-strings)
 
-
+<!--refdef chat_gpt--> Chat GPT: <https://chatgpt.com/>
 

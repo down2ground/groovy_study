@@ -139,29 +139,7 @@ http://groovy-lang.org/semantics.html#_looping_structures)].
 <!--include project1/exceptions.groovy-->
 ````
 
-----------------------------------------------------------------------------------------------------
-<!--index ["methods"]-->
-# Methods
 
-Also see [<!--ref groovy_site-->, [3.3. Methods](http://groovy-lang.org/structure.html#_methods)].
-
-<div class="blockSrc">project1/methods.groovy</div>
-
-````groovy
-<!--include project1/methods.groovy-->
-````
-
-----------------------------------------------------------------------------------------------------
-<!--index ["closures", "delegation"]-->
-# Closures
-
-Also see [<!--ref groovy_site-->, [Closures](http://groovy-lang.org/closures.html)].
-
-<div class="blockSrc">project1/closures.groovy</div>
-
-````groovy
-<!--include project1/closures.groovy-->
-````
 
 
 

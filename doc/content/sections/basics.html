@@ -38,7 +38,7 @@ href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span><
 <a href="installation.html" title="Previous: Installation"><img class="headerNavArrows"
 src="../../layout/pict/previous_page_h21px.png" alt="Back"></a>
  
-<a href="ref/references.html" title="Next: References"><img class="headerNavArrows"
+<a href="methods_and_closures.html" title="Next: Methods and Closures"><img class="headerNavArrows"
 src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 
 
@@ -62,6 +62,8 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
             <a class="sidebar_item " href="../../../readme.html">Home</a>
             <a class="sidebar_item " href="installation.html">Installation</a>
             <a class="sidebar_item selected " href="basics.html">Basics</a>
+            <a class="sidebar_item " href="methods_and_closures.html">Methods and Closures</a>
+            <a class="sidebar_item " href="collections.html">Collections</a>
             </div><div class="sidebar_block">
             
             <a class="sidebar_item " href="ref/references.html">References</a>
@@ -91,8 +93,6 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <li><a href="#exception-handling">Exception handling</a></li>
 </ul>
 </li>
-<li><a href="#methods">Methods</a></li>
-<li><a href="#closures">Closures</a></li>
 </ul>
 </div>
 <hr />
@@ -430,65 +430,13 @@ try (
 // The output is:
 // closed 2
 // closed 1</code></pre>
-<hr />
-<p><a name="index_entry_index_9"></a></p>
-<h1 id="methods">Methods</h1>
-<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/structure.html#_methods">3.3. Methods</a>].</p>
-<div class="blockSrc">project1/methods.groovy</div>
-
-<pre class="highlight"><code class="language-groovy">def sum(int a, int b=0) { // parameter `b` has the default value
-    a + b // no need for the `return` operator (though it may be used if required)
-}
-
-println sum(7, 4) // 11
-println sum(7) // 7</code></pre>
-<hr />
-<p><a name="index_entry_index_10"></a></p>
-<h1 id="closures">Closures</h1>
-<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/closures.html">Closures</a>].</p>
-<div class="blockSrc">project1/closures.groovy</div>
-
-<pre class="highlight"><code class="language-groovy">def name = 'Bob'
-
-def sayHello() {
-    println "Hello, $name!" // CANNOT use external variables
-}
-// sayHello() // groovy.lang.MissingPropertyException: No such property: name for class: methods
-
-def myClosure = {-&gt; println "Hello, $name!"} // CAN use external variables
-// `-&gt;` restricts the closure to be called without arguments (otherwise it will be called with
-// the implicit argument `it`)
-myClosure.call() // Hello, Bob!
-myClosure()      // Hello, Bob!
-
-def myList = [1, 2, 3, 4, 5, 6, 7, 8]
-
-println myList.find {it &gt; 3} // 4 // `it` is the implicit argument 
-
-// Delegation
-
-class Alice {
-    public name = "Alice"
-}
-class Bob {
-    public name = "Bob"
-}
-
-def closure = {println delegate.name} // by now the `name` variable from the module is assumed
-
-println closure.delegate.class.getName() // closures
-
-closure.delegate = Alice
-closure() // Alice
-closure.delegate = Bob
-closure() // Bob</code></pre>
 <p>&nbsp;</p>
 <hr />
 
 <p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="installation.html" 
 title="Previous: Installation"><img src="../../layout/pict/previous_page.png"
 alt="Back"></a>
-<a href="ref/references.html" title="Next: References"><img 
+<a href="methods_and_closures.html" title="Next: Methods and Closures"><img 
 src="../../layout/pict/next_page.png" alt="Next"></a>
 </p>
 

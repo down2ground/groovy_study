@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Methods and Closures</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+</head>
+<body>
+
+<div class="header">
+<img id="burger" src="../../layout/pict/burger.png" 
+onclick="toggleSidebar();return false;" class="toggle_narrow_only_inline" alt="Sidebar">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a><a 
+class="header_item toggle_wide_only_inline "
+href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
+<a href="../../../doc_src/sections/methods_and_closures.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+<a href="basics.html" title="Previous: Basics"><img class="headerNavArrows"
+src="../../layout/pict/previous_page_h21px.png" alt="Back"></a>
+ 
+<a href="collections.html" title="Next: Collections"><img class="headerNavArrows"
+src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
+
+
+<span class="headerTitle">Methods and Closures</span>
+
+</div>
+
+<div class="sidebarWrapper">
+<div class="sidebar">
+    <table class="sidebarAligner">
+        <tr><td class="valign_top">
+            <div class="align_right toggle_narrow_only_block">
+            <a class="sidebar_item_inline align_right" href="https://github.com/down2ground/groovy_study">GitHub</a>
+            
+            <a href="../../../doc_src/sections/methods_and_closures.txt" class="sidebar_item_inline source_file align_right" 
+                title="Source text">&lt;/&gt;</a>
+            
+            </div>
+            <div class="sidebar_block">
+            
+            <a class="sidebar_item " href="../../../readme.html">Home</a>
+            <a class="sidebar_item " href="installation.html">Installation</a>
+            <a class="sidebar_item " href="basics.html">Basics</a>
+            <a class="sidebar_item selected " href="methods_and_closures.html">Methods and Closures</a>
+            <a class="sidebar_item " href="collections.html">Collections</a>
+            </div><div class="sidebar_block">
+            
+            <a class="sidebar_item " href="ref/references.html">References</a>
+            </div>
+        </td></tr>
+        <tr><td class="bottom valign_bottom">        </td></tr>
+    </table>
+</div>
+</div>
+
+<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Methods and Closures</p>
+
+<div class="toc">
+<ul>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#closures">Closures</a></li>
+</ul>
+</div>
+<hr />
+<p><a name="index_entry_index_1"></a></p>
+<h1 id="methods">Methods</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/structure.html#_methods">3.3. Methods</a>].</p>
+<div class="blockSrc">project1/methods.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">def sum(int a, int b=0) { // parameter `b` has the default value
+    a + b // no need for the `return` operator (though it may be used if required)
+}
+
+println sum(7, 4) // 11
+println sum(7) // 7</code></pre>
+<hr />
+<p><a name="index_entry_index_2"></a></p>
+<h1 id="closures">Closures</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/closures.html">Closures</a>].</p>
+<div class="blockSrc">project1/closures.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">def name = 'Bob'
+
+def sayHello() {
+    println "Hello, $name!" // CANNOT use external variables
+}
+// sayHello() // groovy.lang.MissingPropertyException: No such property: name for class: methods
+
+def myClosure = {-&gt; println "Hello, $name!"} // CAN use external variables
+// `-&gt;` restricts the closure to be called without arguments (otherwise it will be called with
+// the implicit argument `it`)
+myClosure.call() // Hello, Bob!
+myClosure()      // Hello, Bob!
+
+def myList = [1, 2, 3, 4, 5, 6, 7, 8]
+
+println myList.find {it &gt; 3} // 4 // `it` is the implicit argument 
+
+// Delegation
+
+class Alice {
+    public name = "Alice"
+}
+class Bob {
+    public name = "Bob"
+}
+
+def closure = {println delegate.name} // by now the `name` variable from the module is assumed
+
+println closure.delegate.class.getName() // closures
+
+closure.delegate = Alice
+closure() // Alice
+closure.delegate = Bob
+closure() // Bob</code></pre>
+<p>Interesting thing here is the fact that the <code>Alice</code> and the <code>Bob</code> classes are different and their 
+<code>name</code> attributes are resolved dynamically at run time. See more details by the link above.</p>
+<p>&nbsp;</p>
+<hr />
+
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="basics.html" 
+title="Previous: Basics"><img src="../../layout/pict/previous_page.png"
+alt="Back"></a>
+<a href="collections.html" title="Next: Collections"><img 
+src="../../layout/pict/next_page.png" alt="Next"></a>
+</p>
+
+<script>
+function toggleSidebar() {
+    let sidebar = document.getElementsByClassName("sidebarWrapper")[0]
+    let display = sidebar.style.display
+    if (!display || display == "none") {
+        sidebar.style.display = "block"
+    } else {
+        sidebar.style.display = ""
+    }
+}
+</script>
+
+</body>
+</html>
