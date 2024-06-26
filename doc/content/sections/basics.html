@@ -282,7 +282,11 @@ assert !process(1)</code></pre>
 <hr />
 <p><a name="index_entry_index_5"></a></p>
 <h1 id="operators">Operators</h1>
-<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/operators.html">Operators</a>].</p>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>]:</p>
+<ul>
+<li><a href="http://groovy-lang.org/operators.html">Operators</a></li>
+<li><a href="http://groovy-lang.org/operators.html#Operator-Overloading">10. Operator overloading</a></li>
+</ul>
 <div class="blockSrc">project1/operators.groovy</div>
 
 <pre class="highlight"><code class="language-groovy">assert 3 + 5 == 8
@@ -316,7 +320,21 @@ def String greeting(String name) {
 }
 
 assert greeting("Bob") == "Hello Bob!"
-assert greeting("") == "Hello stranger!"</code></pre>
+assert greeting("") == "Hello stranger!"
+
+// Overloading
+class Bag {
+    int size
+    Bag(int size) { this.size = size }
+    Bag plus(Bag other) { 
+        new Bag(this.size + other.size) // `return` is not required
+    }
+}
+
+def bag1 = new Bag(2)
+def bag2 = new Bag(3)
+
+println((bag1 + bag2).size) // 5</code></pre>
 <hr />
 <h1 id="control-structures">Control structures</h1>
 <p><a name="index_entry_index_6"></a></p>
@@ -366,6 +384,9 @@ println() // 1 2 3 4 5
 for (int fib in [1, 1, 2, 3, 5, 8, 13]) 
     print fib + " "
 println() // 1 1 2 3 5 8 13
+
+["a", "b", "c", "d", "e"].each {print it}
+println() // abcde
 
 2.upto(5) {print it} // `it` is an explicit loop variable
 println() // 2345

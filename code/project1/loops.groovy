@@ -11,6 +11,9 @@ for (int fib in [1, 1, 2, 3, 5, 8, 13])
     print fib + " "
 println() // 1 1 2 3 5 8 13
 
+["a", "b", "c", "d", "e"].each {print it}
+println() // abcde
+
 2.upto(5) {print it} // `it` is an explicit loop variable
 println() // 2345
 

@@ -87,10 +87,13 @@ Different value types may be converted to `boolean` when required.
 
 ----------------------------------------------------------------------------------------------------
 <!--index ["operators", "ternary operator", "Elvis operator", "postfix increment/decrement", 
-"prefix increment/decrement", "increment", "decrement"]-->
-# Operators
+"prefix increment/decrement", "increment", "decrement", "overloading, operators"]-->
+# Operators {#operators}
 
-Also see [<!--ref groovy_site-->, [Operators](http://groovy-lang.org/operators.html)].
+Also see [<!--ref groovy_site-->]:
+
+- [Operators](http://groovy-lang.org/operators.html)
+- [10. Operator overloading](http://groovy-lang.org/operators.html#Operator-Overloading)
 
 <div class="blockSrc">project1/operators.groovy</div>
 

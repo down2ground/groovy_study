@@ -32,4 +32,27 @@ As for sorting, Char GPT [<!--ref chat_gpt-->] explains it the following way:
 > sense, typically using their natural order. However, when a direct comparison isn't possible,
 > Groovy may convert them to strings for comparison.
 
+----------------------------------------------------------------------------------------------------
+<!--index ["maps"]-->
+# Maps
+
+Also see [<!--ref groovy_site-->, [9. Maps](http://groovy-lang.org/syntax.html#_maps)]
+
+<div class="blockSrc">project1/maps.groovy</div>
+
+````groovy
+<!--include project1/maps.groovy-->
+````
+
+`[1]` `getAt()` is the method for the `[]` operator. Also see
+[operator overloading](<!--page basics-->#operators).
+
+----------------------------------------------------------------------------------------------------
+<!--index ["ranges"]-->
+# Ranges
+
+
+
+
+
 

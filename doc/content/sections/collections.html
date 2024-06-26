@@ -79,6 +79,8 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <div class="toc">
 <ul>
 <li><a href="#lists">Lists</a></li>
+<li><a href="#maps">Maps</a></li>
+<li><a href="#ranges">Ranges</a></li>
 </ul>
 </div>
 <hr />
@@ -151,6 +153,51 @@ of different types are present in the list, Groovy tries to compare them in a wa
 sense, typically using their natural order. However, when a direct comparison isn't possible,
 Groovy may convert them to strings for comparison.</p>
 </blockquote>
+<hr />
+<p><a name="index_entry_index_3"></a></p>
+<h1 id="maps">Maps</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/syntax.html#_maps">9. Maps</a>]</p>
+<div class="blockSrc">project1/maps.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">import java.time.LocalDate
+
+def participant = [
+        "name": "Bob",
+        "sections": ["front-end", "back-end"],
+        "registration date": LocalDate.of(2024, 06, 10)]
+
+println participant.name // Bob
+println participant["sections"] // front-end
+println participant["sections"][0] // front-end
+println participant["age"] // null
+println participant.get("registration date")   // 2024-06-10
+println participant.getAt("registration date") // 2024-06-10 // [1]
+
+def someMap = [:]
+println someMap.anyKey // null
+
+println someMap.getClass()     // class java.util.LinkedHashMap
+println participant.getClass() // class java.util.LinkedHashMap
+
+someMap.put(1, "one")
+someMap.put(2, "two")
+someMap.put(3, "three")
+someMap.put(4, "four")
+
+// `LinkedHashMap` preserves iteration order
+someMap.each {key, value -&gt; print value + " "}
+println() // one two three four
+
+someMap.eachWithIndex {key, value, i -&gt; println "$i | $key: $value"}
+// 0 | 1: one
+// 1 | 2: two
+// 2 | 3: three
+// 3 | 4: four</code></pre>
+<p><code>[1]</code> <code>getAt()</code> is the method for the <code>[]</code> operator. Also see
+<a href="basics.html#operators">operator overloading</a>.</p>
+<hr />
+<p><a name="index_entry_index_4"></a></p>
+<h1 id="ranges">Ranges</h1>
 <p>&nbsp;</p>
 <hr />
 

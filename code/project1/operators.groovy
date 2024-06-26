@@ -31,10 +31,19 @@ def String greeting(String name) {
 assert greeting("Bob") == "Hello Bob!"
 assert greeting("") == "Hello stranger!"
 
+// Overloading
+class Bag {
+    int size
+    Bag(int size) { this.size = size }
+    Bag plus(Bag other) { 
+        new Bag(this.size + other.size) // `return` is not required
+    }
+}
 
+def bag1 = new Bag(2)
+def bag2 = new Bag(3)
 
-
-
+println((bag1 + bag2).size) // 5
 
 
 

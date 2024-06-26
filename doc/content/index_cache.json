@@ -99,6 +99,11 @@
       "title": "Basics"
     },
     {
+      "entry": "overloading, operators",
+      "link": "sections/basics.html#index_entry_index_5",
+      "title": "Basics"
+    },
+    {
       "entry": "conditional operators",
       "link": "sections/basics.html#index_entry_index_6",
       "title": "Basics"
@@ -151,6 +156,16 @@
     {
       "entry": "sorting",
       "link": "sections/collections.html#index_entry_index_2",
+      "title": "Collections"
+    },
+    {
+      "entry": "maps",
+      "link": "sections/collections.html#index_entry_index_3",
+      "title": "Collections"
+    },
+    {
+      "entry": "ranges",
+      "link": "sections/collections.html#index_entry_index_4",
       "title": "Collections"
     }
   ]
