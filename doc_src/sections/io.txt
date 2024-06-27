@@ -1,0 +1,8 @@
+<!--VARIABLES {"title": "Input and output", "SORT_ORDER": "060", "code": "io"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+<!--index ["console input"]-->
+# Console I/O
+

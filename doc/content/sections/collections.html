@@ -38,7 +38,7 @@ href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span><
 <a href="methods_and_closures.html" title="Previous: Methods and Closures"><img class="headerNavArrows"
 src="../../layout/pict/previous_page_h21px.png" alt="Back"></a>
  
-<a href="ref/references.html" title="Next: References"><img class="headerNavArrows"
+<a href="io.html" title="Next: Input and output"><img class="headerNavArrows"
 src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 
 
@@ -64,6 +64,7 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
             <a class="sidebar_item " href="basics.html">Basics</a>
             <a class="sidebar_item " href="methods_and_closures.html">Methods and Closures</a>
             <a class="sidebar_item selected " href="collections.html">Collections</a>
+            <a class="sidebar_item " href="io.html">Input and output</a>
             </div><div class="sidebar_block">
             
             <a class="sidebar_item " href="ref/references.html">References</a>
@@ -198,13 +199,48 @@ someMap.eachWithIndex {key, value, i -&gt; println "$i | $key: $value"}
 <hr />
 <p><a name="index_entry_index_4"></a></p>
 <h1 id="ranges">Ranges</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>]:</p>
+<ul>
+<li><a href="https://docs.groovy-lang.org/latest/html/documentation/#Collections-Ranges">Ranges</a></li>
+<li><a href="http://groovy-lang.org/semantics.html#_collection_literal_type_inference">Collection literal type inference</a></li>
+</ul>
+<div class="blockSrc">project1/ranges.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">def myRange = 1..4
+
+println myRange instanceof java.util.List // true
+
+println myRange             // 1..4
+println myRange.size()      // 4
+println myRange.getFrom()   // 1
+println myRange.getTo()     // 4
+println myRange.from        // 1
+println myRange.to          // 4
+println myRange.isReverse() // false
+
+println myRange.get(2)          // 3
+println myRange[2]              // 3
+println myRange.contains(2)     // true
+println myRange.contains(2.5)   // false
+
+def mySubRange = myRange.subList(1, 4) // zero-based, 1 inclusive, 4 exclusive
+println mySubRange // 2..4
+
+mySubRange.each {print "$it "}
+println() // 2 3 4
+
+(5..2).each {print "$it "} // reverse
+println() // 5 4 3 2
+
+(5&lt;..&lt;2).each {print "$it "} // exclusive
+println() // 4 3</code></pre>
 <p>&nbsp;</p>
 <hr />
 
 <p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="methods_and_closures.html" 
 title="Previous: Methods and Closures"><img src="../../layout/pict/previous_page.png"
 alt="Back"></a>
-<a href="ref/references.html" title="Next: References"><img 
+<a href="io.html" title="Next: Input and output"><img 
 src="../../layout/pict/next_page.png" alt="Next"></a>
 </p>
 

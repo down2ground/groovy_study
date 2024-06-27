@@ -168,5 +168,12 @@
       "link": "sections/collections.html#index_entry_index_4",
       "title": "Collections"
     }
+  ],
+  "doc/content/sections/io.html": [
+    {
+      "entry": "console input",
+      "link": "sections/io.html#index_entry_index_1",
+      "title": "Input and output"
+    }
   ]
 }

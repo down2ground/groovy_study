@@ -51,7 +51,17 @@ Also see [<!--ref groovy_site-->, [9. Maps](http://groovy-lang.org/syntax.html#_
 <!--index ["ranges"]-->
 # Ranges
 
+Also see [<!--ref groovy_site-->]:
 
+- [Ranges](https://docs.groovy-lang.org/latest/html/documentation/#Collections-Ranges)
+- [Collection literal type inference](
+    http://groovy-lang.org/semantics.html#_collection_literal_type_inference)
+
+<div class="blockSrc">project1/ranges.groovy</div>
+
+````groovy
+<!--include project1/ranges.groovy-->
+````
 
 
 
