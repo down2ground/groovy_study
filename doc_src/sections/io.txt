@@ -3,6 +3,45 @@
 [TOC]
 
 ----------------------------------------------------------------------------------------------------
-<!--index ["console input"]-->
+<!--index ["console input", "readLine()", "printf()"]-->
 # Console I/O
+
+Also see [<!--ref groovy_api-->: [readLine()](
+https://docs.groovy-lang.org/latest/html/gapi/groovy/io/LineColumnReader.html#readLine()),
+[printf()](
+https://docs.groovy-lang.org/latest/html/gapi/org/codehaus/groovy/runtime/DefaultGroovyMethods.html#printf(java.lang.Object,%20java.lang.String,%20java.lang.Object))].
+
+<div class="blockSrc">io.groovy</div>
+
+````groovy
+print "Enter your name: "
+def name = System.console().readLine()
+println "Hello $name!"
+printf "Hello %s!\n", name
+````
+
+````shell
+>groovy io.groovy
+Enter your name: Bob
+Hello Bob!
+Hello Bob!
+````
+
+----------------------------------------------------------------------------------------------------
+<!--index ["files", "Reader", "delete files", "files, delete", "iterate, files", "files, iterate"]-->
+# Files
+
+The following file is going to be used:
+
+<div class="blockSrc">data.txt</div>
+
+````
+<!--include project1/data.txt-->
+````
+
+````groovy
+<!--include project1/io.groovy-->
+````
+
+
 

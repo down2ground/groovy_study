@@ -143,7 +143,7 @@
     },
     {
       "entry": "delegation",
-      "link": "sections/methods_and_closures.html#index_entry_index_2",
+      "link": "sections/methods_and_closures.html#index_entry_index_3",
       "title": "Methods and Closures"
     }
   ],
@@ -173,6 +173,46 @@
     {
       "entry": "console input",
       "link": "sections/io.html#index_entry_index_1",
+      "title": "Input and output"
+    },
+    {
+      "entry": "readLine()",
+      "link": "sections/io.html#index_entry_index_1",
+      "title": "Input and output"
+    },
+    {
+      "entry": "printf()",
+      "link": "sections/io.html#index_entry_index_1",
+      "title": "Input and output"
+    },
+    {
+      "entry": "files",
+      "link": "sections/io.html#index_entry_index_2",
+      "title": "Input and output"
+    },
+    {
+      "entry": "Reader",
+      "link": "sections/io.html#index_entry_index_2",
+      "title": "Input and output"
+    },
+    {
+      "entry": "delete files",
+      "link": "sections/io.html#index_entry_index_2",
+      "title": "Input and output"
+    },
+    {
+      "entry": "files, delete",
+      "link": "sections/io.html#index_entry_index_2",
+      "title": "Input and output"
+    },
+    {
+      "entry": "iterate, files",
+      "link": "sections/io.html#index_entry_index_2",
+      "title": "Input and output"
+    },
+    {
+      "entry": "files, iterate",
+      "link": "sections/io.html#index_entry_index_2",
       "title": "Input and output"
     }
   ]

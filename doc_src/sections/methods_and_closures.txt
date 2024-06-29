@@ -16,7 +16,7 @@ Also see [<!--ref groovy_site-->, [3.3. Methods](http://groovy-lang.org/structur
 ````
 
 ----------------------------------------------------------------------------------------------------
-<!--index ["closures", "delegation"]-->
+<!--index ["closures"]-->
 # Closures
 
 Also see [<!--ref groovy_site-->, [Closures](http://groovy-lang.org/closures.html)].
@@ -27,9 +27,10 @@ Also see [<!--ref groovy_site-->, [Closures](http://groovy-lang.org/closures.htm
 <!--include project1/closures.groovy-->
 ````
 
+<!--index ["delegation"]-->
 Interesting thing here is the fact that the `Alice` and the `Bob` classes are different and their 
-`name` attributes are resolved dynamically at run time. See more details by the link above.
-
+`name` attributes are resolved dynamically at run time.  Also see [<!--ref groovy_site-->,
+[3. Delegation strategy](http://groovy-lang.org/closures.html#_delegation_strategy)].
 
 
 

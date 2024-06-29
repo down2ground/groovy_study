@@ -4,6 +4,8 @@
 
 <!--refdef groovy_site--> Groovy site: <https://groovy-lang.org/>
 
+<!--refdef groovy_api--> Groovy APIs: <https://docs.groovy-lang.org/latest/html/gapi/>
+
 <!--refdef groovy_github--> Groovy GitHub: <https://github.com/apache/groovy>
 
 <!--refdef str_types_gr_bae--> Groovy GitHub: [Types of Strings in Groovy](

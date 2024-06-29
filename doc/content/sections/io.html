@@ -80,11 +80,81 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <div class="toc">
 <ul>
 <li><a href="#console-io">Console I/O</a></li>
+<li><a href="#files">Files</a></li>
 </ul>
 </div>
 <hr />
 <p><a name="index_entry_index_1"></a></p>
 <h1 id="console-io">Console I/O</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_api">groovy_api</a>: <a href="https://docs.groovy-lang.org/latest/html/gapi/groovy/io/LineColumnReader.html#readLine()">readLine()</a>,
+<a href="https://docs.groovy-lang.org/latest/html/gapi/org/codehaus/groovy/runtime/DefaultGroovyMethods.html#printf(java.lang.Object,%20java.lang.String,%20java.lang.Object)">printf()</a>].</p>
+<div class="blockSrc">io.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">print "Enter your name: "
+def name = System.console().readLine()
+println "Hello $name!"
+printf "Hello %s!\n", name</code></pre>
+<pre class="highlight"><code class="language-shell">&gt;groovy io.groovy
+Enter your name: Bob
+Hello Bob!
+Hello Bob!</code></pre>
+<hr />
+<p><a name="index_entry_index_2"></a></p>
+<h1 id="files">Files</h1>
+<p>The following file is going to be used:</p>
+<div class="blockSrc">data.txt</div>
+
+<pre class="highlight"><code>Line 1
+Line 2
+Line 3</code></pre>
+<pre class="highlight"><code class="language-groovy">File inputFile = new File("data.txt")
+
+println inputFile.isFile()       // true
+println inputFile.isDirectory()  // false
+
+println inputFile.text
+// Line 1
+// Line 2
+// Line 3
+
+println inputFile.collect { it }[0..1] // [Line 1, Line 2]
+println inputFile as String[] // [Line 1, Line 2, Line 3] // array
+println inputFile.readLines() // [Line 1, Line 2, Line 3] // list
+println inputFile.eachLine { print "$it|"} // Line 1|Line 2|Line 3|null
+println inputFile.eachLine { line, i -&gt; print "$i. $line|"}
+// 1. Line 1|2. Line 2|3. Line 3|null
+
+inputFile.withReader { reader -&gt;
+    int character
+    while ((character = reader.read()) != 1) {
+        String symbol = character as char
+        if (symbol.isNumber()) break
+        print symbol
+    }
+    println() // Line
+}
+
+File outputFile = new File("out.txt")
+println outputFile.delete() // false // that's because the file does not exist yet
+try (def reader = inputFile.newReader()) {
+    outputFile.append(reader)
+}
+outputFile &lt;&lt; "One more line"
+println outputFile.text
+// Line 1
+// Line 2
+// Line 3
+// One more line
+
+byte[] data = inputFile.bytes
+println data[0..8] // [76, 105, 110, 101, 32, 49, 13, 10, 76]
+// 32 is a space; 13, 10 are `\r\n`
+
+File parent = new File(new File(inputFile.absolutePath).parent)
+println parent.name // project1
+parent.listFiles {file -&gt; file.isFile() &amp;&amp; file.name.endsWith(".txt") }
+        .each {file -&gt; print "${file.name}, "}
+println() // data.txt, data_types_numbers_out.txt, out.txt,</code></pre>
 <p>&nbsp;</p>
 <hr />
 
