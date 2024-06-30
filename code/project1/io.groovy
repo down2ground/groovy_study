@@ -2,6 +2,7 @@ File inputFile = new File("data.txt")
 
 println inputFile.isFile()       // true
 println inputFile.isDirectory()  // false
+println inputFile.length()  // 24
 
 println inputFile.text
 // Line 1
@@ -36,6 +37,12 @@ println outputFile.text
 // Line 2
 // Line 3
 // One more line
+
+outputFile.withWriter { it.writeLine("written with writer") }
+outputFile.append("appended line")
+println outputFile.text
+// written with writer
+// appended line
 
 byte[] data = inputFile.bytes
 println data[0..8] // [76, 105, 110, 101, 32, 49, 13, 10, 76]
