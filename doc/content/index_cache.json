@@ -215,5 +215,37 @@
       "link": "sections/io.html#index_entry_index_2",
       "title": "Input and output"
     }
+  ],
+  "doc/content/sections/oop.html": [
+    {
+      "entry": "OOP",
+      "link": "sections/oop.html#index_entry_index_1",
+      "title": "OOP"
+    },
+    {
+      "entry": "modules",
+      "link": "sections/oop.html#index_entry_index_2",
+      "title": "OOP"
+    },
+    {
+      "entry": "getters",
+      "link": "sections/oop.html#index_entry_index_3",
+      "title": "OOP"
+    },
+    {
+      "entry": "setters",
+      "link": "sections/oop.html#index_entry_index_3",
+      "title": "OOP"
+    },
+    {
+      "entry": "traits",
+      "link": "sections/oop.html#index_entry_index_4",
+      "title": "OOP"
+    },
+    {
+      "entry": "mixins",
+      "link": "sections/oop.html#index_entry_index_5",
+      "title": "OOP"
+    }
   ]
 }

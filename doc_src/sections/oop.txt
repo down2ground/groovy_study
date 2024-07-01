@@ -1,0 +1,62 @@
+<!--VARIABLES {"title": "OOP", "SORT_ORDER": "060", "code": "oop"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+<!--index ["OOP"]-->
+# About OOP in Groovy
+
+OOP in Groovy is implemented in a similar way as in Java. Groovy operates with classes, inheritance
+and interfaces the similar way. Following subsections describe only some OOP features that are 
+are different in Groovy compared to Java.
+
+----------------------------------------------------------------------------------------------------
+<!--index ["modules"]-->
+# Implicit module class
+
+Modules are implicitly compiles into classes:
+
+<div class="blockSrc">modules.groovy</div>
+
+````groovy
+<!--include project1/modules.groovy-->
+````
+
+----------------------------------------------------------------------------------------------------
+<!--index ["getters", "setters"]-->
+# Implicit getters and setters
+
+No need for Lombok!
+
+<div class="blockSrc">getters_and_setters.groovy</div>
+
+````groovy
+<!--include project1/getters_and_setters.groovy-->
+````
+
+----------------------------------------------------------------------------------------------------
+<!--index ["traits"]-->
+# Traits
+
+This is just a very small introduction to traits. For much more details see
+[<!--ref groovy_site-->, [1.4.5. Traits](https://docs.groovy-lang.org/latest/html/documentation/#_traits)].
+
+<div class="blockSrc">traits.groovy</div>
+
+````groovy
+<!--include project1/traits.groovy-->
+````
+
+!!! note
+    <!--index ["mixins"]-->
+    Traits also implement the **mixin** concept. As per the
+    [documentation](https://docs.groovy-lang.org/latest/html/documentation/#xform-Mixin):
+    
+    > `@groovy.lang.Mixin`    
+    > Deprecated. Consider using traits instead.
+
+
+
+
+
+

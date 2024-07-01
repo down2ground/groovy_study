@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>OOP</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+</head>
+<body>
+
+<div class="header">
+<img id="burger" src="../../layout/pict/burger.png" 
+onclick="toggleSidebar();return false;" class="toggle_narrow_only_inline" alt="Sidebar">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a><a 
+class="header_item toggle_wide_only_inline "
+href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
+<a href="../../../doc_src/sections/oop.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+<a href="io.html" title="Previous: Input and output"><img class="headerNavArrows"
+src="../../layout/pict/previous_page_h21px.png" alt="Back"></a>
+ 
+<a href="ref/references.html" title="Next: References"><img class="headerNavArrows"
+src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
+
+
+<span class="headerTitle">OOP</span>
+
+</div>
+
+<div class="sidebarWrapper">
+<div class="sidebar">
+    <table class="sidebarAligner">
+        <tr><td class="valign_top">
+            <div class="align_right toggle_narrow_only_block">
+            <a class="sidebar_item_inline align_right" href="https://github.com/down2ground/groovy_study">GitHub</a>
+            
+            <a href="../../../doc_src/sections/oop.txt" class="sidebar_item_inline source_file align_right" 
+                title="Source text">&lt;/&gt;</a>
+            
+            </div>
+            <div class="sidebar_block">
+            
+            <a class="sidebar_item " href="../../../readme.html">Home</a>
+            <a class="sidebar_item " href="installation.html">Installation</a>
+            <a class="sidebar_item " href="basics.html">Basics</a>
+            <a class="sidebar_item " href="methods_and_closures.html">Methods and Closures</a>
+            <a class="sidebar_item " href="collections.html">Collections</a>
+            <a class="sidebar_item " href="io.html">Input and output</a>
+            <a class="sidebar_item selected " href="oop.html">OOP</a>
+            </div><div class="sidebar_block">
+            
+            <a class="sidebar_item " href="ref/references.html">References</a>
+            </div>
+        </td></tr>
+        <tr><td class="bottom valign_bottom">        </td></tr>
+    </table>
+</div>
+</div>
+
+<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">OOP</p>
+
+<div class="toc">
+<ul>
+<li><a href="#about-oop-in-groovy">About OOP in Groovy</a></li>
+<li><a href="#implicit-module-class">Implicit module class</a></li>
+<li><a href="#implicit-getters-and-setters">Implicit getters and setters</a></li>
+<li><a href="#traits">Traits</a></li>
+</ul>
+</div>
+<hr />
+<p><a name="index_entry_index_1"></a></p>
+<h1 id="about-oop-in-groovy">About OOP in Groovy</h1>
+<p>OOP in Groovy is implemented in a similar way as in Java. Groovy operates with classes, inheritance
+and interfaces the similar way. Following subsections describe only some OOP features that are 
+are different in Groovy compared to Java.</p>
+<hr />
+<p><a name="index_entry_index_2"></a></p>
+<h1 id="implicit-module-class">Implicit module class</h1>
+<p>Modules are implicitly compiles into classes:</p>
+<div class="blockSrc">modules.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">package my.pack // doesn't need to have a specific file location
+
+println this.getClass() // class my.pack.modules</code></pre>
+<hr />
+<p><a name="index_entry_index_3"></a></p>
+<h1 id="implicit-getters-and-setters">Implicit getters and setters</h1>
+<p>No need for Lombok!</p>
+<div class="blockSrc">getters_and_setters.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">class Animal {
+    String name   // must be declared with no access modifier
+    float weight
+}
+
+def animal = new Animal()
+animal.setName("cat")
+animal.setWeight(12.7)
+
+println animal.getName()    // cat
+println animal.getWeight()  // 12.7</code></pre>
+<hr />
+<p><a name="index_entry_index_4"></a></p>
+<h1 id="traits">Traits</h1>
+<p>This is just a very small introduction to traits. For much more details see
+[<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://docs.groovy-lang.org/latest/html/documentation/#_traits">1.4.5. Traits</a>].</p>
+<div class="blockSrc">traits.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">trait Flying {
+    String fly() { "I believe I can fly!" }
+}
+class Bird implements Flying {}
+def b = new Bird()
+println b.fly()
+
+// Duck typing
+trait SpeakingDuck {
+    String speak() { quack(3) } // method `quack()` is missing
+}
+class Duck implements SpeakingDuck {
+    String methodMissing(String name, args) { // will be called instead of any missing method
+        println name                  // quack
+        println args                  // [3]
+        println args[0].getClass()    // class java.lang.Integer
+        return new IntRange(1, args[0] as int).collect {"${name}" }.join(", ")
+    }
+}
+def duck = new Duck()
+println duck.speak() // quack, quack, quack</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a name="index_entry_index_5"></a>
+Traits also implement the <strong>mixin</strong> concept. As per the
+<a href="https://docs.groovy-lang.org/latest/html/documentation/#xform-Mixin">documentation</a>:</p>
+<blockquote>
+<p><code>@groovy.lang.Mixin</code>  <br />
+Deprecated. Consider using traits instead.</p>
+</blockquote>
+</div>
+<p>&nbsp;</p>
+<hr />
+
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="io.html" 
+title="Previous: Input and output"><img src="../../layout/pict/previous_page.png"
+alt="Back"></a>
+<a href="ref/references.html" title="Next: References"><img 
+src="../../layout/pict/next_page.png" alt="Next"></a>
+</p>
+
+<script>
+function toggleSidebar() {
+    let sidebar = document.getElementsByClassName("sidebarWrapper")[0]
+    let display = sidebar.style.display
+    if (!display || display == "none") {
+        sidebar.style.display = "block"
+    } else {
+        sidebar.style.display = ""
+    }
+}
+</script>
+
+</body>
+</html>

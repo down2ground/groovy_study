@@ -36,7 +36,7 @@ As for sorting, Char GPT [<!--ref chat_gpt-->] explains it the following way:
 <!--index ["maps"]-->
 # Maps
 
-Also see [<!--ref groovy_site-->, [9. Maps](http://groovy-lang.org/syntax.html#_maps)]
+Also see [<!--ref groovy_site-->, [9. Maps](http://groovy-lang.org/syntax.html#_maps)].
 
 <div class="blockSrc">project1/maps.groovy</div>
 
