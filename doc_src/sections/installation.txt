@@ -9,6 +9,9 @@ Download page: [<!--ref groovy_site-->, <https://groovy.apache.org/download.html
 
 Binary installation is used. The file is: `apache-groovy-binary-4.0.21.zip`.
 
+Sources may be downloaded at <https://github.com/apache/groovy/releases/tag/GROOVY_4_0_21>,
+file `groovy-GROOVY_4_0_21.zip`.
+
 ----------------------------------------------------------------------------------------------------
 # Consistency check
 
@@ -69,6 +72,12 @@ The following items may be added into the `.gitignore` file:
 /code/project1/out/
 ````
 
+Here's how Groovy sources may be attached:
+
+![](<!--path pict-->idea_add_sources.png)
+
+In this case the downloaded sources file `groovy-GROOVY_4_0_21.zip` was unpacked into a directory
+by choice, and this directory (containing the `src` subdirectory) was added as the source.
 
 
 

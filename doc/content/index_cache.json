@@ -247,5 +247,32 @@
       "link": "sections/oop.html#index_entry_index_5",
       "title": "OOP"
     }
+  ],
+  "doc/content/sections/regex.html": [
+    {
+      "entry": "regular expressions",
+      "link": "sections/regex.html#index_entry_index_1",
+      "title": "Regular expressions"
+    },
+    {
+      "entry": "find operator",
+      "link": "sections/regex.html#index_entry_index_1",
+      "title": "Regular expressions"
+    },
+    {
+      "entry": "operator, find",
+      "link": "sections/regex.html#index_entry_index_1",
+      "title": "Regular expressions"
+    },
+    {
+      "entry": "match operator",
+      "link": "sections/regex.html#index_entry_index_1",
+      "title": "Regular expressions"
+    },
+    {
+      "entry": "operator, match",
+      "link": "sections/regex.html#index_entry_index_1",
+      "title": "Regular expressions"
+    }
   ]
 }

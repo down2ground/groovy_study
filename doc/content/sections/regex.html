@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><title>Methods and Closures</title>
+<head><title>Regular expressions</title>
 <meta charset="utf-8">
 <link rel="shortcut icon" type="image/png" href="../../favicon.png">
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
@@ -33,16 +33,16 @@ href="../index_page.html"><img
 class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a><a 
 class="header_item toggle_wide_only_inline "
 href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
-<a href="../../../doc_src/sections/methods_and_closures.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+<a href="../../../doc_src/sections/regex.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
 
-<a href="basics.html" title="Previous: Basics"><img class="headerNavArrows"
+<a href="oop.html" title="Previous: OOP"><img class="headerNavArrows"
 src="../../layout/pict/previous_page_h21px.png" alt="Back"></a>
  
-<a href="collections.html" title="Next: Collections"><img class="headerNavArrows"
+<a href="ref/references.html" title="Next: References"><img class="headerNavArrows"
 src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 
 
-<span class="headerTitle">Methods and Closures</span>
+<span class="headerTitle">Regular expressions</span>
 
 </div>
 
@@ -53,7 +53,7 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
             <div class="align_right toggle_narrow_only_block">
             <a class="sidebar_item_inline align_right" href="https://github.com/down2ground/groovy_study">GitHub</a>
             
-            <a href="../../../doc_src/sections/methods_and_closures.txt" class="sidebar_item_inline source_file align_right" 
+            <a href="../../../doc_src/sections/regex.txt" class="sidebar_item_inline source_file align_right" 
                 title="Source text">&lt;/&gt;</a>
             
             </div>
@@ -62,11 +62,11 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
             <a class="sidebar_item " href="../../../readme.html">Home</a>
             <a class="sidebar_item " href="installation.html">Installation</a>
             <a class="sidebar_item " href="basics.html">Basics</a>
-            <a class="sidebar_item selected " href="methods_and_closures.html">Methods and Closures</a>
+            <a class="sidebar_item " href="methods_and_closures.html">Methods and Closures</a>
             <a class="sidebar_item " href="collections.html">Collections</a>
             <a class="sidebar_item " href="io.html">Input and output</a>
             <a class="sidebar_item " href="oop.html">OOP</a>
-            <a class="sidebar_item " href="regex.html">Regular expressions</a>
+            <a class="sidebar_item selected " href="regex.html">Regular expressions</a>
             </div><div class="sidebar_block">
             
             <a class="sidebar_item " href="ref/references.html">References</a>
@@ -77,77 +77,49 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 </div>
 </div>
 
-<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Methods and Closures</p>
+<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Regular expressions</p>
 
 <div class="toc">
 <ul>
-<li><a href="#methods">Methods</a></li>
-<li><a href="#closures">Closures</a></li>
+<li><a href="#regular-expressions">Regular expressions</a></li>
 </ul>
 </div>
 <hr />
 <p><a name="index_entry_index_1"></a></p>
-<h1 id="methods">Methods</h1>
-<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/structure.html#_methods">3.3. Methods</a>].</p>
-<div class="blockSrc">project1/methods.groovy</div>
+<h1 id="regular-expressions">Regular expressions</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://docs.groovy-lang.org/latest/html/documentation/#_regular_expression_operators">1.2.7. Regular expression operators</a>].</p>
+<div class="blockSrc">regex.groovy</div>
 
-<pre class="highlight"><code class="language-groovy">def sum(int a, int b=0) { // parameter `b` has the default value
-    a + b // no need for the `return` operator (though it may be used if required)
+<pre class="highlight"><code class="language-groovy">// Find operator `=~` returns a `Matcher` that resolves to a `boolean`
+println ((boolean) (' two words ' =~ /\S+\s+\S+/)) // true
+
+// Match operator `==~` returns a `boolean` and is stricter (implicitly adds `^` and `$`)
+println (' two words ' ==~ /\S+\s+\S+/) // false
+
+def pattern = ~/[^\s]+/
+println pattern.getClass() // class java.util.regex.Pattern
+
+def matcher = "it's a needle in the hay" =~ pattern
+
+println matcher // java.util.regex.Matcher[pattern=[^\s]+ region=0,24 lastmatch=]
+
+while (matcher.find()) {
+    print "${matcher.group()}, "
 }
+println() // it, s, a, needle, in, the, hay,
 
-println sum(7, 4) // 11
-println sum(7) // 7</code></pre>
-<hr />
-<p><a name="index_entry_index_2"></a></p>
-<h1 id="closures">Closures</h1>
-<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/closures.html">Closures</a>].</p>
-<div class="blockSrc">project1/closures.groovy</div>
+matcher = "it's a needle in the hay" =~ /(needle).*(hay)/ // using groups
 
-<pre class="highlight"><code class="language-groovy">def name = 'Bob'
-
-def sayHello() {
-    println "Hello, $name!" // CANNOT use external variables
-}
-// sayHello() // groovy.lang.MissingPropertyException: No such property: name for class: methods
-
-def myClosure = {-&gt; println "Hello, $name!"} // CAN use external variables
-// `-&gt;` restricts the closure to be called without arguments (otherwise it will be called with
-// the implicit argument `it`)
-myClosure.call() // Hello, Bob!
-myClosure()      // Hello, Bob!
-
-def myList = [1, 2, 3, 4, 5, 6, 7, 8]
-
-println myList.find {it &gt; 3} // 4 // `it` is the implicit argument 
-
-// Delegation
-
-class Alice {
-    public name = "Alice"
-}
-class Bob {
-    public name = "Bob"
-}
-
-def closure = {println delegate.name} // by now the `name` variable from the module is assumed
-
-println closure.delegate.class.getName() // closures
-
-closure.delegate = Alice
-closure() // Alice
-closure.delegate = Bob
-closure() // Bob</code></pre>
-<p><a name="index_entry_index_3"></a>
-Interesting thing here is the fact that the <code>Alice</code> and the <code>Bob</code> classes are different and their 
-<code>name</code> attributes are resolved dynamically at run time.  Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>,
-<a href="http://groovy-lang.org/closures.html#_delegation_strategy">3. Delegation strategy</a>].</p>
+println matcher[0]    // [needle in the hay, needle, hay]
+println matcher[0][1] // needle
+println matcher[0][2] // hay</code></pre>
 <p>&nbsp;</p>
 <hr />
 
-<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="basics.html" 
-title="Previous: Basics"><img src="../../layout/pict/previous_page.png"
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="oop.html" 
+title="Previous: OOP"><img src="../../layout/pict/previous_page.png"
 alt="Back"></a>
-<a href="collections.html" title="Next: Collections"><img 
+<a href="ref/references.html" title="Next: References"><img 
 src="../../layout/pict/next_page.png" alt="Next"></a>
 </p>
 

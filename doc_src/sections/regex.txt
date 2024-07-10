@@ -1,0 +1,18 @@
+<!--VARIABLES {"title": "Regular expressions", "SORT_ORDER": "070", "code": "regex"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+<!--index ["regular expressions", "find operator", "operator, find", "match operator",
+"operator, match"]-->
+# Regular expressions
+
+Also see [<!--ref groovy_site-->, [1.2.7. Regular expression operators](
+https://docs.groovy-lang.org/latest/html/documentation/#_regular_expression_operators)].
+
+<div class="blockSrc">regex.groovy</div>
+
+````groovy
+<!--include project1/regex.groovy-->
+````
+
