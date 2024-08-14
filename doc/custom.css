@@ -41,6 +41,21 @@ pre>code.language-groovy, pre>code.language-wrapped-groovy {
     background-color: #d4e4ed;
 }
 
+.w-fit {
+    max-width: 50rem;
+}
+
+.img-frame {
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #888888;
+}
+
+.w-fit.img-frame {
+    max-width: 49.88rem;
+}
+
+
 
 
 

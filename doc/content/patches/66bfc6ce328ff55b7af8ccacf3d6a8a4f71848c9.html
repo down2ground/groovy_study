@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Patch 66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../patch.css">
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a><a 
+class="header_item toggle_wide_only_inline"
+href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
+<a href="../../../doc_src/patches/66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+
+<img class="headerNavArrows" src="../../layout/pict/previous_page_h21px_inactive.png"
+alt="No back">
+
+<img class="headerNavArrows" src="../../layout/pict/next_page_h21px_inactive.png"
+alt="No next">
+
+<span class="headerTitle">Patch 66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9</span>
+
+</div>
+
+<h1 style="width: unset; max-width: unset;">Patch 66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9</h1>
+
+<p><strong>Commit message:</strong> 
+Groovy console Spring Boot project initialized</p>
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/groovy_console/pom.xml b/code/groovy_console/pom.xml</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..61d7737</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/pom.xml</span><br />
+
+<span class="two_ats">@@ -0,0 +1,47 @@</span><br />
+
+<ins>+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</ins><br />
+
+<ins>+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</ins><br />
+
+<ins>+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</ins><br />
+
+<ins>+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0</ins><br />
+
+<ins>+          https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;parent&gt;</ins><br />
+
+<ins>+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</ins><br />
+
+<ins>+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</ins><br />
+
+<ins>+        &lt;version&gt;3.3.2&lt;/version&gt;</ins><br />
+
+<ins>+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;</ins><br />
+
+<ins>+    &lt;/parent&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;groupId&gt;groovy.study&lt;/groupId&gt;</ins><br />
+
+<ins>+    &lt;artifactId&gt;groovy-console&lt;/artifactId&gt;</ins><br />
+
+<ins>+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;properties&gt;</ins><br />
+
+<ins>+        &lt;java.version&gt;17&lt;/java.version&gt;</ins><br />
+
+<ins>+    &lt;/properties&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;dependencies&gt;</ins><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</ins><br />
+
+<ins>+            &lt;scope&gt;test&lt;/scope&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<ins>+    &lt;/dependencies&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    &lt;build&gt;</ins><br />
+
+<ins>+        &lt;directory&gt;${TMP_MAVEN_BUILDS_DIR}${project.artifactId}&lt;/directory&gt;</ins><br />
+
+<ins>+        &lt;plugins&gt;</ins><br />
+
+<ins>+            &lt;plugin&gt;</ins><br />
+
+<ins>+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</ins><br />
+
+<ins>+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</ins><br />
+
+<ins>+            &lt;/plugin&gt;</ins><br />
+
+<ins>+        &lt;/plugins&gt;</ins><br />
+
+<ins>+    &lt;/build&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;/project&gt;</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/java/groovyconsole/Application.java b/code/groovy_console/src/main/java/groovyconsole/Application.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..3c6a122</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/java/groovyconsole/Application.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,12 @@</span><br />
+
+<ins>+package groovyconsole;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import org.springframework.boot.SpringApplication;</ins><br />
+
+<ins>+import org.springframework.boot.autoconfigure.SpringBootApplication;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+@SpringBootApplication</ins><br />
+
+<ins>+public class Application {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+  public static void main(String[] args) {</ins><br />
+
+<ins>+      SpringApplication.run(Application.class, args);</ins><br />
+
+<ins>+  }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/resources/application.properties b/code/groovy_console/src/main/resources/application.properties</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..2109a44</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/resources/application.properties</span><br />
+
+<span class="two_ats">@@ -0,0 +1 @@</span><br />
+
+<ins>+spring.application.name=demo</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/test/java/groovyconsole/ApplicationTests.java b/code/groovy_console/src/test/java/groovyconsole/ApplicationTests.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..00ca800</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/test/java/groovyconsole/ApplicationTests.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,13 @@</span><br />
+
+<ins>+package groovyconsole;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import org.junit.jupiter.api.Test;</ins><br />
+
+<ins>+import org.springframework.boot.test.context.SpringBootTest;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+@SpringBootTest</ins><br />
+
+<ins>+class ApplicationTests {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+  @Test</ins><br />
+
+<ins>+  void contextLoads() {</ins><br />
+
+<ins>+  }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+}</ins><br />
+
+</div>
+
+<p></p>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

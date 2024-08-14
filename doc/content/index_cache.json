@@ -129,7 +129,6 @@
       "title": "Basics"
     }
   ],
-  "doc/content/sections/ref/references.html": [],
   "doc/content/sections/methods_and_closures.html": [
     {
       "entry": "methods",
@@ -274,5 +273,19 @@
       "link": "sections/regex.html#index_entry_index_1",
       "title": "Regular expressions"
     }
-  ]
+  ],
+  "doc/content/sections/solutions/groovy_console.html": [
+    {
+      "entry": "Groovy console",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_1",
+      "title": "Groovy console"
+    },
+    {
+      "entry": "console, Groovy",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_1",
+      "title": "Groovy console"
+    }
+  ],
+  "doc/content/sections/ref/references.html": [],
+  "doc/content/patches/66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9.html": []
 }

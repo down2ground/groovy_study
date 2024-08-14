@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Groovy console</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../../layout/flex.css">
+</head>
+<body>
+
+<div class="header">
+<img id="burger" src="../../../layout/pict/burger.png" 
+onclick="toggleSidebar();return false;" class="toggle_narrow_only_inline" alt="Sidebar">
+
+<a 
+class="header_item "
+href="../../../../readme.html"><img 
+class="logo_image" src="../../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../../index_page.html"><img 
+class="header_image index_image" src="../../../layout/pict/search.png" alt="Index"></a><a 
+class="header_item toggle_wide_only_inline "
+href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
+<a href="../../../../doc_src/sections/solutions/groovy_console.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+<a href="../regex.html" title="Previous: Regular expressions"><img class="headerNavArrows"
+src="../../../layout/pict/previous_page_h21px.png" alt="Back"></a>
+ 
+<a href="../ref/references.html" title="Next: References"><img class="headerNavArrows"
+src="../../../layout/pict/next_page_h21px.png" alt="Next"></a>
+
+
+<span class="headerTitle">Groovy console</span>
+
+</div>
+
+<div class="sidebarWrapper">
+<div class="sidebar">
+    <table class="sidebarAligner">
+        <tr><td class="valign_top">
+            <div class="align_right toggle_narrow_only_block">
+            <a class="sidebar_item_inline align_right" href="https://github.com/down2ground/groovy_study">GitHub</a>
+            
+            <a href="../../../../doc_src/sections/solutions/groovy_console.txt" class="sidebar_item_inline source_file align_right" 
+                title="Source text">&lt;/&gt;</a>
+            
+            </div>
+            <div class="sidebar_block">
+            
+            <a class="sidebar_item " href="../../../../readme.html">Home</a>
+            <a class="sidebar_item " href="../installation.html">Installation</a>
+            <a class="sidebar_item " href="../basics.html">Basics</a>
+            <a class="sidebar_item " href="../methods_and_closures.html">Methods and Closures</a>
+            <a class="sidebar_item " href="../collections.html">Collections</a>
+            <a class="sidebar_item " href="../io.html">Input and output</a>
+            <a class="sidebar_item " href="../oop.html">OOP</a>
+            <a class="sidebar_item " href="../regex.html">Regular expressions</a>
+            </div><div class="sidebar_block">
+            <h3>Solutions</h3>
+            <a class="sidebar_item selected " href="groovy_console.html">Groovy console</a>
+            </div><div class="sidebar_block">
+            
+            <a class="sidebar_item " href="../ref/references.html">References</a>
+            </div>
+        </td></tr>
+        <tr><td class="bottom valign_bottom">        </td></tr>
+    </table>
+</div>
+</div>
+
+<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Groovy console</p>
+
+<div class="toc">
+<ul>
+<li><a href="#about-this-section">About this section</a></li>
+<li><a href="#spring-project-setup">Spring project setup</a></li>
+<li><a href="#ui-implementation">UI implementation</a></li>
+</ul>
+</div>
+<hr />
+<p><a name="index_entry_index_1"></a></p>
+<h1 id="about-this-section">About this section</h1>
+<p>In this section we are going to implement <em>Groovy console</em> that allows:</p>
+<ul>
+<li>executing Groovy code inside running Spring application;</li>
+<li>manipulating with the available Spring context (beans).</li>
+</ul>
+<hr />
+<h1 id="spring-project-setup">Spring project setup</h1>
+<p>Go to <a href="https://start.spring.io/">Spring Initializr site</a> and define the following configuration:</p>
+<p><img alt="" class="img-frame" src="../../../pict/groovy_console_spring_boot_config_init.png" /></p>
+<p>Alternatively the following link may be used:
+<a href="https://start.spring.io/#!type=maven-project&amp;language=java&amp;platformVersion=3.3.2&amp;packaging=jar&amp;jvmVersion=17&amp;groupId=groovy.study&amp;artifactId=groovy-console&amp;name=&amp;description=&amp;packageName=groovyconsole&amp;dependencies=web">https://start.spring.io/#!type=maven-project&amp;language=java&amp;platformVersion=3.3.2&amp;packaging=jar&amp;jvmVersion=17&amp;groupId=groovy.study&amp;artifactId=groovy-console&amp;name=&amp;description=&amp;packageName=groovyconsole&amp;dependencies=web</a></p>
+<p>Delete some unnecessary files (like <code>mvnw</code> and <code>mvnw.cmd</code>), do some other code cleaning and
+reformatting.</p>
+<p>The generated artifact is going to be a JAR file with dependencies. It is massive enough, so we
+are going to bring the target location out of the working project directory. To do that, the
+<code>build/directory</code> element is added into the <code>pom.xml</code>. The environment variable
+<code>TMP_MAVEN_BUILDS_DIR</code> must be defined in the system.</p>
+<p>Building (as Java 17 is not set by default we need to set the corresponding environment
+variables):</p>
+<pre class="highlight"><code class="language-shell">&gt;set JAVA_HOME=%JAVA_17_HOME%
+
+&gt;set PATH=%JAVA_17_HOME%\bin;%PATH%
+
+&gt;mvn clean package
+...
+[INFO] --------------------&lt; groovy.study:groovy-console &gt;---------------------
+[INFO] Building groovy-console 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+...
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+...
+[INFO] Results:
+[INFO]
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.698 s
+[INFO] Finished at: 2024-08-14T09:04:21+02:00
+[INFO] ------------------------------------------------------------------------</code></pre>
+<p>Running:</p>
+<pre class="highlight"><code class="language-shell">&gt;cd /d %TMP_MAVEN_BUILDS_DIR%\groovy-console\
+
+&gt;set PATH=%JAVA_17_HOME%\bin;%PATH%
+
+&gt;java -jar groovy-console-0.0.1-SNAPSHOT.jar
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.3.2)
+...
+... : Tomcat started on port 8080 (http) with context path '/'
+... : Started Application in 1.584 seconds (process running for 1.913)</code></pre>
+<p>To stop press <code>Ctrl</code>+<code>C</code> (but not now please).</p>
+<p>Alternatively the project may be run in an IDE by executing the class <code>Application.java</code>.</p>
+<p>Testing the result in a browser: <a href="http://localhost:8080/">http://localhost:8080/</a>. The result must look like this:</p>
+<p><img alt="" class="img-frame" src="../../../pict/groovy_console_first_result.png" /></p>
+<p>The following commit represents the newly automatically generated project with the above
+cleanup and customization:</p>
+<blockquote>
+<p>Git commit: <a href="../../patches/66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9.html"><code>66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9</code></a>
+Groovy console Spring Boot project initialized</p>
+</blockquote>
+<p>Dependency tree report:</p>
+<pre class="highlight"><code class="language-shell">&gt;mvn dependency:tree &gt; dependency_tree.txt</code></pre>
+<p>The result is in the file <a href="../../code/groovy_console/dependency_tree.txt.html"><code>dependency_tree.txt</code></a>.</p>
+<blockquote>
+<p>Git commit: <code>5023a8176c11a98a7d4aecfe8c726aaa121c1269</code> dependency tree added</p>
+</blockquote>
+<hr />
+<h1 id="ui-implementation">UI implementation</h1>
+<p>&nbsp;</p>
+<hr />
+
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="../regex.html" 
+title="Previous: Regular expressions"><img src="../../../layout/pict/previous_page.png"
+alt="Back"></a>
+<a href="../ref/references.html" title="Next: References"><img 
+src="../../../layout/pict/next_page.png" alt="Next"></a>
+</p>
+
+<script>
+function toggleSidebar() {
+    let sidebar = document.getElementsByClassName("sidebarWrapper")[0]
+    let display = sidebar.style.display
+    if (!display || display == "none") {
+        sidebar.style.display = "block"
+    } else {
+        sidebar.style.display = ""
+    }
+}
+</script>
+
+</body>
+</html>
