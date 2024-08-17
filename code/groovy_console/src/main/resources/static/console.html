@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groovy console</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+</head>
+<body>
+<table>
+    <thead>
+    <tr><th>Script</th><th>Result</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><button type="button" onclick="execute();return false;">Execute</button></td>
+        <td><button type="button" onclick="clearResult();return false;">Clear</button></td>
+    </tr>
+    <tr>
+        <td><textarea id="script" rows="11" cols="50"
+                          maxlength="500000">println "Hello world!"</textarea></td>
+        <td><textarea id="result" rows="11" cols="50"
+                      maxlength="500000"></textarea></td>
+    </tr>
+    </tbody>
+</table>
+<h3>Application state</h3>
+<table>
+<tr><td><strong>consoleRequestCount:</strong></td><td id="consoleRequestCount"></td></tr>
+<tr><td><strong>someProperty:</strong></td><td id="someProperty"></td></tr>
+</table>
+
+<script>
+let scriptElement = document.getElementById("script")
+let resultElement = document.getElementById("result")
+let consoleRequestCountElement = document.getElementById("consoleRequestCount")
+let somePropertyElement = document.getElementById("someProperty")
+
+async function execute() {
+    let result = await sendRequest("console", "POST", scriptElement.value)
+    resultElement.value += "\n----------\n" +
+            (result.error ? "ERROR: " + result.error :
+            "RESULT: " + result.result) +
+            (result.output ? "\n" + "OUTPUT: " + result.output : "") + "\n"
+    updateState()
+}
+
+function clearResult() {
+    resultElement.value = ""
+}
+
+async function sendRequest(url, method, body) {
+    try {
+        const response = await fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: body,
+        })
+        if (response.ok) {
+            return await response.json()
+        } else {
+            return {"error": "Request failed with status " + response.status +
+                    " " + response.statusText}
+        }
+    } catch (error) {
+        return {"error": "REQUEST ERROR: " + error}
+    }
+}
+
+async function updateState() {
+    let result = await sendRequest("state", "GET")
+    consoleRequestCountElement.innerText = result.consoleRequestCount
+    somePropertyElement.innerText = result.someProperty
+}
+
+updateState()
+</script>
+</body>
+</html>
