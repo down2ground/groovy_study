@@ -23,4 +23,6 @@ Jul 10, 2024 The Groovy basics study finished.
 
 Aug 13, 2024 The Groovy console implementation stated.
 
+Aug 18, 2024 The Groovy console implementation finished.
+
 
