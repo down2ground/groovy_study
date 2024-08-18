@@ -21,3 +21,4 @@ https://www.baeldung.com/groovy-strings)
 
 <!--refdef chat_gpt--> Chat GPT: <https://chatgpt.com/>
 
+<!--refdef groovy_wc_github--> Groovy GitHub: <https://github.com/gaborbata/groovy-web-console>

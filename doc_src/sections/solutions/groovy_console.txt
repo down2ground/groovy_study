@@ -20,6 +20,11 @@ In this section we are going to implement *Groovy console* that allows:
     approach is harder to implement and it doesn't provide so much flexibility.
 
 ----------------------------------------------------------------------------------------------------
+# Materials
+
+A more extensive variation may be found at [<!--ref groovy_wc_github-->].
+
+----------------------------------------------------------------------------------------------------
 # Spring project setup
 
 Go to [Spring Initializr site](https://start.spring.io/) and define the following configuration:
