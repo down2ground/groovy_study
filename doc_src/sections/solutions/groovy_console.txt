@@ -9,7 +9,15 @@
 In this section we are going to implement *Groovy console* that allows:
 
 - executing Groovy code inside running Spring application;
-- manipulating with the available Spring context (beans).
+- manipulating with the available Java code artifacts and Spring context (beans).
+
+!!! warning
+    This solution may be convenient for a running web application diagnostic and manipulation.
+    Still this makes the application unstable and vulnerable as the actions performed via the
+    console are not properly controlled.
+    The safer solution would be certain manipulation actions defined via
+    corresponding endpoints with appropriate restrictions and checks. But the certain endpoints
+    approach is harder to implement and it doesn't provide so much flexibility.
 
 ----------------------------------------------------------------------------------------------------
 # Spring project setup
@@ -101,12 +109,161 @@ Dependency tree report:
 >mvn dependency:tree > dependency_tree.txt
 ````
 
-The result is in the file [`dependency_tree.txt`](
-<!--wrap_text groovy_console/dependency_tree.txt-->).
+<!--git ["5023a8176c11a98a7d4aecfe8c726aaa121c1269", "dependency tree added"]-->
 
-> Git commit: `5023a8176c11a98a7d4aecfe8c726aaa121c1269` dependency tree added
+The result is in the file [`dependency_tree.txt`](<!--wrap_text groovy_console/dependency_tree.txt-->)
+(note that this is the latest version, not what it was at the current step, see the commit
+above to see the the actual version at this point of time).
 
 ----------------------------------------------------------------------------------------------------
-# UI implementation
+# Adding UI and REST
+
+<!--git ["3c58c015b4e9378126ec86c2d0ce3a81f42f61a4", "UI and REST added"]-->
+> 
+<!--git ["28ec2b720ddb6405c25600b85a8a0230fcc5ee9c", "dependency tree updated"]-->
+
+The full dependency tree file is [`dependency_tree.txt`](<!--wrap_text groovy_console/dependency_tree.txt-->).
+
+!!! note
+    This is a very simple implementation that lacks a lot of important features (like security)
+    required in production.
+
+Here are some explanations. The UI is created as simple as possible so no template engine is used.
+A single static HTML page is used for demonstration. <!--index ["Ajax"]-->**Ajax** is used
+to execute the scripts and to update the displayed application state (see the
+`src/main/resources/static/console.html` file).
+
+The actual script execution is not implemented by now so the returned result is fake.
+
+Here's the UI snapshot:
+
+![](<!--path pict-->groovy_console_ui.png){.img-frame}
+
+<!--index ["logic-less controller"]-->
+The following configuration adds a logic-less controller to serve the static page:
+
+<div class="blockSrc">src/main/java/groovyconsole/MvcConfig.java</div>
+
+````java
+@Configuration
+public class MvcConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("console.html");
+    }
+}
+````
+
+The `groovyconsole/State.java` Spring bean is used for holding the application state that we are
+going to manipulate later.
+
+There are two REST endpoints created:
+
+````wrapped-shell
+>curl -s -X POST -H "Content-Type:application/text" -d "2+2" http://localhost:8080/console | python -m json.tool
+{
+    "error": null,
+    "result": "The script is: 2+2",
+    "output": "Fake output"
+}
+
+>curl -s http://localhost:8080/state | python -m json.tool
+{
+    "consoleRequestCount": 5,
+    "someProperty": null
+}
+````
+
+<!--index ["JSON, format", "json.tool"]-->
+The Python `json.tool` module is used just for pretty-printing the output.
+
+----------------------------------------------------------------------------------------------------
+# Implementing Groovy console
+
+<!--git ["50c798b76895787c41f67b56b2f44b65d9e49ddd", "UI and REST added"]-->
+> 
+<!--git ["6b0681171308eb83fa17ae42a7ffd9fd75f7f75d", "dependency tree updated"]-->
+
+The full dependency tree file is [`dependency_tree.txt`](<!--wrap_text groovy_console/dependency_tree.txt-->).
+
+The following library is used for the actual Groovy scripts execution:
+
+````xml
+<dependency>
+    <groupId>org.codehaus.groovy</groupId>
+    <artifactId>groovy</artifactId>
+    <version>3.0.22</version>
+</dependency>
+````
+
+The `src/main/java/groovyconsole/SpringBinding.java` class makes the web application Spring
+context available inside the Groovy scripts.
+
+The `groovyconsole.Controller#console` endpoint method was rewritten to perform real Groovy scripts
+execution.
+
+The `groovyconsole.Greeter` class was created to demonstrate usage of arbitrary Java code artifacts
+inside the Groovy scripts.
+
+Some properties were added to the `src/main/resources/application.properties` file to check access
+to them from the Groovy scripts.
+
+----------------------------------------------------------------------------------------------------
+# Demo
+
+Here the UI snapshot is repeated for convenience:
+
+![](<!--path pict-->groovy_console_ui.png){.img-frame}
+
+<table>
+<thead><tr><th>Script</th><th>Result</th><th>Comments</th></tr></thead>
+<tbody>
+
+<tr><td><pre><code class="language-text">println "Hello world!"</code></pre>
+</td><td><pre><code class="language-text">RESULT: null
+OUTPUT: Hello world!</code></pre></td><td>
+The <code>consoleRequestCount</code> property value incremented.
+</td></tr>
+
+<tr><td><pre><code class="language-text">System.out.println("Hello " + 
+    "from Groovy script!")</code></pre>
+</td><td><pre><code class="language-text">RESULT: null</code></pre></td><td>
+The specified message printed to the web application's standard output.
+</td></tr>
+
+<tr><td><pre><code class="language-text">state.someProperty = "LALALA"</code></pre>
+</td><td><pre><code class="language-text">RESULT: LALALA</code></pre></td><td>
+The <code>someProperty</code> property value updated. Here a bean from the Spring 
+context is manipulated.
+</td></tr>
+
+<tr><td><pre><code class="language-text">import groovyconsole.Greeter
+var greeter = new Greeter("Bob")
+greeter.greet()</code></pre></td>
+<td><pre><code class="language-text">RESULT: Hello, Bob!</code></pre></td><td>
+Arbitrary Java code artifact is manipulated.
+</td></tr>
+
+<tr><td><pre><code class="language-text">environment
+    .getProperty("some.property")</code></pre></td>
+<td><pre><code class="language-text">RESULT: This is Groovy console</code></pre></td><td>
+Spring environment property is accessed.
+</td></tr>
+
+<tr><td><pre><code class="language-text">println "Some message"
+1 / 0</code></pre></td>
+<td><pre><code class="language-text">ERROR: Division by zero
+OUTPUT: Some message</code></pre></td><td>
+Errors are processed correctly.
+</td></tr>
+
+</tbody>
+</table>
+
+
+
+
+
 
 

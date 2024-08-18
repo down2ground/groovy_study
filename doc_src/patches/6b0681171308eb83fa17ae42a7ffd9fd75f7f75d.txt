@@ -1,0 +1,48 @@
+<!--VARIABLES {"title": "Patch 6b0681171308eb83fa17ae42a7ffd9fd75f7f75d"}--> 
+ 
+<strong>Commit message:</strong> 
+dependency tree updated
+
+ 
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/groovy_console/dependency_tree.txt b/code/groovy_console/dependency_tree.txt</span><br />
+
+<span class="index">index 133b720..d812a14 100644</span><br />
+
+<span class="tree_minuses">--- a/code/groovy_console/dependency_tree.txt</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/dependency_tree.txt</span><br />
+
+<span class="two_ats">@@ -70,10 +70,11 @@</span><br />
+
+<span> [INFO] |  |  \- org.springframework:spring-jcl:jar:6.1.11:compile</span><br />
+
+<span> [INFO] |  +- org.springframework:spring-test:jar:6.1.11:test</span><br />
+
+<span> [INFO] |  \- org.xmlunit:xmlunit-core:jar:2.9.1:test</span><br />
+
+<del>-[INFO] \- org.projectlombok:lombok:jar:1.18.34:compile</del><br />
+
+<ins>+[INFO] +- org.projectlombok:lombok:jar:1.18.34:compile</ins><br />
+
+<ins>+[INFO] \- org.codehaus.groovy:groovy:jar:3.0.22:compile</ins><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+<span> [INFO] BUILD SUCCESS</span><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+<del>-[INFO] Total time:  1.106 s</del><br />
+
+<del>-[INFO] Finished at: 2024-08-18T08:15:23+02:00</del><br />
+
+<ins>+[INFO] Total time:  1.067 s</ins><br />
+
+<ins>+[INFO] Finished at: 2024-08-18T09:34:41+02:00</ins><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+</div>
+

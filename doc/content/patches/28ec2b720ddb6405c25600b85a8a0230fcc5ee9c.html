@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Patch 28ec2b720ddb6405c25600b85a8a0230fcc5ee9c</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../patch.css">
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a><a 
+class="header_item toggle_wide_only_inline"
+href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
+<a href="../../../doc_src/patches/28ec2b720ddb6405c25600b85a8a0230fcc5ee9c.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+
+<img class="headerNavArrows" src="../../layout/pict/previous_page_h21px_inactive.png"
+alt="No back">
+
+<img class="headerNavArrows" src="../../layout/pict/next_page_h21px_inactive.png"
+alt="No next">
+
+<span class="headerTitle">Patch 28ec2b720ddb6405c25600b85a8a0230fcc5ee9c</span>
+
+</div>
+
+<h1 style="width: unset; max-width: unset;">Patch 28ec2b720ddb6405c25600b85a8a0230fcc5ee9c</h1>
+
+<p><strong>Commit message:</strong> 
+dependency tree updated</p>
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/groovy_console/dependency_tree.txt b/code/groovy_console/dependency_tree.txt</span><br />
+
+<span class="index">index 9669e4e..133b720 100644</span><br />
+
+<span class="tree_minuses">--- a/code/groovy_console/dependency_tree.txt</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/dependency_tree.txt</span><br />
+
+<span class="two_ats">@@ -38,41 +38,42 @@</span><br />
+
+<span> [INFO] |     +- org.springframework:spring-aop:jar:6.1.11:compile</span><br />
+
+<span> [INFO] |     +- org.springframework:spring-context:jar:6.1.11:compile</span><br />
+
+<span> [INFO] |     \- org.springframework:spring-expression:jar:6.1.11:compile</span><br />
+
+<del>-[INFO] \- org.springframework.boot:spring-boot-starter-test:jar:3.3.2:test</del><br />
+
+<del>-[INFO]    +- org.springframework.boot:spring-boot-test:jar:3.3.2:test</del><br />
+
+<del>-[INFO]    +- org.springframework.boot:spring-boot-test-autoconfigure:jar:3.3.2:test</del><br />
+
+<del>-[INFO]    +- com.jayway.jsonpath:json-path:jar:2.9.0:test</del><br />
+
+<del>-[INFO]    |  \- org.slf4j:slf4j-api:jar:2.0.13:compile</del><br />
+
+<del>-[INFO]    +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.2:test</del><br />
+
+<del>-[INFO]    |  \- jakarta.activation:jakarta.activation-api:jar:2.1.3:test</del><br />
+
+<del>-[INFO]    +- net.minidev:json-smart:jar:2.5.1:test</del><br />
+
+<del>-[INFO]    |  \- net.minidev:accessors-smart:jar:2.5.1:test</del><br />
+
+<del>-[INFO]    |     \- org.ow2.asm:asm:jar:9.6:test</del><br />
+
+<del>-[INFO]    +- org.assertj:assertj-core:jar:3.25.3:test</del><br />
+
+<del>-[INFO]    |  \- net.bytebuddy:byte-buddy:jar:1.14.18:test</del><br />
+
+<del>-[INFO]    +- org.awaitility:awaitility:jar:4.2.1:test</del><br />
+
+<del>-[INFO]    +- org.hamcrest:hamcrest:jar:2.2:test</del><br />
+
+<del>-[INFO]    +- org.junit.jupiter:junit-jupiter:jar:5.10.3:test</del><br />
+
+<del>-[INFO]    |  +- org.junit.jupiter:junit-jupiter-api:jar:5.10.3:test</del><br />
+
+<del>-[INFO]    |  |  +- org.opentest4j:opentest4j:jar:1.3.0:test</del><br />
+
+<del>-[INFO]    |  |  +- org.junit.platform:junit-platform-commons:jar:1.10.3:test</del><br />
+
+<del>-[INFO]    |  |  \- org.apiguardian:apiguardian-api:jar:1.1.2:test</del><br />
+
+<del>-[INFO]    |  +- org.junit.jupiter:junit-jupiter-params:jar:5.10.3:test</del><br />
+
+<del>-[INFO]    |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.10.3:test</del><br />
+
+<del>-[INFO]    |     \- org.junit.platform:junit-platform-engine:jar:1.10.3:test</del><br />
+
+<del>-[INFO]    +- org.mockito:mockito-core:jar:5.11.0:test</del><br />
+
+<del>-[INFO]    |  +- net.bytebuddy:byte-buddy-agent:jar:1.14.18:test</del><br />
+
+<del>-[INFO]    |  \- org.objenesis:objenesis:jar:3.3:test</del><br />
+
+<del>-[INFO]    +- org.mockito:mockito-junit-jupiter:jar:5.11.0:test</del><br />
+
+<del>-[INFO]    +- org.skyscreamer:jsonassert:jar:1.5.3:test</del><br />
+
+<del>-[INFO]    |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test</del><br />
+
+<del>-[INFO]    +- org.springframework:spring-core:jar:6.1.11:compile</del><br />
+
+<del>-[INFO]    |  \- org.springframework:spring-jcl:jar:6.1.11:compile</del><br />
+
+<del>-[INFO]    +- org.springframework:spring-test:jar:6.1.11:test</del><br />
+
+<del>-[INFO]    \- org.xmlunit:xmlunit-core:jar:2.9.1:test</del><br />
+
+<ins>+[INFO] +- org.springframework.boot:spring-boot-starter-test:jar:3.3.2:test</ins><br />
+
+<ins>+[INFO] |  +- org.springframework.boot:spring-boot-test:jar:3.3.2:test</ins><br />
+
+<ins>+[INFO] |  +- org.springframework.boot:spring-boot-test-autoconfigure:jar:3.3.2:test</ins><br />
+
+<ins>+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.9.0:test</ins><br />
+
+<ins>+[INFO] |  |  \- org.slf4j:slf4j-api:jar:2.0.13:compile</ins><br />
+
+<ins>+[INFO] |  +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.2:test</ins><br />
+
+<ins>+[INFO] |  |  \- jakarta.activation:jakarta.activation-api:jar:2.1.3:test</ins><br />
+
+<ins>+[INFO] |  +- net.minidev:json-smart:jar:2.5.1:test</ins><br />
+
+<ins>+[INFO] |  |  \- net.minidev:accessors-smart:jar:2.5.1:test</ins><br />
+
+<ins>+[INFO] |  |     \- org.ow2.asm:asm:jar:9.6:test</ins><br />
+
+<ins>+[INFO] |  +- org.assertj:assertj-core:jar:3.25.3:test</ins><br />
+
+<ins>+[INFO] |  |  \- net.bytebuddy:byte-buddy:jar:1.14.18:test</ins><br />
+
+<ins>+[INFO] |  +- org.awaitility:awaitility:jar:4.2.1:test</ins><br />
+
+<ins>+[INFO] |  +- org.hamcrest:hamcrest:jar:2.2:test</ins><br />
+
+<ins>+[INFO] |  +- org.junit.jupiter:junit-jupiter:jar:5.10.3:test</ins><br />
+
+<ins>+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-api:jar:5.10.3:test</ins><br />
+
+<ins>+[INFO] |  |  |  +- org.opentest4j:opentest4j:jar:1.3.0:test</ins><br />
+
+<ins>+[INFO] |  |  |  +- org.junit.platform:junit-platform-commons:jar:1.10.3:test</ins><br />
+
+<ins>+[INFO] |  |  |  \- org.apiguardian:apiguardian-api:jar:1.1.2:test</ins><br />
+
+<ins>+[INFO] |  |  +- org.junit.jupiter:junit-jupiter-params:jar:5.10.3:test</ins><br />
+
+<ins>+[INFO] |  |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.10.3:test</ins><br />
+
+<ins>+[INFO] |  |     \- org.junit.platform:junit-platform-engine:jar:1.10.3:test</ins><br />
+
+<ins>+[INFO] |  +- org.mockito:mockito-core:jar:5.11.0:test</ins><br />
+
+<ins>+[INFO] |  |  +- net.bytebuddy:byte-buddy-agent:jar:1.14.18:test</ins><br />
+
+<ins>+[INFO] |  |  \- org.objenesis:objenesis:jar:3.3:test</ins><br />
+
+<ins>+[INFO] |  +- org.mockito:mockito-junit-jupiter:jar:5.11.0:test</ins><br />
+
+<ins>+[INFO] |  +- org.skyscreamer:jsonassert:jar:1.5.3:test</ins><br />
+
+<ins>+[INFO] |  |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test</ins><br />
+
+<ins>+[INFO] |  +- org.springframework:spring-core:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  |  \- org.springframework:spring-jcl:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  +- org.springframework:spring-test:jar:6.1.11:test</ins><br />
+
+<ins>+[INFO] |  \- org.xmlunit:xmlunit-core:jar:2.9.1:test</ins><br />
+
+<ins>+[INFO] \- org.projectlombok:lombok:jar:1.18.34:compile</ins><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+<span> [INFO] BUILD SUCCESS</span><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+<del>-[INFO] Total time:  1.059 s</del><br />
+
+<del>-[INFO] Finished at: 2024-08-14T09:47:39+02:00</del><br />
+
+<ins>+[INFO] Total time:  1.106 s</ins><br />
+
+<ins>+[INFO] Finished at: 2024-08-18T08:15:23+02:00</ins><br />
+
+<span> [INFO] ------------------------------------------------------------------------</span><br />
+
+</div>
+
+<p></p>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

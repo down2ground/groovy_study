@@ -1,0 +1,178 @@
+<!--VARIABLES {"title": "Patch 5023a8176c11a98a7d4aecfe8c726aaa121c1269"}--> 
+ 
+<strong>Commit message:</strong> 
+dependency tree added
+
+ 
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/groovy_console/dependency_tree.txt b/code/groovy_console/dependency_tree.txt</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..9669e4e</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/dependency_tree.txt</span><br />
+
+<span class="two_ats">@@ -0,0 +1,78 @@</span><br />
+
+<ins>+[INFO] Scanning for projects...</ins><br />
+
+<ins>+[INFO] </ins><br />
+
+<ins>+[INFO] --------------------&lt; groovy.study:groovy-console &gt;---------------------</ins><br />
+
+<ins>+[INFO] Building groovy-console 0.0.1-SNAPSHOT</ins><br />
+
+<ins>+[INFO]   from pom.xml</ins><br />
+
+<ins>+[INFO] --------------------------------[ jar ]---------------------------------</ins><br />
+
+<ins>+[INFO] </ins><br />
+
+<ins>+[INFO] --- dependency:3.6.1:tree (default-cli) @ groovy-console ---</ins><br />
+
+<ins>+[INFO] groovy.study:groovy-console:jar:0.0.1-SNAPSHOT</ins><br />
+
+<ins>+[INFO] +- org.springframework.boot:spring-boot-starter-web:jar:3.3.2:compile</ins><br />
+
+<ins>+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:3.3.2:compile</ins><br />
+
+<ins>+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:3.3.2:compile</ins><br />
+
+<ins>+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:3.3.2:compile</ins><br />
+
+<ins>+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:3.3.2:compile</ins><br />
+
+<ins>+[INFO] |  |  |  +- ch.qos.logback:logback-classic:jar:1.5.6:compile</ins><br />
+
+<ins>+[INFO] |  |  |  |  \- ch.qos.logback:logback-core:jar:1.5.6:compile</ins><br />
+
+<ins>+[INFO] |  |  |  +- org.apache.logging.log4j:log4j-to-slf4j:jar:2.23.1:compile</ins><br />
+
+<ins>+[INFO] |  |  |  |  \- org.apache.logging.log4j:log4j-api:jar:2.23.1:compile</ins><br />
+
+<ins>+[INFO] |  |  |  \- org.slf4j:jul-to-slf4j:jar:2.0.13:compile</ins><br />
+
+<ins>+[INFO] |  |  +- jakarta.annotation:jakarta.annotation-api:jar:2.1.1:compile</ins><br />
+
+<ins>+[INFO] |  |  \- org.yaml:snakeyaml:jar:2.2:compile</ins><br />
+
+<ins>+[INFO] |  +- org.springframework.boot:spring-boot-starter-json:jar:3.3.2:compile</ins><br />
+
+<ins>+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.17.2:compile</ins><br />
+
+<ins>+[INFO] |  |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.17.2:compile</ins><br />
+
+<ins>+[INFO] |  |  |  \- com.fasterxml.jackson.core:jackson-core:jar:2.17.2:compile</ins><br />
+
+<ins>+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.17.2:compile</ins><br />
+
+<ins>+[INFO] |  |  +- com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.17.2:compile</ins><br />
+
+<ins>+[INFO] |  |  \- com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.17.2:compile</ins><br />
+
+<ins>+[INFO] |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:3.3.2:compile</ins><br />
+
+<ins>+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:10.1.26:compile</ins><br />
+
+<ins>+[INFO] |  |  +- org.apache.tomcat.embed:tomcat-embed-el:jar:10.1.26:compile</ins><br />
+
+<ins>+[INFO] |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:10.1.26:compile</ins><br />
+
+<ins>+[INFO] |  +- org.springframework:spring-web:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  |  +- org.springframework:spring-beans:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |  |  \- io.micrometer:micrometer-observation:jar:1.13.2:compile</ins><br />
+
+<ins>+[INFO] |  |     \- io.micrometer:micrometer-commons:jar:1.13.2:compile</ins><br />
+
+<ins>+[INFO] |  \- org.springframework:spring-webmvc:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |     +- org.springframework:spring-aop:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |     +- org.springframework:spring-context:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] |     \- org.springframework:spring-expression:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO] \- org.springframework.boot:spring-boot-starter-test:jar:3.3.2:test</ins><br />
+
+<ins>+[INFO]    +- org.springframework.boot:spring-boot-test:jar:3.3.2:test</ins><br />
+
+<ins>+[INFO]    +- org.springframework.boot:spring-boot-test-autoconfigure:jar:3.3.2:test</ins><br />
+
+<ins>+[INFO]    +- com.jayway.jsonpath:json-path:jar:2.9.0:test</ins><br />
+
+<ins>+[INFO]    |  \- org.slf4j:slf4j-api:jar:2.0.13:compile</ins><br />
+
+<ins>+[INFO]    +- jakarta.xml.bind:jakarta.xml.bind-api:jar:4.0.2:test</ins><br />
+
+<ins>+[INFO]    |  \- jakarta.activation:jakarta.activation-api:jar:2.1.3:test</ins><br />
+
+<ins>+[INFO]    +- net.minidev:json-smart:jar:2.5.1:test</ins><br />
+
+<ins>+[INFO]    |  \- net.minidev:accessors-smart:jar:2.5.1:test</ins><br />
+
+<ins>+[INFO]    |     \- org.ow2.asm:asm:jar:9.6:test</ins><br />
+
+<ins>+[INFO]    +- org.assertj:assertj-core:jar:3.25.3:test</ins><br />
+
+<ins>+[INFO]    |  \- net.bytebuddy:byte-buddy:jar:1.14.18:test</ins><br />
+
+<ins>+[INFO]    +- org.awaitility:awaitility:jar:4.2.1:test</ins><br />
+
+<ins>+[INFO]    +- org.hamcrest:hamcrest:jar:2.2:test</ins><br />
+
+<ins>+[INFO]    +- org.junit.jupiter:junit-jupiter:jar:5.10.3:test</ins><br />
+
+<ins>+[INFO]    |  +- org.junit.jupiter:junit-jupiter-api:jar:5.10.3:test</ins><br />
+
+<ins>+[INFO]    |  |  +- org.opentest4j:opentest4j:jar:1.3.0:test</ins><br />
+
+<ins>+[INFO]    |  |  +- org.junit.platform:junit-platform-commons:jar:1.10.3:test</ins><br />
+
+<ins>+[INFO]    |  |  \- org.apiguardian:apiguardian-api:jar:1.1.2:test</ins><br />
+
+<ins>+[INFO]    |  +- org.junit.jupiter:junit-jupiter-params:jar:5.10.3:test</ins><br />
+
+<ins>+[INFO]    |  \- org.junit.jupiter:junit-jupiter-engine:jar:5.10.3:test</ins><br />
+
+<ins>+[INFO]    |     \- org.junit.platform:junit-platform-engine:jar:1.10.3:test</ins><br />
+
+<ins>+[INFO]    +- org.mockito:mockito-core:jar:5.11.0:test</ins><br />
+
+<ins>+[INFO]    |  +- net.bytebuddy:byte-buddy-agent:jar:1.14.18:test</ins><br />
+
+<ins>+[INFO]    |  \- org.objenesis:objenesis:jar:3.3:test</ins><br />
+
+<ins>+[INFO]    +- org.mockito:mockito-junit-jupiter:jar:5.11.0:test</ins><br />
+
+<ins>+[INFO]    +- org.skyscreamer:jsonassert:jar:1.5.3:test</ins><br />
+
+<ins>+[INFO]    |  \- com.vaadin.external.google:android-json:jar:0.0.20131108.vaadin1:test</ins><br />
+
+<ins>+[INFO]    +- org.springframework:spring-core:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO]    |  \- org.springframework:spring-jcl:jar:6.1.11:compile</ins><br />
+
+<ins>+[INFO]    +- org.springframework:spring-test:jar:6.1.11:test</ins><br />
+
+<ins>+[INFO]    \- org.xmlunit:xmlunit-core:jar:2.9.1:test</ins><br />
+
+<ins>+[INFO] ------------------------------------------------------------------------</ins><br />
+
+<ins>+[INFO] BUILD SUCCESS</ins><br />
+
+<ins>+[INFO] ------------------------------------------------------------------------</ins><br />
+
+<ins>+[INFO] Total time:  1.059 s</ins><br />
+
+<ins>+[INFO] Finished at: 2024-08-14T09:47:39+02:00</ins><br />
+
+<ins>+[INFO] ------------------------------------------------------------------------</ins><br />
+
+</div>
+

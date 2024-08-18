@@ -47,8 +47,8 @@ pre>code.language-groovy, pre>code.language-wrapped-groovy {
 
 .img-frame {
     border-style: dashed;
-    border-width: 1px;
-    border-color: #888888;
+    border-width: 1.5px;
+    border-color: teal;
 }
 
 .w-fit.img-frame {

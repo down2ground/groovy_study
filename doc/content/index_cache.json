@@ -284,8 +284,33 @@
       "entry": "console, Groovy",
       "link": "sections/solutions/groovy_console.html#index_entry_index_1",
       "title": "Groovy console"
+    },
+    {
+      "entry": "Ajax",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_2",
+      "title": "Groovy console"
+    },
+    {
+      "entry": "logic-less controller",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_3",
+      "title": "Groovy console"
+    },
+    {
+      "entry": "JSON, format",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_4",
+      "title": "Groovy console"
+    },
+    {
+      "entry": "json.tool",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_4",
+      "title": "Groovy console"
     }
   ],
   "doc/content/sections/ref/references.html": [],
-  "doc/content/patches/66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9.html": []
+  "doc/content/patches/28ec2b720ddb6405c25600b85a8a0230fcc5ee9c.html": [],
+  "doc/content/patches/3c58c015b4e9378126ec86c2d0ce3a81f42f61a4.html": [],
+  "doc/content/patches/5023a8176c11a98a7d4aecfe8c726aaa121c1269.html": [],
+  "doc/content/patches/50c798b76895787c41f67b56b2f44b65d9e49ddd.html": [],
+  "doc/content/patches/66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9.html": [],
+  "doc/content/patches/6b0681171308eb83fa17ae42a7ffd9fd75f7f75d.html": []
 }

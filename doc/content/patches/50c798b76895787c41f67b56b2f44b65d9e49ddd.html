@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Patch 50c798b76895787c41f67b56b2f44b65d9e49ddd</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../patch.css">
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a><a 
+class="header_item toggle_wide_only_inline"
+href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
+<a href="../../../doc_src/patches/50c798b76895787c41f67b56b2f44b65d9e49ddd.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+
+<img class="headerNavArrows" src="../../layout/pict/previous_page_h21px_inactive.png"
+alt="No back">
+
+<img class="headerNavArrows" src="../../layout/pict/next_page_h21px_inactive.png"
+alt="No next">
+
+<span class="headerTitle">Patch 50c798b76895787c41f67b56b2f44b65d9e49ddd</span>
+
+</div>
+
+<h1 style="width: unset; max-width: unset;">Patch 50c798b76895787c41f67b56b2f44b65d9e49ddd</h1>
+
+<p><strong>Commit message:</strong> 
+Groovy console implemented</p>
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/groovy_console/pom.xml b/code/groovy_console/pom.xml</span><br />
+
+<span class="index">index d52393a..043109f 100644</span><br />
+
+<span class="tree_minuses">--- a/code/groovy_console/pom.xml</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/pom.xml</span><br />
+
+<span class="two_ats">@@ -35,6 +35,11 @@</span><br />
+
+<span>             &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br />
+
+<span>             &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br />
+
+<span>         &lt;/dependency&gt;</span><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;org.codehaus.groovy&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;groovy&lt;/artifactId&gt;</ins><br />
+
+<ins>+            &lt;version&gt;3.0.22&lt;/version&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<span>     &lt;/dependencies&gt;</span><br />
+
+<span> </span><br />
+
+<span>     &lt;build&gt;</span><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/java/groovyconsole/Controller.java b/code/groovy_console/src/main/java/groovyconsole/Controller.java</span><br />
+
+<span class="index">index cc15ab5..69d0320 100644</span><br />
+
+<span class="tree_minuses">--- a/code/groovy_console/src/main/java/groovyconsole/Controller.java</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/java/groovyconsole/Controller.java</span><br />
+
+<span class="two_ats">@@ -1,26 +1,46 @@</span><br />
+
+<span> package groovyconsole;</span><br />
+
+<span> </span><br />
+
+<ins>+import groovy.lang.Binding;</ins><br />
+
+<ins>+import groovy.lang.GroovyShell;</ins><br />
+
+<span> import org.springframework.beans.factory.annotation.Autowired;</span><br />
+
+<ins>+import org.springframework.context.ApplicationContext;</ins><br />
+
+<span> import org.springframework.web.bind.annotation.GetMapping;</span><br />
+
+<span> import org.springframework.web.bind.annotation.PostMapping;</span><br />
+
+<span> import org.springframework.web.bind.annotation.RequestBody;</span><br />
+
+<span> import org.springframework.web.bind.annotation.RestController;</span><br />
+
+<span> </span><br />
+
+<ins>+import java.io.PrintWriter;</ins><br />
+
+<ins>+import java.io.StringWriter;</ins><br />
+
+<ins>+import java.util.Objects;</ins><br />
+
+<ins>+</ins><br />
+
+<span> @RestController</span><br />
+
+<span> public class Controller {</span><br />
+
+<span> </span><br />
+
+<span>     @Autowired</span><br />
+
+<span>     private State state;</span><br />
+
+<span> </span><br />
+
+<ins>+    @Autowired</ins><br />
+
+<ins>+    ApplicationContext ctx;</ins><br />
+
+<ins>+</ins><br />
+
+<span>     @PostMapping(&quot;/console&quot;)</span><br />
+
+<span>     public Result console(@RequestBody String script) {</span><br />
+
+<span>         state.incrementConsoleRequestCount();</span><br />
+
+<del>-        return script == null || script.isBlank() ?</del><br />
+
+<del>-                Result.builder().error(&quot;The script is empty!&quot;).build() :</del><br />
+
+<del>-                Result.builder()</del><br />
+
+<del>-                        .result(&quot;The script is: &quot; + script)</del><br />
+
+<del>-                        .output(&quot;Fake output&quot;)</del><br />
+
+<del>-                        .build();</del><br />
+
+<ins>+        Result.ResultBuilder resultBuilder = Result.builder();</ins><br />
+
+<ins>+        StringWriter stringWriter = new StringWriter();</ins><br />
+
+<ins>+        Binding binding = new SpringBinding(ctx);</ins><br />
+
+<ins>+        binding.setVariable(&quot;out&quot;, new PrintWriter(stringWriter));</ins><br />
+
+<ins>+        GroovyShell groovyShell = new GroovyShell(this.getClass().getClassLoader(), binding);</ins><br />
+
+<ins>+        try {</ins><br />
+
+<ins>+            Object result = groovyShell.evaluate(script);</ins><br />
+
+<ins>+            resultBuilder.result(Objects.toString(result));</ins><br />
+
+<ins>+        } catch (Throwable t) {</ins><br />
+
+<ins>+            resultBuilder.error(t.getMessage());</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+        String output = stringWriter.toString();</ins><br />
+
+<ins>+        if (output != null &amp;&amp; !output.isEmpty()) {</ins><br />
+
+<ins>+            resultBuilder.output(output);</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+        return resultBuilder.build();</ins><br />
+
+<span>     }</span><br />
+
+<span> </span><br />
+
+<span>     @GetMapping(&quot;/state&quot;)</span><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/java/groovyconsole/Greeter.java b/code/groovy_console/src/main/java/groovyconsole/Greeter.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..d41c5bc</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/java/groovyconsole/Greeter.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,14 @@</span><br />
+
+<ins>+package groovyconsole;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+public class Greeter {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    private String name;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public Greeter(String name) {</ins><br />
+
+<ins>+        this.name = name;</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+    </ins><br />
+
+<ins>+    public String greet() {</ins><br />
+
+<ins>+        return &quot;Hello, &quot; + (name == null || name.isBlank() ? &quot;stranger&quot; : name) + &quot;!&quot;;</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/java/groovyconsole/SpringBinding.java b/code/groovy_console/src/main/java/groovyconsole/SpringBinding.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..2bbea41</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/java/groovyconsole/SpringBinding.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,32 @@</span><br />
+
+<ins>+package groovyconsole;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import groovy.lang.Binding;</ins><br />
+
+<ins>+import org.springframework.context.ApplicationContext;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+public class SpringBinding extends Binding {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    private static final String APPLICATION_CONTEXT_NAME = &quot;_ctx&quot;;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    private final ApplicationContext ctx;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public SpringBinding(ApplicationContext ctx) {</ins><br />
+
+<ins>+        this.ctx = ctx;</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Override</ins><br />
+
+<ins>+    public Object getVariable(String name) {</ins><br />
+
+<ins>+        if (getVariables().containsKey(name)) {</ins><br />
+
+<ins>+            return getVariables().get(name);</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+        if (ctx.containsBean(name)) {</ins><br />
+
+<ins>+            Object variable = ctx.getBean(name);</ins><br />
+
+<ins>+            setVariable(name, variable);</ins><br />
+
+<ins>+            return variable;</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+        if (APPLICATION_CONTEXT_NAME.equals(name)) {</ins><br />
+
+<ins>+            setVariable(name, ctx.getBean(name));</ins><br />
+
+<ins>+            return ctx;</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+        return null;</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/resources/application.properties b/code/groovy_console/src/main/resources/application.properties</span><br />
+
+<span class="index">index 2109a44..a6a67c2 100644</span><br />
+
+<span class="tree_minuses">--- a/code/groovy_console/src/main/resources/application.properties</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/resources/application.properties</span><br />
+
+<span class="two_ats">@@ -1 +1,2 @@</span><br />
+
+<del>-spring.application.name=demo</del><br />
+
+<ins>+spring.application.name=Groovy console</ins><br />
+
+<ins>+some.property=This is ${spring.application.name}</ins><br />
+
+</div>
+
+<p></p>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

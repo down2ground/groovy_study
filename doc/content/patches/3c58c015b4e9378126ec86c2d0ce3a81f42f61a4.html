@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Patch 3c58c015b4e9378126ec86c2d0ce3a81f42f61a4</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../favicon.png">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../patch.css">
+<link rel="stylesheet" type="text/css" href="../../layout/flex.css">
+<link rel="stylesheet" type="text/css" href="../../custom.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../readme.html"><img 
+class="logo_image" src="../../favicon.png" alt="Logo"></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../index_page.html"><img 
+class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a><a 
+class="header_item toggle_wide_only_inline"
+href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
+<a href="../../../doc_src/patches/3c58c015b4e9378126ec86c2d0ce3a81f42f61a4.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+
+
+<img class="headerNavArrows" src="../../layout/pict/previous_page_h21px_inactive.png"
+alt="No back">
+
+<img class="headerNavArrows" src="../../layout/pict/next_page_h21px_inactive.png"
+alt="No next">
+
+<span class="headerTitle">Patch 3c58c015b4e9378126ec86c2d0ce3a81f42f61a4</span>
+
+</div>
+
+<h1 style="width: unset; max-width: unset;">Patch 3c58c015b4e9378126ec86c2d0ce3a81f42f61a4</h1>
+
+<p><strong>Commit message:</strong> 
+UI and REST added</p>
+<div class="patch_block">
+
+<span class="diff">diff --git a/code/groovy_console/pom.xml b/code/groovy_console/pom.xml</span><br />
+
+<span class="index">index 61d7737..d52393a 100644</span><br />
+
+<span class="tree_minuses">--- a/code/groovy_console/pom.xml</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/pom.xml</span><br />
+
+<span class="two_ats">@@ -26,12 +26,15 @@</span><br />
+
+<span>             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br />
+
+<span>             &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br />
+
+<span>         &lt;/dependency&gt;</span><br />
+
+<del>-</del><br />
+
+<span>         &lt;dependency&gt;</span><br />
+
+<span>             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br />
+
+<span>             &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br />
+
+<span>             &lt;scope&gt;test&lt;/scope&gt;</span><br />
+
+<span>         &lt;/dependency&gt;</span><br />
+
+<ins>+        &lt;dependency&gt;</ins><br />
+
+<ins>+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</ins><br />
+
+<ins>+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;</ins><br />
+
+<ins>+        &lt;/dependency&gt;</ins><br />
+
+<span>     &lt;/dependencies&gt;</span><br />
+
+<span> </span><br />
+
+<span>     &lt;build&gt;</span><br />
+
+<span class="two_ats">@@ -43,5 +46,4 @@</span><br />
+
+<span>             &lt;/plugin&gt;</span><br />
+
+<span>         &lt;/plugins&gt;</span><br />
+
+<span>     &lt;/build&gt;</span><br />
+
+<del>-</del><br />
+
+<span> &lt;/project&gt;</span><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/java/groovyconsole/Controller.java b/code/groovy_console/src/main/java/groovyconsole/Controller.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..cc15ab5</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/java/groovyconsole/Controller.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,30 @@</span><br />
+
+<ins>+package groovyconsole;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import org.springframework.beans.factory.annotation.Autowired;</ins><br />
+
+<ins>+import org.springframework.web.bind.annotation.GetMapping;</ins><br />
+
+<ins>+import org.springframework.web.bind.annotation.PostMapping;</ins><br />
+
+<ins>+import org.springframework.web.bind.annotation.RequestBody;</ins><br />
+
+<ins>+import org.springframework.web.bind.annotation.RestController;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+@RestController</ins><br />
+
+<ins>+public class Controller {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Autowired</ins><br />
+
+<ins>+    private State state;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @PostMapping(&quot;/console&quot;)</ins><br />
+
+<ins>+    public Result console(@RequestBody String script) {</ins><br />
+
+<ins>+        state.incrementConsoleRequestCount();</ins><br />
+
+<ins>+        return script == null || script.isBlank() ?</ins><br />
+
+<ins>+                Result.builder().error(&quot;The script is empty!&quot;).build() :</ins><br />
+
+<ins>+                Result.builder()</ins><br />
+
+<ins>+                        .result(&quot;The script is: &quot; + script)</ins><br />
+
+<ins>+                        .output(&quot;Fake output&quot;)</ins><br />
+
+<ins>+                        .build();</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @GetMapping(&quot;/state&quot;)</ins><br />
+
+<ins>+    public State state() {</ins><br />
+
+<ins>+        return state;</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/java/groovyconsole/MvcConfig.java b/code/groovy_console/src/main/java/groovyconsole/MvcConfig.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..62b94c6</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/java/groovyconsole/MvcConfig.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,14 @@</span><br />
+
+<ins>+package groovyconsole;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import org.springframework.context.annotation.Configuration;</ins><br />
+
+<ins>+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;</ins><br />
+
+<ins>+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+@Configuration</ins><br />
+
+<ins>+public class MvcConfig implements WebMvcConfigurer {</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    @Override</ins><br />
+
+<ins>+    public void addViewControllers(ViewControllerRegistry registry) {</ins><br />
+
+<ins>+        registry.addViewController(&quot;/&quot;).setViewName(&quot;console.html&quot;);</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/java/groovyconsole/Result.java b/code/groovy_console/src/main/java/groovyconsole/Result.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..6c951ec</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/java/groovyconsole/Result.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,12 @@</span><br />
+
+<ins>+package groovyconsole;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import lombok.Builder;</ins><br />
+
+<ins>+import lombok.Data;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+@Data</ins><br />
+
+<ins>+@Builder</ins><br />
+
+<ins>+public class Result {</ins><br />
+
+<ins>+    private String error;</ins><br />
+
+<ins>+    private String result;</ins><br />
+
+<ins>+    private String output;</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/java/groovyconsole/State.java b/code/groovy_console/src/main/java/groovyconsole/State.java</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..e561e72</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/java/groovyconsole/State.java</span><br />
+
+<span class="two_ats">@@ -0,0 +1,15 @@</span><br />
+
+<ins>+package groovyconsole;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+import lombok.Data;</ins><br />
+
+<ins>+import org.springframework.stereotype.Component;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+@Component</ins><br />
+
+<ins>+@Data</ins><br />
+
+<ins>+public class State {</ins><br />
+
+<ins>+    private int consoleRequestCount = 0;</ins><br />
+
+<ins>+    private String someProperty;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+    public void incrementConsoleRequestCount() {</ins><br />
+
+<ins>+        ++consoleRequestCount;</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/resources/static/console.html b/code/groovy_console/src/main/resources/static/console.html</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..1b1695d</span><br />
+
+<span class="tree_minuses">--- /dev/null</span><br />
+
+<span class="tree_pluses">+++ b/code/groovy_console/src/main/resources/static/console.html</span><br />
+
+<span class="two_ats">@@ -0,0 +1,81 @@</span><br />
+
+<ins>+&lt;!DOCTYPE html&gt;</ins><br />
+
+<ins>+&lt;html lang=&quot;en&quot;&gt;</ins><br />
+
+<ins>+&lt;head&gt;</ins><br />
+
+<ins>+    &lt;meta charset=&quot;UTF-8&quot;&gt;</ins><br />
+
+<ins>+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</ins><br />
+
+<ins>+    &lt;title&gt;Groovy console&lt;/title&gt;</ins><br />
+
+<ins>+    &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;favicon.png&quot;&gt;</ins><br />
+
+<ins>+&lt;/head&gt;</ins><br />
+
+<ins>+&lt;body&gt;</ins><br />
+
+<ins>+&lt;table&gt;</ins><br />
+
+<ins>+    &lt;thead&gt;</ins><br />
+
+<ins>+    &lt;tr&gt;&lt;th&gt;Script&lt;/th&gt;&lt;th&gt;Result&lt;/th&gt;&lt;/tr&gt;</ins><br />
+
+<ins>+    &lt;/thead&gt;</ins><br />
+
+<ins>+    &lt;tbody&gt;</ins><br />
+
+<ins>+    &lt;tr&gt;</ins><br />
+
+<ins>+        &lt;td&gt;&lt;button type=&quot;button&quot; onclick=&quot;execute();return false;&quot;&gt;Execute&lt;/button&gt;&lt;/td&gt;</ins><br />
+
+<ins>+        &lt;td&gt;&lt;button type=&quot;button&quot; onclick=&quot;clearResult();return false;&quot;&gt;Clear&lt;/button&gt;&lt;/td&gt;</ins><br />
+
+<ins>+    &lt;/tr&gt;</ins><br />
+
+<ins>+    &lt;tr&gt;</ins><br />
+
+<ins>+        &lt;td&gt;&lt;textarea id=&quot;script&quot; rows=&quot;11&quot; cols=&quot;50&quot;</ins><br />
+
+<ins>+                          maxlength=&quot;500000&quot;&gt;println &quot;Hello world!&quot;&lt;/textarea&gt;&lt;/td&gt;</ins><br />
+
+<ins>+        &lt;td&gt;&lt;textarea id=&quot;result&quot; rows=&quot;11&quot; cols=&quot;50&quot;</ins><br />
+
+<ins>+                      maxlength=&quot;500000&quot;&gt;&lt;/textarea&gt;&lt;/td&gt;</ins><br />
+
+<ins>+    &lt;/tr&gt;</ins><br />
+
+<ins>+    &lt;/tbody&gt;</ins><br />
+
+<ins>+&lt;/table&gt;</ins><br />
+
+<ins>+&lt;h3&gt;Application state&lt;/h3&gt;</ins><br />
+
+<ins>+&lt;table&gt;</ins><br />
+
+<ins>+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;consoleRequestCount:&lt;/strong&gt;&lt;/td&gt;&lt;td id=&quot;consoleRequestCount&quot;&gt;&lt;/td&gt;&lt;/tr&gt;</ins><br />
+
+<ins>+&lt;tr&gt;&lt;td&gt;&lt;strong&gt;someProperty:&lt;/strong&gt;&lt;/td&gt;&lt;td id=&quot;someProperty&quot;&gt;&lt;/td&gt;&lt;/tr&gt;</ins><br />
+
+<ins>+&lt;/table&gt;</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+&lt;script&gt;</ins><br />
+
+<ins>+let scriptElement = document.getElementById(&quot;script&quot;)</ins><br />
+
+<ins>+let resultElement = document.getElementById(&quot;result&quot;)</ins><br />
+
+<ins>+let consoleRequestCountElement = document.getElementById(&quot;consoleRequestCount&quot;)</ins><br />
+
+<ins>+let somePropertyElement = document.getElementById(&quot;someProperty&quot;)</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+async function execute() {</ins><br />
+
+<ins>+    let result = await sendRequest(&quot;console&quot;, &quot;POST&quot;, scriptElement.value)</ins><br />
+
+<ins>+    resultElement.value += &quot;\n----------\n&quot; +</ins><br />
+
+<ins>+            (result.error ? &quot;ERROR: &quot; + result.error :</ins><br />
+
+<ins>+            &quot;RESULT: &quot; + result.result) +</ins><br />
+
+<ins>+            (result.output ? &quot;\n&quot; + &quot;OUTPUT: &quot; + result.output : &quot;&quot;) + &quot;\n&quot;</ins><br />
+
+<ins>+    updateState()</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+function clearResult() {</ins><br />
+
+<ins>+    resultElement.value = &quot;&quot;</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+async function sendRequest(url, method, body) {</ins><br />
+
+<ins>+    try {</ins><br />
+
+<ins>+        const response = await fetch(url, {</ins><br />
+
+<ins>+            method: method,</ins><br />
+
+<ins>+            headers: {</ins><br />
+
+<ins>+                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,</ins><br />
+
+<ins>+            },</ins><br />
+
+<ins>+            body: body,</ins><br />
+
+<ins>+        })</ins><br />
+
+<ins>+        if (response.ok) {</ins><br />
+
+<ins>+            return await response.json()</ins><br />
+
+<ins>+        } else {</ins><br />
+
+<ins>+            return {&quot;error&quot;: &quot;Request failed with status &quot; + response.status +</ins><br />
+
+<ins>+                    &quot; &quot; + response.statusText}</ins><br />
+
+<ins>+        }</ins><br />
+
+<ins>+    } catch (error) {</ins><br />
+
+<ins>+        return {&quot;error&quot;: &quot;REQUEST ERROR: &quot; + error}</ins><br />
+
+<ins>+    }</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+async function updateState() {</ins><br />
+
+<ins>+    let result = await sendRequest(&quot;state&quot;, &quot;GET&quot;)</ins><br />
+
+<ins>+    consoleRequestCountElement.innerText = result.consoleRequestCount</ins><br />
+
+<ins>+    somePropertyElement.innerText = result.someProperty</ins><br />
+
+<ins>+}</ins><br />
+
+<ins>+</ins><br />
+
+<ins>+updateState()</ins><br />
+
+<ins>+&lt;/script&gt;</ins><br />
+
+<ins>+&lt;/body&gt;</ins><br />
+
+<ins>+&lt;/html&gt;</ins><br />
+
+<span class="diff">diff --git a/code/groovy_console/src/main/resources/static/favicon.png b/code/groovy_console/src/main/resources/static/favicon.png</span><br />
+
+<span>new file mode 100644</span><br />
+
+<span class="index">index 0000000..9d0e13a</span><br />
+
+<span>Binary files /dev/null and b/code/groovy_console/src/main/resources/static/favicon.png differ</span><br />
+
+</div>
+
+<p></p>
+
+<p>&nbsp;</p>
+
+</body>
+</html>
