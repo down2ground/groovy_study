@@ -70,10 +70,11 @@
 [INFO] |  |  \- org.springframework:spring-jcl:jar:6.1.11:compile
 [INFO] |  +- org.springframework:spring-test:jar:6.1.11:test
 [INFO] |  \- org.xmlunit:xmlunit-core:jar:2.9.1:test
-[INFO] \- org.projectlombok:lombok:jar:1.18.34:compile
+[INFO] +- org.projectlombok:lombok:jar:1.18.34:compile
+[INFO] \- org.codehaus.groovy:groovy:jar:3.0.22:compile
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.106 s
-[INFO] Finished at: 2024-08-18T08:15:23+02:00
+[INFO] Total time:  1.067 s
+[INFO] Finished at: 2024-08-18T09:34:41+02:00
 [INFO] ------------------------------------------------------------------------
