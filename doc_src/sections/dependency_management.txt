@@ -1,0 +1,20 @@
+<!--VARIABLES {"title": "Dependency management", "SORT_ORDER": "090", "code": "dependency_management"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+<!--index ["Grape dependency manager", "@Grab", "permutations"]-->
+# Grape dependency manager
+
+See:
+
+- [<!--ref groovy_site-->, [The Grape dependency manager](https://groovy-lang.org/grape.html)]
+- [<!--ref groovy_api-->, [Dependency management with Grape](http://docs.groovy-lang.org/latest/html/documentation/grape.html)]
+
+> **Grape** is a JAR dependency manager embedded into Groovy. Grape lets us quickly add maven
+> repository dependencies to our classpath, making scripting even easier.
+
+````groovy
+<!--include project1/dependency_management.groovy-->
+````
+

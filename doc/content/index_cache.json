@@ -329,5 +329,22 @@
       "link": "sections/groovy_dsl.html#index_entry_index_1",
       "title": "Groovy DSL"
     }
+  ],
+  "doc/content/sections/dependency_management.html": [
+    {
+      "entry": "Grape dependency manager",
+      "link": "sections/dependency_management.html#index_entry_index_1",
+      "title": "Dependency management"
+    },
+    {
+      "entry": "@Grab",
+      "link": "sections/dependency_management.html#index_entry_index_1",
+      "title": "Dependency management"
+    },
+    {
+      "entry": "permutations",
+      "link": "sections/dependency_management.html#index_entry_index_1",
+      "title": "Dependency management"
+    }
   ]
 }

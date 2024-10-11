@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><title>Groovy DSL</title>
+<head><title>Dependency management</title>
 <meta charset="utf-8">
 <link rel="shortcut icon" type="image/png" href="../../favicon.png">
 <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
@@ -33,16 +33,16 @@ href="../index_page.html"><img
 class="header_image index_image" src="../../layout/pict/search.png" alt="Index"></a><a 
 class="header_item toggle_wide_only_inline "
 href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
-<a href="../../../doc_src/sections/groovy_dsl.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
+<a href="../../../doc_src/sections/dependency_management.txt" class="source_file toggle_wide_only_inline" title="Source text">&lt;/&gt;</a>
 
-<a href="regex.html" title="Previous: Regular expressions"><img class="headerNavArrows"
+<a href="groovy_dsl.html" title="Previous: Groovy DSL"><img class="headerNavArrows"
 src="../../layout/pict/previous_page_h21px.png" alt="Back"></a>
  
-<a href="dependency_management.html" title="Next: Dependency management"><img class="headerNavArrows"
+<a href="solutions/groovy_console.html" title="Next: Groovy console"><img class="headerNavArrows"
 src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 
 
-<span class="headerTitle">Groovy DSL</span>
+<span class="headerTitle">Dependency management</span>
 
 </div>
 
@@ -53,7 +53,7 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
             <div class="align_right toggle_narrow_only_block">
             <a class="sidebar_item_inline align_right" href="https://github.com/down2ground/groovy_study">GitHub</a>
             
-            <a href="../../../doc_src/sections/groovy_dsl.txt" class="sidebar_item_inline source_file align_right" 
+            <a href="../../../doc_src/sections/dependency_management.txt" class="sidebar_item_inline source_file align_right" 
                 title="Source text">&lt;/&gt;</a>
             
             </div>
@@ -67,8 +67,8 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
             <a class="sidebar_item " href="io.html">Input and output</a>
             <a class="sidebar_item " href="oop.html">OOP</a>
             <a class="sidebar_item " href="regex.html">Regular expressions</a>
-            <a class="sidebar_item selected " href="groovy_dsl.html">Groovy DSL</a>
-            <a class="sidebar_item " href="dependency_management.html">Dependency management</a>
+            <a class="sidebar_item " href="groovy_dsl.html">Groovy DSL</a>
+            <a class="sidebar_item selected " href="dependency_management.html">Dependency management</a>
             </div><div class="sidebar_block">
             <h3>Solutions</h3>
             <a class="sidebar_item " href="solutions/groovy_console.html">Groovy console</a>
@@ -82,62 +82,47 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 </div>
 </div>
 
-<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Groovy DSL</p>
+<p style="font-size:44px;font-weight:bold;margin:0 0 30px 0;">Dependency management</p>
 
 <div class="toc">
 <ul>
-<li><a href="#groovy-dsl">Groovy DSL</a></li>
+<li><a href="#grape-dependency-manager">Grape dependency manager</a></li>
 </ul>
 </div>
 <hr />
 <p><a name="index_entry_index_1"></a></p>
-<h1 id="groovy-dsl">Groovy DSL</h1>
-<p>See [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://groovy-lang.org/dsls.html">Domain-Specific Languages</a>]:</p>
+<h1 id="grape-dependency-manager">Grape dependency manager</h1>
+<p>See:</p>
+<ul>
+<li>[<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://groovy-lang.org/grape.html">The Grape dependency manager</a>]</li>
+<li>[<a class="ref" href="ref/references.html#groovy_api">groovy_api</a>, <a href="http://docs.groovy-lang.org/latest/html/documentation/grape.html">Dependency management with Grape</a>]</li>
+</ul>
 <blockquote>
-<p>Groovy lets us omit parentheses around the arguments of a method call for top-level statements.
-"Command chain" feature extends this by allowing us to chain such parentheses-free method calls,
-requiring neither parentheses around arguments, nor dots between the chained calls.
-The general idea is that a call like:</p>
-<pre class="highlight"><code class="language-groovy">a b c d</code></pre>
-<p>will actually be equivalent to:</p>
-<pre class="highlight"><code class="language-groovy">a(b).c(d)</code></pre>
-<p>This also works with multiple arguments, closure arguments, and even named arguments.
-Furthermore, such command chains can also appear on the right-hand side of assignments.</p>
+<p><strong>Grape</strong> is a JAR dependency manager embedded into Groovy. Grape lets us quickly add maven
+repository dependencies to our classpath, making scripting even easier.</p>
 </blockquote>
-<p>Here's a small primitive real example:</p>
-<pre class="highlight"><code class="language-groovy">class Box {
-    private int content = 0
-    Box(int content) { this.content = content }
-    Box add(int value) { content += value; return this }
-    void show() { println(content) }
-}
-static Box box(int content) { return new Box(content) }
+<pre class="highlight"><code class="language-groovy">@Grab('org.apache.commons:commons-collections4:4.5.0-M2')
+import org.apache.commons.collections4.iterators.PermutationIterator
 
-box(5).add(3).add(2).show() // 10</code></pre>
-<p>The last line can be rewritten the following way:</p>
-<pre class="highlight"><code class="language-groovy">box 5 add 3 add 2 show() // 10</code></pre>
-<p>The last component <code>show()</code> is not clean enough as it has braces. In this situation it's
-unavoidable.</p>
-<p>There are various strategies that we can use. The following example will use maps and closures:</p>
-<pre class="highlight"><code class="language-groovy">show = { println it }
-square_root = { Math.sqrt(it) }
+PermutationIterator&lt;Integer&gt; permutationIterator = new PermutationIterator&lt;&gt;([1, 2, 3])
 
-static def please(action) {
-    [the: { what -&gt;
-        [of: { n -&gt; action(what(n)) }]
-    }]
+while (permutationIterator.hasNext()) {
+    println(permutationIterator.next())
 }
 
-please(show).the(square_root).of(121) // 11.0</code></pre>
-<p>The equivalent form:</p>
-<pre class="highlight"><code class="language-groovy">please show the square_root of 121 // 11.0</code></pre>
+// [1, 2, 3]
+// [1, 3, 2]
+// [3, 1, 2]
+// [3, 2, 1]
+// [2, 3, 1]
+// [2, 1, 3]</code></pre>
 <p>&nbsp;</p>
 <hr />
 
-<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="regex.html" 
-title="Previous: Regular expressions"><img src="../../layout/pict/previous_page.png"
+<p style="margin-top:0px;margin-bottom:0px;text-align:right;"><a href="groovy_dsl.html" 
+title="Previous: Groovy DSL"><img src="../../layout/pict/previous_page.png"
 alt="Back"></a>
-<a href="dependency_management.html" title="Next: Dependency management"><img 
+<a href="solutions/groovy_console.html" title="Next: Groovy console"><img 
 src="../../layout/pict/next_page.png" alt="Next"></a>
 </p>
 
