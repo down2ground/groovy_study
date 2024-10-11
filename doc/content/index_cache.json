@@ -312,5 +312,17 @@
   "doc/content/patches/5023a8176c11a98a7d4aecfe8c726aaa121c1269.html": [],
   "doc/content/patches/50c798b76895787c41f67b56b2f44b65d9e49ddd.html": [],
   "doc/content/patches/66bfc6ce328ff55b7af8ccacf3d6a8a4f71848c9.html": [],
-  "doc/content/patches/6b0681171308eb83fa17ae42a7ffd9fd75f7f75d.html": []
+  "doc/content/patches/6b0681171308eb83fa17ae42a7ffd9fd75f7f75d.html": [],
+  "doc/content/sections/groovy_dsl.html": [
+    {
+      "entry": "Groovy DSL",
+      "link": "sections/groovy_dsl.html#index_entry_index_1",
+      "title": "Groovy DSL"
+    },
+    {
+      "entry": "DSL, Groovy",
+      "link": "sections/groovy_dsl.html#index_entry_index_1",
+      "title": "Groovy DSL"
+    }
+  ]
 }

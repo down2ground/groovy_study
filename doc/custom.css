@@ -55,7 +55,9 @@ pre>code.language-groovy, pre>code.language-wrapped-groovy {
     max-width: 49.88rem;
 }
 
-
+td pre {
+    margin: 0px;
+}
 
 
 

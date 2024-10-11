@@ -1,0 +1,77 @@
+<!--VARIABLES {"title": "Groovy DSL", "SORT_ORDER": "080", "code": "groovy_dsl"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+<!--index ["Groovy DSL", "DSL, Groovy"]-->
+# Groovy DSL
+
+See [<!--ref groovy_site-->, [Domain-Specific Languages](https://groovy-lang.org/dsls.html)]:
+
+> Groovy lets us omit parentheses around the arguments of a method call for top-level statements.
+> "Command chain" feature extends this by allowing us to chain such parentheses-free method calls,
+> requiring neither parentheses around arguments, nor dots between the chained calls.
+> The general idea is that a call like:
+> 
+> ````groovy
+> a b c d
+> ````
+> 
+> will actually be equivalent to:
+> 
+> ````groovy
+> a(b).c(d)
+> ````
+> 
+> This also works with multiple arguments, closure arguments, and even named arguments.
+> Furthermore, such command chains can also appear on the right-hand side of assignments.
+
+Here's a small primitive real example:
+
+````groovy
+class Box {
+    private int content = 0
+    Box(int content) { this.content = content }
+    Box add(int value) { content += value; return this }
+    void show() { println(content) }
+}
+static Box box(int content) { return new Box(content) }
+
+box(5).add(3).add(2).show() // 10
+````
+
+The last line can be rewritten the following way:
+
+````groovy
+box 5 add 3 add 2 show() // 10
+````
+
+The last component `show()` is not clean enough as it has braces. In this situation it's
+unavoidable.
+
+There are various strategies that we can use. The following example will use maps and closures:
+
+````groovy
+show = { println it }
+square_root = { Math.sqrt(it) }
+
+static def please(action) {
+    [the: { what ->
+        [of: { n -> action(what(n)) }]
+    }]
+}
+
+please(show).the(square_root).of(121) // 11.0
+````
+
+The equivalent form:
+
+````groovy
+please show the square_root of 121 // 11.0
+````
+
+
+
+
+
+

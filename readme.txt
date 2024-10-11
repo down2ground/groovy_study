@@ -17,12 +17,12 @@ different from Java. The obvious things are going to be skipped.
 ----------------------------------------------------------------------------------------------------
 # Change log
 
-Jun 12, 2024 The study started.
-
-Jul 10, 2024 The Groovy basics study finished.
-
-Aug 13, 2024 The Groovy console implementation stated.
+Oct 11, 2024 The "Groovy DSL" section added.
 
 Aug 18, 2024 The Groovy console implementation finished.
 
+Aug 13, 2024 The Groovy console implementation started.
 
+Jul 10, 2024 The Groovy basics study finished.
+
+Jun 12, 2024 The study started.
