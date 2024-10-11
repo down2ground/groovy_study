@@ -87,6 +87,7 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <ul>
 <li><a href="#methods">Methods</a></li>
 <li><a href="#closures">Closures</a></li>
+<li><a href="#curries">Curries</a></li>
 </ul>
 </div>
 <hr />
@@ -145,6 +146,28 @@ closure() // Bob</code></pre>
 Interesting thing here is the fact that the <code>Alice</code> and the <code>Bob</code> classes are different and their 
 <code>name</code> attributes are resolved dynamically at run time.  Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>,
 <a href="http://groovy-lang.org/closures.html#_delegation_strategy">3. Delegation strategy</a>].</p>
+<hr />
+<p><a name="index_entry_index_4"></a></p>
+<h1 id="curries">Curries</h1>
+<p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://groovy-lang.org/closures.html#_currying">6.1. Currying</a>]
+and [<a class="ref" href="ref/references.html#groovy_wiki">groovy_wiki</a>, <a href="https://en.wikipedia.org/wiki/Apache_Groovy#Curry">Curry</a>].</p>
+<blockquote>
+<p>Usually called <em>partial application</em>, this Groovy feature allows closures' parameters to be set
+to a default parameter in any of their arguments, creating a new closure with the bound value.
+Supplying one argument to the <code>curry()</code> method will fix argument one. Supplying <code>N</code> arguments
+will fix arguments <code>1..N</code>. </p>
+</blockquote>
+<pre class="highlight"><code class="language-groovy">def nCopies = { int n, String str -&gt; str * n }
+def twice = nCopies.curry(2) // left currying
+println twice("go ") // go go
+
+def hi = nCopies.rcurry('hi ') // right currying
+println hi(2) // hi hi
+
+def volume = { double l, double w, double h -&gt; l * w * h }
+def area = volume.ncurry(1, 1d)
+println volume(2, 1, 3) // 6.0
+println area(2, 3) // 6.0</code></pre>
 <p>&nbsp;</p>
 <hr />
 

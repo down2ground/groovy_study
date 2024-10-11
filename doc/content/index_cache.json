@@ -144,6 +144,11 @@
       "entry": "delegation",
       "link": "sections/methods_and_closures.html#index_entry_index_3",
       "title": "Methods and Closures"
+    },
+    {
+      "entry": "curries",
+      "link": "sections/methods_and_closures.html#index_entry_index_4",
+      "title": "Methods and Closures"
     }
   ],
   "doc/content/sections/collections.html": [

@@ -32,9 +32,20 @@ Interesting thing here is the fact that the `Alice` and the `Bob` classes are di
 `name` attributes are resolved dynamically at run time.  Also see [<!--ref groovy_site-->,
 [3. Delegation strategy](http://groovy-lang.org/closures.html#_delegation_strategy)].
 
+----------------------------------------------------------------------------------------------------
+<!--index ["curries"]-->
+# Curries
 
+Also see [<!--ref groovy_site-->, [6.1. Currying](https://groovy-lang.org/closures.html#_currying)]
+and [<!--ref groovy_wiki-->, [Curry](https://en.wikipedia.org/wiki/Apache_Groovy#Curry)].
 
+> Usually called *partial application*, this Groovy feature allows closures' parameters to be set
+> to a default parameter in any of their arguments, creating a new closure with the bound value.
+> Supplying one argument to the `curry()` method will fix argument one. Supplying `N` arguments
+> will fix arguments `1..N`. 
 
-
+````groovy
+<!--include project1/curries.groovy-->
+````
 
 
