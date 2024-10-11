@@ -24,9 +24,11 @@ static def please(action) {
     }]
 }
 
-please(show).the(square_root).of(121) // 11.0
+please(show).the(square_root).of(121)
+// 11.0
 
-please show the square_root of 121 // 11.0
+please show the square_root of 121
+// 11.0
 
 
 

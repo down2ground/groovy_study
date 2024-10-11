@@ -3,7 +3,7 @@
 [TOC]
 
 ----------------------------------------------------------------------------------------------------
-<!--index ["Grape dependency manager", "@Grab", "permutations"]-->
+<!--index ["Grape dependency manager", "@Grab", "permutations", "dependency management"]-->
 # Grape dependency manager
 
 See:
