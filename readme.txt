@@ -18,7 +18,7 @@ different from Java. The obvious things are going to be skipped.
 # Change log
 
 Jun 22, 2025 [Intermediate Java code introspection](<!--page sidesteps-->#intermediate_java_code_introspection)
-investigated.
+and [Method and closure visibility scope](<!--page methods_and_closures-->#visibility_scope)
 
 Oct 11, 2024 The "Groovy DSL" section added.
 

@@ -1,6 +1,6 @@
 
 def sum(int a, int b=0) { // parameter `b` has the default value
-    a + b // no need for the `return` operator (though it may be used if required)
+    a + b // no need for the `return` operator (though it may be used if we would like)
 }
 
 println sum(7, 4) // 11

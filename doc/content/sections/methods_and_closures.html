@@ -89,8 +89,15 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 
 <div class="toc">
 <ul>
-<li><a href="#methods">Methods</a></li>
+<li><a href="#methods">Methods</a><ul>
+<li><a href="#introspection">Introspection</a></li>
+</ul>
+</li>
 <li><a href="#closures">Closures</a></li>
+<li><a href="#visibility_scope">Method and closure visibility scope</a><ul>
+<li><a href="#field-annotation">@Field annotation</a></li>
+</ul>
+</li>
 <li><a href="#curries">Curries</a></li>
 </ul>
 </div>
@@ -101,11 +108,57 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <div class="blockSrc">project1/methods.groovy</div>
 
 <pre class="highlight"><code class="language-groovy">def sum(int a, int b=0) { // parameter `b` has the default value
-    a + b // no need for the `return` operator (though it may be used if required)
+    a + b // no need for the `return` operator (though it may be used if we would like)
 }
 
 println sum(7, 4) // 11
 println sum(7) // 7</code></pre>
+<p><a name="index_entry_index_return_keyword_optional"></a></p>
+<blockquote>
+<p>In Groovy, the last expression evaluated in the body of a method can be returned without
+necessitating the <code>return</code> keyword. Especially for short methods and for closures, it's nicer to
+omit it for brevity.</p>
+<p class="right">&mdash; [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>,
+<a href="https://groovy-lang.org/style-guide.html#_return_keyword_optional">2. Return keyword optional</a>]</p>
+</blockquote>
+<h2 id="introspection">Introspection</h2>
+<p>Also see <a href="sidesteps/sidesteps.html#intermediate_java_code_introspection">Intermediate Java code introspection</a>
+and <a href="sidesteps/sidesteps.html#running_by_java_runtime">Running by Java runtime</a>.</p>
+<pre class="highlight"><code class="language-shell">&gt;groovyc methods.groovy
+
+&gt;dir /b | find "methods.class"
+methods.class
+
+&gt;java -cp ".;%GROOVY_HOME%\lib\*" methods
+11
+7
+
+&gt;java -jar %CFR_HOME%cfr-0.152.jar methods.class &gt; methods.java
+
+&gt;del methods.class</code></pre>
+<p>Here we also ran the generated class with Java runtime to confirm that it works.</p>
+<p>The result is:</p>
+<div class="blockSrc">project1/methods.java</div>
+
+<pre class="highlight"><code class="language-java">public class methods
+extends Script {
+...
+    public Object run() {
+        IndyInterface.bootstrap("invoke", "println", 2, this, IndyInterface.bootstrap("invoke", "sum", 2, this, 7, 4));
+        return IndyInterface.bootstrap("invoke", "println", 2, this, IndyInterface.bootstrap("invoke", "sum", 2, this, 7));
+    }
+
+    public Object sum(int a, int b) {
+        return IndyInterface.bootstrap("invoke", "plus", 0, a, b);
+    }
+
+    @Generated
+    public Object sum(int a) {
+        return this.sum(a, 0);
+    }
+...
+}</code></pre>
+<p>So we see a separate overloaded method was added to provide the default method parameter value feature.</p>
 <hr />
 <p><a name="index_entry_index_closures"></a></p>
 <h1 id="closures">Closures</h1>
@@ -146,10 +199,180 @@ closure.delegate = Alice
 closure() // Alice
 closure.delegate = Bob
 closure() // Bob</code></pre>
+<p>This may look strange that the global variable <code>name</code> is not visible inside the method <code>sayHello()</code>,
+this is investigated <a href="#visibility_scope">here</a>.</p>
 <p><a name="index_entry_index_delegation"></a>
 Interesting thing here is the fact that the <code>Alice</code> and the <code>Bob</code> classes are different and their 
 <code>name</code> attributes are resolved dynamically at run time.  Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>,
 <a href="http://groovy-lang.org/closures.html#_delegation_strategy">3. Delegation strategy</a>].</p>
+<hr />
+<p><a name="index_entry_index_scope_visibility"></a></p>
+<h1 id="visibility_scope">Method and closure visibility scope</h1>
+<div class="blockSrc">project1/closures_scopes.groovy</div>
+
+<pre class="highlight"><code class="language-groovy">def myName = 'John'
+
+def sayHello() {
+    //println "Hello from method, $myName!" // CANNOT use external variables
+}
+
+def myClosure = {-&gt; println "Hello from closure, $myName!"} // CAN use external variables
+
+sayHello() // prints nothing
+myClosure() // prints "Hello from closure, John!"</code></pre>
+<p>We are curious about why the global variable <code>myName</code> is not visible inside the method <code>sayHello()</code>,
+so want to see what happens under the hood (also see
+<a href="sidesteps/sidesteps.html#intermediate_java_code_introspection">Intermediate Java code introspection</a>):</p>
+<pre class="highlight"><code class="language-wrapped-shell">&gt;groovyc -d=closures_scopes_classes closures_scopes.groovy
+
+&gt;cd closures_scopes_classes
+
+&gt;dir /b
+closures_scopes$_run_closure1.class
+closures_scopes.class
+
+&gt;java -cp ".;%GROOVY_HOME%\lib\*" closures_scopes
+Hello from closure, John!
+
+&gt;java -jar %CFR_HOME%cfr-0.152.jar closures_scopes.class &gt; closures_scopes.java
+
+&gt;java -jar %CFR_HOME%cfr-0.152.jar closures_scopes$_run_closure1.class &gt; closures_scopes$_run_closure1.java
+
+&gt;del closures_scopes$_run_closure1.class
+&gt;del closures_scopes.class </code></pre>
+<p>As expected a separate class was generated for the closure.</p>
+<div class="blockSrc">project1/closures_scopes_classes/closures_scopes$_run_closure1.java</div>
+
+<pre class="highlight"><code class="language-java">...
+public final class closures_scopes._run_closure1
+extends Closure
+implements GeneratedClosure {
+    private /* synthetic */ Reference myName;
+    ...
+    public closures_scopes._run_closure1(Object _outerInstance, Object _thisObject, Reference myName) {
+        super(_outerInstance, _thisObject);
+        Reference reference;
+        this.myName = reference = myName;
+    }
+
+    public Object doCall() {
+        return IndyInterface.bootstrap("invoke", "println", 2, this, new GStringImpl(
+            new Object[]{this.myName.get()}, new String[]{"Hello from closure, ", "!"}));
+    }
+
+    @Generated
+    public Object getMyName() {
+        return this.myName.get();
+    }
+    ...
+}</code></pre>
+<div class="blockSrc">project1/closures_scopes_classes/closures_scopes.java</div>
+
+<pre class="highlight"><code class="language-java">...
+public class closures_scopes
+extends Script {
+    ...
+    public Object run() {
+        Reference myName = new Reference((Object)"John");
+        public final class _run_closure1
+        extends Closure
+        implements GeneratedClosure {
+            private /* synthetic */ Reference myName;
+            ...
+            public _run_closure1(Object _outerInstance, Object _thisObject, Reference myName) {
+                super(_outerInstance, _thisObject);
+                Reference reference;
+                this.myName = reference = myName;
+            }
+
+            public Object doCall() {
+                return IndyInterface.bootstrap("invoke", "println", 2, this, new GStringImpl(
+                    new Object[]{this.myName.get()}, new String[]{"Hello from closure, ", "!"}));
+            }
+
+            @Generated
+            public Object getMyName() {
+                return this.myName.get();
+            }
+            ...
+        }
+        _run_closure1 myClosure = new _run_closure1((Object)this, (Object)this, myName);
+        IndyInterface.bootstrap("invoke", "sayHello", 2, this);
+        return IndyInterface.bootstrap("invoke", "call", 0, myClosure);
+    }
+
+    public Object sayHello() {
+        return null;
+    }
+    ...
+}</code></pre>
+<p>As we can see the so-called "global variable" <code>myName</code> is actually defined as a <strong>local</strong> variable
+inside the <code>run()</code> method. The <code>sayHello()</code> method is defined outside the <code>run()</code> method and called
+inside the <code>run()</code> method. So it cannot see the <code>myName</code> variable.</p>
+<p>As for the closure, its instance is created inside the <code>run()</code> method and is given a reference to 
+the <code>myName</code> variable. So when it's invoked it can access the <code>myName</code> variable.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As we can see the closure <code>_run_closure1</code> is defined twice: in its own class file
+<code>closures_scopes$_run_closure1.class</code> and inside the "main" class file <code>closures_scopes.class</code>
+(recall that they were decompiled). There's code duplication there.</p>
+<p>This is very likely caused by inner class inlining by ether <code>groovyc</code> or decompiler. In actual 
+bytecode there may probably be a top-level class for the closure and a reference to it in the 
+script class. If actually inlining was done then the meaning of this investigation are still
+the same, they are just less clear.</p>
+</div>
+<p>The full decompiled Java files are:
+<a href="../code/project1/closures_scopes_classes/closures_scopes.java.html">closures_scopes.java</a> and
+<a href="../code/project1/closures_scopes_classes/closures_scopes$_run_closure1.java.html">closures_scopes$_run_closure1.java</a>.</p>
+<h2 id="field-annotation"><code>@Field</code> annotation</h2>
+<p>As we saw above though closures let us use external variables their implementation is much more
+complex and probably it's an overkill if only global script variables access is required.
+Following is an alternative solution:</p>
+<pre class="highlight"><code class="language-groovy">import groovy.transform.Field
+
+@Field
+def myName = 'John'
+
+def sayHello() {
+    println "Hello from method, $myName!" // now CAN use external variables
+}
+
+def myClosure = {-&gt; println "Hello from closure, $myName!"} // still CAN use external variables
+
+sayHello()  // prints "Hello from method, John!"
+myClosure() // prints "Hello from closure, John!"</code></pre>
+<p>The <code>@Field</code> annotation  tells the Groovy compiler to turn this variable into a field of the
+generated script class &mdash; not a local variable inside the <code>run()</code> method &mdash; which makes it
+accessible from both methods and closures. The class file investigation is probably not required.</p>
+<p>Following are some considerations.</p>
+<ul>
+<li><strong>When to use closures?</strong> Closures are the natural choice when:<ul>
+<li>We want to keep things simple and inline. Closures automatically capture the variables in the
+    surrounding scope (<code>run()</code> method in a script), so they "just work" without extra
+    annotations</li>
+<li>We're doing callbacks, passing behavior around. Closures are great when used as parameters
+    or stored for later use</li>
+<li>We're scripting, not designing long-term structure.  If we're just scripting and not defining
+    reusable, class-like APIs, closures give us quick access to variables with no fuss</li>
+</ul>
+</li>
+<li><strong>When to Use <code>@Field</code> + method.</strong> Methods are better when:<ul>
+<li>We want better performance and static type checking.  Closures carry more overhead (they are
+    objects with captured scope), while methods are statically compiled and faster.
+    IDEs (like IntelliJ) also help us more with methods</li>
+<li>We need recursion or better structure. Methods can call themselves, be overloaded, or have
+    annotations like <code>@Memoized</code>, which closures can't do.</li>
+<li>We want to separate logic and state clearly. Declaring fields with <code>@Field</code> and methods
+    gives us something closer to class-like structure &mdash; helpful if our script is getting
+    large</li>
+</ul>
+</li>
+<li>Long things short:<ul>
+<li>Use closures when you're thinking in terms of "small tasks that use outside variables"</li>
+<li>Use methods + <code>@Field</code> when you're thinking "structured logic using shared state"</li>
+</ul>
+</li>
+</ul>
 <hr />
 <p><a name="index_entry_index_curries"></a></p>
 <h1 id="curries">Curries</h1>

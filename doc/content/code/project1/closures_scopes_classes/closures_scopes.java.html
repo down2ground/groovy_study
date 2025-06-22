@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head><title>closures_scopes.java</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" type="image/png" href="../../../../favicon.png"/>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="../../../../layout/content.css">
+<link rel="stylesheet" type="text/css" href="../../../../layout/more_prog_langs.css">
+<link rel="stylesheet" type="text/css" href="../../../../themes/light/content_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../themes/light/more_prog_langs_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../layout/layout.css">
+<link rel="stylesheet" type="text/css" href="../../../../themes/light/layout_theme.css">
+<link rel="stylesheet" type="text/css" href="../../../../custom.css">
+
+<link rel="stylesheet" type="text/css" href="../../../../layout/flex.css">
+<style>
+body {margin-right: 0; margin-left: 0; padding: 30px; width: unset; max-width: unset;}
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<a 
+class="header_item "
+href="../../../../../readme.html"><img 
+class="logo_image" src="../../../../favicon.png" /></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../../../readme.html"><span class="">Home</span></a><a 
+class="header_item toggle_wide_only_inline"
+href="../../../index_page.html"><span class="">Index</span></a><a 
+class="header_item toggle_narrow_only_inline"
+href="../../../index_page.html"><img 
+class="header_image index_image" src="../../../../layout/pict/search.png" /></a><a 
+class="header_item toggle_wide_only_inline"
+href="https://github.com/down2ground/groovy_study"><span class="">GitHub</span></a>
+
+<span class="source_file inactive toggle_wide_only_inline">&lt;/&gt;</span>
+
+<img class="headerNavArrows" src="../../../../layout/pict/previous_page_h21px_inactive.png"/>
+
+<img class="headerNavArrows" src="../../../../layout/pict/next_page_h21px_inactive.png"/>
+
+<span class="headerTitle">closures_scopes.java</span>
+
+</div>
+
+<p><strong>Path:</strong> project1/closures_scopes_classes/closures_scopes.java</p>
+
+<pre class="highlight"><code class="language-java">/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  groovy.lang.Binding
+ *  groovy.lang.Closure
+ *  groovy.lang.MetaClass
+ *  groovy.lang.Reference
+ *  groovy.lang.Script
+ *  groovy.transform.Generated
+ *  org.codehaus.groovy.reflection.ClassInfo
+ *  org.codehaus.groovy.runtime.GStringImpl
+ *  org.codehaus.groovy.runtime.GeneratedClosure
+ *  org.codehaus.groovy.runtime.InvokerHelper
+ *  org.codehaus.groovy.runtime.ScriptBytecodeAdapter
+ *  org.codehaus.groovy.vmplugin.v8.IndyInterface
+ */
+import groovy.lang.Binding;
+import groovy.lang.Closure;
+import groovy.lang.MetaClass;
+import groovy.lang.Reference;
+import groovy.lang.Script;
+import groovy.transform.Generated;
+import java.lang.invoke.MethodHandles;
+import org.codehaus.groovy.reflection.ClassInfo;
+import org.codehaus.groovy.runtime.GStringImpl;
+import org.codehaus.groovy.runtime.GeneratedClosure;
+import org.codehaus.groovy.runtime.InvokerHelper;
+import org.codehaus.groovy.runtime.ScriptBytecodeAdapter;
+import org.codehaus.groovy.vmplugin.v8.IndyInterface;
+
+public class closures_scopes
+extends Script {
+    private static /* synthetic */ ClassInfo $staticClassInfo;
+    public static transient /* synthetic */ boolean __$stMC;
+
+    public closures_scopes() {
+    }
+
+    public closures_scopes(Binding context) {
+        super(context);
+    }
+
+    public static void main(String ... args) {
+        IndyInterface.bootstrap("invoke", "runScript", 0, InvokerHelper.class, closures_scopes.class, args);
+    }
+
+    public Object run() {
+        Reference myName = new Reference((Object)"John");
+        public final class _run_closure1
+        extends Closure
+        implements GeneratedClosure {
+            private /* synthetic */ Reference myName;
+            private static /* synthetic */ ClassInfo $staticClassInfo;
+            public static transient /* synthetic */ boolean __$stMC;
+
+            public _run_closure1(Object _outerInstance, Object _thisObject, Reference myName) {
+                super(_outerInstance, _thisObject);
+                Reference reference;
+                this.myName = reference = myName;
+            }
+
+            public Object doCall() {
+                return IndyInterface.bootstrap("invoke", "println", 2, this, new GStringImpl(new Object[]{this.myName.get()}, new String[]{"Hello from closure, ", "!"}));
+            }
+
+            @Generated
+            public Object getMyName() {
+                return this.myName.get();
+            }
+
+            protected /* synthetic */ MetaClass $getStaticMetaClass() {
+                if (((Object)((Object)this)).getClass() != _run_closure1.class) {
+                    return ScriptBytecodeAdapter.initMetaClass((Object)((Object)this));
+                }
+                ClassInfo classInfo = $staticClassInfo;
+                if (classInfo == null) {
+                    $staticClassInfo = classInfo = ClassInfo.getClassInfo(((Object)((Object)this)).getClass());
+                }
+                return classInfo.getMetaClass();
+            }
+
+            public /* synthetic */ MethodHandles.Lookup $getLookup() {
+                return MethodHandles.lookup();
+            }
+        }
+        _run_closure1 myClosure = new _run_closure1((Object)this, (Object)this, myName);
+        IndyInterface.bootstrap("invoke", "sayHello", 2, this);
+        return IndyInterface.bootstrap("invoke", "call", 0, myClosure);
+    }
+
+    public Object sayHello() {
+        return null;
+    }
+
+    protected /* synthetic */ MetaClass $getStaticMetaClass() {
+        if (((Object)((Object)this)).getClass() != closures_scopes.class) {
+            return ScriptBytecodeAdapter.initMetaClass((Object)((Object)this));
+        }
+        ClassInfo classInfo = $staticClassInfo;
+        if (classInfo == null) {
+            $staticClassInfo = classInfo = ClassInfo.getClassInfo(((Object)((Object)this)).getClass());
+        }
+        return classInfo.getMetaClass();
+    }
+
+    public static /* synthetic */ MethodHandles.Lookup $getLookup() {
+        return MethodHandles.lookup();
+    }
+}
+</code></pre>
+
+<p></p>
+
+</body>
+</html>

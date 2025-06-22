@@ -136,6 +136,11 @@
       "title": "Methods and Closures"
     },
     {
+      "entry": "return keyword, optional",
+      "link": "sections/methods_and_closures.html#index_entry_index_return_keyword_optional",
+      "title": "Methods and Closures"
+    },
+    {
       "entry": "closures",
       "link": "sections/methods_and_closures.html#index_entry_index_closures",
       "title": "Methods and Closures"
@@ -143,6 +148,11 @@
     {
       "entry": "delegation",
       "link": "sections/methods_and_closures.html#index_entry_index_delegation",
+      "title": "Methods and Closures"
+    },
+    {
+      "entry": "scope, visibility",
+      "link": "sections/methods_and_closures.html#index_entry_index_scope_visibility",
       "title": "Methods and Closures"
     },
     {

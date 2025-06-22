@@ -27,7 +27,7 @@ Here's the workaround we are going to use:
 
 - <a name="groovyc_usage"></a>Compile our Groovy script: `groovyc myscript.groovy`
 - Run CFR (other decompilers --- like [Fernflower](https://github.com/fesh0r/fernflower) and
-    [JD](https://java-decompiler.github.io/) --- may also by tried) to decompile the
+    [JD](https://java-decompiler.github.io/) --- may be also by tried) to decompile the
     `myscript.class` file
 - Delete the class file to clean up: `del myscript.class`
 
@@ -50,7 +50,7 @@ Here's a short example. Groovy generated class file `methods.class` is going to 
 
 Here are the most interesting fragments of the result:
 
-<div class="blockSrc">methods.java</div>
+<div class="blockSrc">project1/methods.java</div>
 
 ````wrapped-java
 /*
