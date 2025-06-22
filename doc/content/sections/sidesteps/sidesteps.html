@@ -93,6 +93,7 @@ src="../../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <li><a href="#additional-considerations">Additional considerations</a></li>
 </ul>
 </li>
+<li><a href="#running_by_java_runtime">Running by Java runtime</a></li>
 </ul>
 </div>
 <hr />
@@ -115,10 +116,11 @@ reasons:</p>
 </ul>
 <p>Here's the workaround we are going to use:</p>
 <ul>
-<li>Compile our Groovy script: <code>groovyc myscript.groovy</code></li>
+<li><a name="groovyc_usage"></a>Compile our Groovy script: <code>groovyc myscript.groovy</code></li>
 <li>Run CFR (other decompilers &mdash; like <a href="https://github.com/fesh0r/fernflower">Fernflower</a> and
     <a href="https://java-decompiler.github.io/">JD</a> &mdash; may also by tried) to decompile the
     <code>myscript.class</code> file</li>
+<li>Delete the class file to clean up: <code>del myscript.class</code></li>
 </ul>
 <p><a name="index_entry_index_cfr_java_decompiler_java_decompiler_cfr_decompiler"></a>
 CFR Java decompiler:</p>
@@ -130,7 +132,9 @@ CFR Java decompiler:</p>
 <p>Here's a short example. Groovy generated class file <code>methods.class</code> is going to be decompiled:</p>
 <pre class="highlight"><code class="language-shell">&gt;set CFR_HOME=directory\where\cfr-0.152.jar\is_located\
 
-&gt;java -jar %CFR_HOME%cfr-0.152.jar methods.class &gt; methods.java</code></pre>
+&gt;java -jar %CFR_HOME%cfr-0.152.jar methods.class &gt; methods.java
+
+&gt; del methods.class</code></pre>
 <p>Here are the most interesting fragments of the result:</p>
 <div class="blockSrc">methods.java</div>
 
@@ -186,6 +190,26 @@ extends Script {
 <li><code>groovyc --help</code></li>
 </ul>
 <p>to know how to specify the input and output directories for better code organization.</p>
+<hr />
+<h1 id="running_by_java_runtime">Running by Java runtime</h1>
+<p>As it's shown <a href="#groovyc_usage">above</a> Groovy compiler can compile a normal Java class file.
+Starting from Groovy 3.0+, compiled script classes include a generated
+<code>public static void main(String... args)</code> method, so it may be executed by a Java runtime. 
+Still Groovy runtime JARs (<code>groovy-*.jar</code>) need to be added to the class path:</p>
+<pre class="highlight"><code class="language-shell">&gt;type hello_world.groovy
+println "Hello world!"
+
+&gt;groovyc hello_world.groovy
+
+&gt;dir /b | find "hello_world.class"
+hello_world.class
+
+&gt;java -cp ".;%GROOVY_HOME%\lib\*" hello_world
+Hello world!
+
+&gt;del hello_world.class</code></pre>
+<p>The <code>GROOVY_HOME</code> environment variable should point to the Groovy installation directory or the
+certain path may be used.</p>
 <p>&nbsp;</p>
 <hr />
 

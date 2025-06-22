@@ -20,6 +20,9 @@ The execution is:
 Hello world!
 ````
 
+See [here](<!--page sidesteps-->#running_by_java_runtime) to know how to compile a Java class file
+out of this Groovy script and to run it in Java runtime.
+
 ----------------------------------------------------------------------------------------------------
 <!--index ["variables", "destructuring", "print/println", "def", "var"]-->
 # Variables

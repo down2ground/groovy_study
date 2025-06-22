@@ -25,10 +25,11 @@ reasons:
 
 Here's the workaround we are going to use:
 
-- Compile our Groovy script: `groovyc myscript.groovy`
+- <a name="groovyc_usage"></a>Compile our Groovy script: `groovyc myscript.groovy`
 - Run CFR (other decompilers --- like [Fernflower](https://github.com/fesh0r/fernflower) and
     [JD](https://java-decompiler.github.io/) --- may also by tried) to decompile the
     `myscript.class` file
+- Delete the class file to clean up: `del myscript.class`
 
 <!--index ["CFR Java decompiler", "Java decompiler, CFR", "decompiler, Java, CFR"]-->
 CFR Java decompiler:
@@ -43,6 +44,8 @@ Here's a short example. Groovy generated class file `methods.class` is going to 
 >set CFR_HOME=directory\where\cfr-0.152.jar\is_located\
 
 >java -jar %CFR_HOME%cfr-0.152.jar methods.class > methods.java
+
+> del methods.class
 ````
 
 Here are the most interesting fragments of the result:
@@ -110,6 +113,32 @@ See the output of:
 - `groovyc --help`
 
 to know how to specify the input and output directories for better code organization.
+
+----------------------------------------------------------------------------------------------------
+# Running by Java runtime {#running_by_java_runtime}
+
+As it's shown [above](#groovyc_usage) Groovy compiler can compile a normal Java class file.
+Starting from Groovy 3.0+, compiled script classes include a generated
+`public static void main(String... args)` method, so it may be executed by a Java runtime. 
+Still Groovy runtime JARs (`groovy-*.jar`) need to be added to the class path:
+
+````shell
+>type hello_world.groovy
+println "Hello world!"
+
+>groovyc hello_world.groovy
+
+>dir /b | find "hello_world.class"
+hello_world.class
+
+>java -cp ".;%GROOVY_HOME%\lib\*" hello_world
+Hello world!
+
+>del hello_world.class
+````
+
+The `GROOVY_HOME` environment variable should point to the Groovy installation directory or the
+certain path may be used.
 
 
 
