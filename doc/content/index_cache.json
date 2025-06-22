@@ -351,5 +351,32 @@
       "link": "sections/dependency_management.html#index_entry_index_grape_dependency_manager_grab_permutations_depende",
       "title": "Dependency management"
     }
+  ],
+  "doc/content/sections/sidesteps/sidesteps.html": [
+    {
+      "entry": "Groovy, Java intermediate classes introspection",
+      "link": "sections/sidesteps/sidesteps.html#index_entry_index_groovy_java_intermediate_classes_introspection_int",
+      "title": "Side steps"
+    },
+    {
+      "entry": "introspection, Groovy, Java intermediate classes",
+      "link": "sections/sidesteps/sidesteps.html#index_entry_index_groovy_java_intermediate_classes_introspection_int",
+      "title": "Side steps"
+    },
+    {
+      "entry": "CFR Java decompiler",
+      "link": "sections/sidesteps/sidesteps.html#index_entry_index_cfr_java_decompiler_java_decompiler_cfr_decompiler",
+      "title": "Side steps"
+    },
+    {
+      "entry": "Java decompiler, CFR",
+      "link": "sections/sidesteps/sidesteps.html#index_entry_index_cfr_java_decompiler_java_decompiler_cfr_decompiler",
+      "title": "Side steps"
+    },
+    {
+      "entry": "decompiler, Java, CFR",
+      "link": "sections/sidesteps/sidesteps.html#index_entry_index_cfr_java_decompiler_java_decompiler_cfr_decompiler",
+      "title": "Side steps"
+    }
   ]
 }

@@ -1,3 +1,4 @@
 .idea
 /code/project1/code.iml
 /code/project1/out/
+/code/**/*.class

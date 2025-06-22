@@ -18,6 +18,9 @@
         { "input-glob": "sections/solutions/*.txt", "page-flows": ["solutions", "nav"], 
             "title-from-variable": "title", "code-from-variable": "code", 
             "sort-by-variable": "SORT_ORDER" },
+        { "input-glob": "sections/sidesteps/*.txt", "page-flows": ["sidesteps", "nav"], 
+            "title-from-variable": "title", "code-from-variable": "code", 
+            "sort-by-variable": "SORT_ORDER" },
             
         { "input-glob": "sections/ref/*.txt", "page-flows": ["ref", "nav"], 
             "title-from-variable": "title", "code-from-variable": "code", 
@@ -60,6 +63,7 @@
                 { "link": "https://github.com/down2ground/groovy_study", "title": "GitHub", "external": true }
             ],
             "sections": { "groups": ["sidebar"] },
+            "sidesteps": { "groups": ["sidebar"]},
             "solutions": { "groups": ["sidebar"], "title": "Solutions"},
             "ref": { "groups": ["sidebar"] }
         },

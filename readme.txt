@@ -17,6 +17,9 @@ different from Java. The obvious things are going to be skipped.
 ----------------------------------------------------------------------------------------------------
 # Change log
 
+Jun 22, 2025 [Intermediate Java code introspection](<!--page sidesteps-->#intermediate_java_code_introspection)
+investigated.
+
 Oct 11, 2024 The "Groovy DSL" section added.
 
 Aug 18, 2024 The Groovy console implementation finished.

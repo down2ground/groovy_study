@@ -1,0 +1,116 @@
+<!--VARIABLES {"title": "Side steps", "SORT_ORDER": "010",
+"code": "sidesteps"}-->
+
+[TOC]
+
+----------------------------------------------------------------------------------------------------
+<!--index ["Groovy, Java intermediate classes introspection",
+"introspection, Groovy, Java intermediate classes"]-->
+# Intermediate Java code introspection {#intermediate_java_code_introspection}
+
+Groovy docs look unfriendly in that they show us the generated intermediate Java class examples,
+like [<!--ref groovy_site-->, [exact point](http://groovy-lang.org/structure.html#_script_class)],
+but give us no easy way to see the same about our own Groovy scripts. Here are some possible
+reasons:
+
+- Scripts are meant to be "transparent" --- Groovy's design assumes that users care more about
+    results than about how scripts get turned into classes --- especially for scripting use cases
+- The transformation is internal: The actual script-to-class conversion is done by the Groovy
+    compiler behind the scenes. It creates a class that extends `groovy.lang.Script` and puts
+    our code inside the `run()` method, but doesn't keep source artifacts unless asked to ---
+    and only partially (e.g., in joint compilation)
+- No built-in option for "show me the generated class" --- Unlike Scala (`scalac -Xprint:typer`)
+    or Kotlin (`-Xdump-declarations`), Groovy lacks an official `--emit-java` or
+    `--emit-script-class` flag. That makes it harder to introspect
+
+Here's the workaround we are going to use:
+
+- Compile our Groovy script: `groovyc myscript.groovy`
+- Run CFR (other decompilers --- like [Fernflower](https://github.com/fesh0r/fernflower) and
+    [JD](https://java-decompiler.github.io/) --- may also by tried) to decompile the
+    `myscript.class` file
+
+<!--index ["CFR Java decompiler", "Java decompiler, CFR", "decompiler, Java, CFR"]-->
+CFR Java decompiler:
+
+- Home page: <https://www.benf.org/other/cfr/>
+- GitHub: <https://github.com/leibnitz27/cfr>
+- Download the `cfr-0.152.jar` file that is ready to use
+
+Here's a short example. Groovy generated class file `methods.class` is going to be decompiled:
+
+````shell
+>set CFR_HOME=directory\where\cfr-0.152.jar\is_located\
+
+>java -jar %CFR_HOME%cfr-0.152.jar methods.class > methods.java
+````
+
+Here are the most interesting fragments of the result:
+
+<div class="blockSrc">methods.java</div>
+
+````wrapped-java
+/*
+ * Decompiled with CFR 0.152.
+ * 
+ * Could not load the following classes:
+ *  groovy.lang.Binding
+ *  groovy.lang.MetaClass
+ *  groovy.lang.Script
+...
+*/
+import groovy.lang.Binding;
+import groovy.lang.MetaClass;
+import groovy.lang.Script;
+...
+public class methods
+extends Script {
+...
+    public methods() {
+    }
+
+    public methods(Binding context) {
+        super(context);
+    }
+
+    public static void main(String ... args) {
+        IndyInterface.bootstrap("invoke", "runScript", 0, InvokerHelper.class, methods.class, args);
+    }
+
+    public Object run() {
+        IndyInterface.bootstrap("invoke", "println", 2, this, IndyInterface.bootstrap("invoke", "sum", 2, this, 7, 4));
+        return IndyInterface.bootstrap("invoke", "println", 2, this, IndyInterface.bootstrap("invoke", "sum", 2, this, 7));
+    }
+
+    public Object sum(int a, int b) {
+        return IndyInterface.bootstrap("invoke", "plus", 0, a, b);
+    }
+...
+}
+````
+
+
+## Additional considerations
+
+Our script may create multiple classes, like with closures:
+
+- `methods.class`
+- `methods$_run_closure1.class`
+- etc.
+
+In such cases we may want to decompile all of them in one go:
+
+````shell
+java -jar cfr-0.152.jar *.class
+````
+
+See the output of:
+
+- `java -jar %CFR_HOME%cfr-0.152.jar --help`
+- `groovyc --help`
+
+to know how to specify the input and output directories for better code organization.
+
+
+
+

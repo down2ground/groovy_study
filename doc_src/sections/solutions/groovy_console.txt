@@ -186,7 +186,7 @@ The Python `json.tool` module is used just for pretty-printing the output.
 ----------------------------------------------------------------------------------------------------
 # Implementing Groovy console
 
-<!--git ["50c798b76895787c41f67b56b2f44b65d9e49ddd", "UI and REST added"]-->
+<!--git ["50c798b76895787c41f67b56b2f44b65d9e49ddd", "Groovy console implemented"]-->
 > 
 <!--git ["6b0681171308eb83fa17ae42a7ffd9fd75f7f75d", "dependency tree updated"]-->
 
