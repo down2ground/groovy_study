@@ -3,311 +3,311 @@
   "doc/content/sections/installation.html": [
     {
       "entry": "IntelliJ IDEA",
-      "link": "sections/installation.html#index_entry_index_1",
+      "link": "sections/installation.html#index_entry_index_intellij_idea_idea_intellij",
       "title": "Installation"
     },
     {
       "entry": "IDEA, IntelliJ",
-      "link": "sections/installation.html#index_entry_index_1",
+      "link": "sections/installation.html#index_entry_index_intellij_idea_idea_intellij",
       "title": "Installation"
     }
   ],
   "doc/content/sections/basics.html": [
     {
       "entry": "variables",
-      "link": "sections/basics.html#index_entry_index_1",
+      "link": "sections/basics.html#index_entry_index_variables_destructuring_print_println_def_var",
       "title": "Basics"
     },
     {
       "entry": "destructuring",
-      "link": "sections/basics.html#index_entry_index_1",
+      "link": "sections/basics.html#index_entry_index_variables_destructuring_print_println_def_var",
       "title": "Basics"
     },
     {
       "entry": "print/println",
-      "link": "sections/basics.html#index_entry_index_1",
+      "link": "sections/basics.html#index_entry_index_variables_destructuring_print_println_def_var",
       "title": "Basics"
     },
     {
       "entry": "def",
-      "link": "sections/basics.html#index_entry_index_1",
+      "link": "sections/basics.html#index_entry_index_variables_destructuring_print_println_def_var",
       "title": "Basics"
     },
     {
       "entry": "var",
-      "link": "sections/basics.html#index_entry_index_1",
+      "link": "sections/basics.html#index_entry_index_variables_destructuring_print_println_def_var",
       "title": "Basics"
     },
     {
       "entry": "types, data",
-      "link": "sections/basics.html#index_entry_index_2",
+      "link": "sections/basics.html#index_entry_index_types_data_data_types",
       "title": "Basics"
     },
     {
       "entry": "data types",
-      "link": "sections/basics.html#index_entry_index_2",
+      "link": "sections/basics.html#index_entry_index_types_data_data_types",
       "title": "Basics"
     },
     {
       "entry": "strings",
-      "link": "sections/basics.html#index_entry_index_3",
+      "link": "sections/basics.html#index_entry_index_strings",
       "title": "Basics"
     },
     {
       "entry": "boolean",
-      "link": "sections/basics.html#index_entry_index_4",
+      "link": "sections/basics.html#index_entry_index_boolean_groovy_truth",
       "title": "Basics"
     },
     {
       "entry": "Groovy truth",
-      "link": "sections/basics.html#index_entry_index_4",
+      "link": "sections/basics.html#index_entry_index_boolean_groovy_truth",
       "title": "Basics"
     },
     {
       "entry": "operators",
-      "link": "sections/basics.html#index_entry_index_5",
+      "link": "sections/basics.html#index_entry_index_operators_ternary_operator_elvis_operator_postfix_",
       "title": "Basics"
     },
     {
       "entry": "ternary operator",
-      "link": "sections/basics.html#index_entry_index_5",
+      "link": "sections/basics.html#index_entry_index_operators_ternary_operator_elvis_operator_postfix_",
       "title": "Basics"
     },
     {
       "entry": "Elvis operator",
-      "link": "sections/basics.html#index_entry_index_5",
+      "link": "sections/basics.html#index_entry_index_operators_ternary_operator_elvis_operator_postfix_",
       "title": "Basics"
     },
     {
       "entry": "postfix increment/decrement",
-      "link": "sections/basics.html#index_entry_index_5",
+      "link": "sections/basics.html#index_entry_index_operators_ternary_operator_elvis_operator_postfix_",
       "title": "Basics"
     },
     {
       "entry": "prefix increment/decrement",
-      "link": "sections/basics.html#index_entry_index_5",
+      "link": "sections/basics.html#index_entry_index_operators_ternary_operator_elvis_operator_postfix_",
       "title": "Basics"
     },
     {
       "entry": "increment",
-      "link": "sections/basics.html#index_entry_index_5",
+      "link": "sections/basics.html#index_entry_index_operators_ternary_operator_elvis_operator_postfix_",
       "title": "Basics"
     },
     {
       "entry": "decrement",
-      "link": "sections/basics.html#index_entry_index_5",
+      "link": "sections/basics.html#index_entry_index_operators_ternary_operator_elvis_operator_postfix_",
       "title": "Basics"
     },
     {
       "entry": "overloading, operators",
-      "link": "sections/basics.html#index_entry_index_5",
+      "link": "sections/basics.html#index_entry_index_operators_ternary_operator_elvis_operator_postfix_",
       "title": "Basics"
     },
     {
       "entry": "conditional operators",
-      "link": "sections/basics.html#index_entry_index_6",
+      "link": "sections/basics.html#index_entry_index_conditional_operators_if_operator_switch_case_oper",
       "title": "Basics"
     },
     {
       "entry": "if operator",
-      "link": "sections/basics.html#index_entry_index_6",
+      "link": "sections/basics.html#index_entry_index_conditional_operators_if_operator_switch_case_oper",
       "title": "Basics"
     },
     {
       "entry": "switch-case operator",
-      "link": "sections/basics.html#index_entry_index_6",
+      "link": "sections/basics.html#index_entry_index_conditional_operators_if_operator_switch_case_oper",
       "title": "Basics"
     },
     {
       "entry": "loops",
-      "link": "sections/basics.html#index_entry_index_7",
+      "link": "sections/basics.html#index_entry_index_loops",
       "title": "Basics"
     },
     {
       "entry": "exception handling",
-      "link": "sections/basics.html#index_entry_index_8",
+      "link": "sections/basics.html#index_entry_index_exception_handling",
       "title": "Basics"
     }
   ],
   "doc/content/sections/methods_and_closures.html": [
     {
       "entry": "methods",
-      "link": "sections/methods_and_closures.html#index_entry_index_1",
+      "link": "sections/methods_and_closures.html#index_entry_index_methods",
       "title": "Methods and Closures"
     },
     {
       "entry": "closures",
-      "link": "sections/methods_and_closures.html#index_entry_index_2",
+      "link": "sections/methods_and_closures.html#index_entry_index_closures",
       "title": "Methods and Closures"
     },
     {
       "entry": "delegation",
-      "link": "sections/methods_and_closures.html#index_entry_index_3",
+      "link": "sections/methods_and_closures.html#index_entry_index_delegation",
       "title": "Methods and Closures"
     },
     {
       "entry": "curries",
-      "link": "sections/methods_and_closures.html#index_entry_index_4",
+      "link": "sections/methods_and_closures.html#index_entry_index_curries",
       "title": "Methods and Closures"
     }
   ],
   "doc/content/sections/collections.html": [
     {
       "entry": "lists",
-      "link": "sections/collections.html#index_entry_index_1",
+      "link": "sections/collections.html#index_entry_index_lists",
       "title": "Collections"
     },
     {
       "entry": "sorting",
-      "link": "sections/collections.html#index_entry_index_2",
+      "link": "sections/collections.html#index_entry_index_sorting",
       "title": "Collections"
     },
     {
       "entry": "maps",
-      "link": "sections/collections.html#index_entry_index_3",
+      "link": "sections/collections.html#index_entry_index_maps",
       "title": "Collections"
     },
     {
       "entry": "ranges",
-      "link": "sections/collections.html#index_entry_index_4",
+      "link": "sections/collections.html#index_entry_index_ranges",
       "title": "Collections"
     }
   ],
   "doc/content/sections/io.html": [
     {
       "entry": "console input",
-      "link": "sections/io.html#index_entry_index_1",
+      "link": "sections/io.html#index_entry_index_console_input_readline_printf",
       "title": "Input and output"
     },
     {
       "entry": "readLine()",
-      "link": "sections/io.html#index_entry_index_1",
+      "link": "sections/io.html#index_entry_index_console_input_readline_printf",
       "title": "Input and output"
     },
     {
       "entry": "printf()",
-      "link": "sections/io.html#index_entry_index_1",
+      "link": "sections/io.html#index_entry_index_console_input_readline_printf",
       "title": "Input and output"
     },
     {
       "entry": "files",
-      "link": "sections/io.html#index_entry_index_2",
+      "link": "sections/io.html#index_entry_index_files_reader_delete_files_files_delete_iterate_fil",
       "title": "Input and output"
     },
     {
       "entry": "Reader",
-      "link": "sections/io.html#index_entry_index_2",
+      "link": "sections/io.html#index_entry_index_files_reader_delete_files_files_delete_iterate_fil",
       "title": "Input and output"
     },
     {
       "entry": "delete files",
-      "link": "sections/io.html#index_entry_index_2",
+      "link": "sections/io.html#index_entry_index_files_reader_delete_files_files_delete_iterate_fil",
       "title": "Input and output"
     },
     {
       "entry": "files, delete",
-      "link": "sections/io.html#index_entry_index_2",
+      "link": "sections/io.html#index_entry_index_files_reader_delete_files_files_delete_iterate_fil",
       "title": "Input and output"
     },
     {
       "entry": "iterate, files",
-      "link": "sections/io.html#index_entry_index_2",
+      "link": "sections/io.html#index_entry_index_files_reader_delete_files_files_delete_iterate_fil",
       "title": "Input and output"
     },
     {
       "entry": "files, iterate",
-      "link": "sections/io.html#index_entry_index_2",
+      "link": "sections/io.html#index_entry_index_files_reader_delete_files_files_delete_iterate_fil",
       "title": "Input and output"
     }
   ],
   "doc/content/sections/oop.html": [
     {
       "entry": "OOP",
-      "link": "sections/oop.html#index_entry_index_1",
+      "link": "sections/oop.html#index_entry_index_oop",
       "title": "OOP"
     },
     {
       "entry": "modules",
-      "link": "sections/oop.html#index_entry_index_2",
+      "link": "sections/oop.html#index_entry_index_modules",
       "title": "OOP"
     },
     {
       "entry": "getters",
-      "link": "sections/oop.html#index_entry_index_3",
+      "link": "sections/oop.html#index_entry_index_getters_setters",
       "title": "OOP"
     },
     {
       "entry": "setters",
-      "link": "sections/oop.html#index_entry_index_3",
+      "link": "sections/oop.html#index_entry_index_getters_setters",
       "title": "OOP"
     },
     {
       "entry": "traits",
-      "link": "sections/oop.html#index_entry_index_4",
+      "link": "sections/oop.html#index_entry_index_traits",
       "title": "OOP"
     },
     {
       "entry": "mixins",
-      "link": "sections/oop.html#index_entry_index_5",
+      "link": "sections/oop.html#index_entry_index_mixins",
       "title": "OOP"
     }
   ],
   "doc/content/sections/regex.html": [
     {
       "entry": "regular expressions",
-      "link": "sections/regex.html#index_entry_index_1",
+      "link": "sections/regex.html#index_entry_index_regular_expressions_find_operator_operator_find_ma",
       "title": "Regular expressions"
     },
     {
       "entry": "find operator",
-      "link": "sections/regex.html#index_entry_index_1",
+      "link": "sections/regex.html#index_entry_index_regular_expressions_find_operator_operator_find_ma",
       "title": "Regular expressions"
     },
     {
       "entry": "operator, find",
-      "link": "sections/regex.html#index_entry_index_1",
+      "link": "sections/regex.html#index_entry_index_regular_expressions_find_operator_operator_find_ma",
       "title": "Regular expressions"
     },
     {
       "entry": "match operator",
-      "link": "sections/regex.html#index_entry_index_1",
+      "link": "sections/regex.html#index_entry_index_regular_expressions_find_operator_operator_find_ma",
       "title": "Regular expressions"
     },
     {
       "entry": "operator, match",
-      "link": "sections/regex.html#index_entry_index_1",
+      "link": "sections/regex.html#index_entry_index_regular_expressions_find_operator_operator_find_ma",
       "title": "Regular expressions"
     }
   ],
   "doc/content/sections/solutions/groovy_console.html": [
     {
       "entry": "Groovy console",
-      "link": "sections/solutions/groovy_console.html#index_entry_index_1",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_groovy_console_console_groovy",
       "title": "Groovy console"
     },
     {
       "entry": "console, Groovy",
-      "link": "sections/solutions/groovy_console.html#index_entry_index_1",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_groovy_console_console_groovy",
       "title": "Groovy console"
     },
     {
       "entry": "Ajax",
-      "link": "sections/solutions/groovy_console.html#index_entry_index_2",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_ajax",
       "title": "Groovy console"
     },
     {
       "entry": "logic-less controller",
-      "link": "sections/solutions/groovy_console.html#index_entry_index_3",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_logic_less_controller",
       "title": "Groovy console"
     },
     {
       "entry": "JSON, format",
-      "link": "sections/solutions/groovy_console.html#index_entry_index_4",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_json_format_json_tool",
       "title": "Groovy console"
     },
     {
       "entry": "json.tool",
-      "link": "sections/solutions/groovy_console.html#index_entry_index_4",
+      "link": "sections/solutions/groovy_console.html#index_entry_index_json_format_json_tool",
       "title": "Groovy console"
     }
   ],
@@ -321,34 +321,34 @@
   "doc/content/sections/groovy_dsl.html": [
     {
       "entry": "Groovy DSL",
-      "link": "sections/groovy_dsl.html#index_entry_index_1",
+      "link": "sections/groovy_dsl.html#index_entry_index_groovy_dsl_dsl_groovy",
       "title": "Groovy DSL"
     },
     {
       "entry": "DSL, Groovy",
-      "link": "sections/groovy_dsl.html#index_entry_index_1",
+      "link": "sections/groovy_dsl.html#index_entry_index_groovy_dsl_dsl_groovy",
       "title": "Groovy DSL"
     }
   ],
   "doc/content/sections/dependency_management.html": [
     {
       "entry": "Grape dependency manager",
-      "link": "sections/dependency_management.html#index_entry_index_1",
+      "link": "sections/dependency_management.html#index_entry_index_grape_dependency_manager_grab_permutations_depende",
       "title": "Dependency management"
     },
     {
       "entry": "@Grab",
-      "link": "sections/dependency_management.html#index_entry_index_1",
+      "link": "sections/dependency_management.html#index_entry_index_grape_dependency_manager_grab_permutations_depende",
       "title": "Dependency management"
     },
     {
       "entry": "permutations",
-      "link": "sections/dependency_management.html#index_entry_index_1",
+      "link": "sections/dependency_management.html#index_entry_index_grape_dependency_manager_grab_permutations_depende",
       "title": "Dependency management"
     },
     {
       "entry": "dependency management",
-      "link": "sections/dependency_management.html#index_entry_index_1",
+      "link": "sections/dependency_management.html#index_entry_index_grape_dependency_manager_grab_permutations_depende",
       "title": "Dependency management"
     }
   ]

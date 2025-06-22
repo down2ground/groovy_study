@@ -113,7 +113,7 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <pre class="highlight"><code class="language-shell">&gt;groovy hello_world.groovy
 Hello world!</code></pre>
 <hr />
-<p><a name="index_entry_index_1"></a></p>
+<p><a name="index_entry_index_variables_destructuring_print_println_def_var"></a></p>
 <h1 id="variables">Variables</h1>
 <p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://groovy-lang.org/semantics.html">Semantics</a>].</p>
 <div class="blockSrc">project1/variables.groovy</div>
@@ -151,7 +151,7 @@ print a1; print b1; print c1; println() // first23null
 def (int a2, int b2) = [100, 200, 300] // types specified, unused values will be ignored
 print a2; print b2; println() // 100200</code></pre>
 <hr />
-<p><a name="index_entry_index_2"></a></p>
+<p><a name="index_entry_index_types_data_data_types"></a></p>
 <h1 id="data-types">Data types</h1>
 <p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/objectorientation.html">Object orientation</a>].</p>
 <h2 id="numbers">Numbers</h2>
@@ -214,7 +214,7 @@ println "char | " + (int) Character.MIN_VALUE + " | " + (int) Character.MAX_VALU
 </tr>
 </tbody>
 </table>
-<p><a name="index_entry_index_3"></a></p>
+<p><a name="index_entry_index_strings"></a></p>
 <h2 id="strings">Strings</h2>
 <p>Also see:</p>
 <ul>
@@ -267,7 +267,7 @@ are multiline. \/Slashes\/ must be masked./)
 
 println($/Dollar slashy string. Dolar ($$) is the escape symbol./$)
 // Dollar slashy string. Dolar ($) is the escape symbol.</code></pre>
-<p><a name="index_entry_index_4"></a></p>
+<p><a name="index_entry_index_boolean_groovy_truth"></a></p>
 <h2 id="boolean">Boolean</h2>
 <p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://docs.groovy-lang.org/latest/html/documentation/core-semantics.html#the-groovy-truth">The Groovy Truth</a>].</p>
 <p>Different value types may be converted to <code>boolean</code> when required.</p>
@@ -288,7 +288,7 @@ String process(int n) {
 assert process(0)
 assert !process(1)</code></pre>
 <hr />
-<p><a name="index_entry_index_5"></a></p>
+<p><a name="index_entry_index_operators_ternary_operator_elvis_operator_postfix_"></a></p>
 <h1 id="operators">Operators</h1>
 <p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>]:</p>
 <ul>
@@ -345,7 +345,7 @@ def bag2 = new Bag(3)
 println((bag1 + bag2).size) // 5</code></pre>
 <hr />
 <h1 id="control-structures">Control structures</h1>
-<p><a name="index_entry_index_6"></a></p>
+<p><a name="index_entry_index_conditional_operators_if_operator_switch_case_oper"></a></p>
 <h2 id="conditionals">Conditionals</h2>
 <p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/semantics.html#_conditional_structures">1.3.1. Conditional structures</a>].</p>
 <div class="blockSrc">project1/conditionals.groovy</div>
@@ -376,7 +376,7 @@ switch (n) {
         result = "invalid"
 }
 println result // positive</code></pre>
-<p><a name="index_entry_index_7"></a></p>
+<p><a name="index_entry_index_loops"></a></p>
 <h2 id="loops">Loops</h2>
 <p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/semantics.html#_looping_structures">1.3.2. Looping structures</a>].</p>
 <div class="blockSrc">project1/loops.groovy</div>
@@ -414,7 +414,7 @@ println result // 5 7 1 7 8 4 3 1 4 1
 do {
     println "This will be printed at least one time"
 } while (false)</code></pre>
-<p><a name="index_entry_index_8"></a></p>
+<p><a name="index_entry_index_exception_handling"></a></p>
 <h2 id="exception-handling">Exception handling</h2>
 <p>Also see [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="http://groovy-lang.org/semantics.html#_looping_structures">1.3.3. Exception handling</a>].</p>
 <div class="blockSrc">project1/exceptions.groovy</div>

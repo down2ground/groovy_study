@@ -95,7 +95,7 @@ src="../../../layout/pict/next_page_h21px.png" alt="Next"></a>
 </ul>
 </div>
 <hr />
-<p><a name="index_entry_index_1"></a></p>
+<p><a name="index_entry_index_groovy_console_console_groovy"></a></p>
 <h1 id="about-this-section">About this section</h1>
 <p>In this section we are going to implement <em>Groovy console</em> that allows:</p>
 <ul>
@@ -205,13 +205,13 @@ dependency tree updated</p>
 required in production.</p>
 </div>
 <p>Here are some explanations. The UI is created as simple as possible so no template engine is used.
-A single static HTML page is used for demonstration. <a name="index_entry_index_2"></a><strong>Ajax</strong> is used
+A single static HTML page is used for demonstration. <a name="index_entry_index_ajax"></a><strong>Ajax</strong> is used
 to execute the scripts and to update the displayed application state (see the
 <code>src/main/resources/static/console.html</code> file).</p>
 <p>The actual script execution is not implemented by now so the returned result is fake.</p>
 <p>Here's the UI snapshot:</p>
 <p><img alt="" class="img-frame" src="../../../pict/groovy_console_ui.png" /></p>
-<p><a name="index_entry_index_3"></a>
+<p><a name="index_entry_index_logic_less_controller"></a>
 The following configuration adds a logic-less controller to serve the static page:</p>
 <div class="blockSrc">src/main/java/groovyconsole/MvcConfig.java</div>
 
@@ -238,7 +238,7 @@ going to manipulate later.</p>
     "consoleRequestCount": 5,
     "someProperty": null
 }</code></pre>
-<p><a name="index_entry_index_4"></a>
+<p><a name="index_entry_index_json_format_json_tool"></a>
 The Python <code>json.tool</code> module is used just for pretty-printing the output.</p>
 <hr />
 <h1 id="implementing-groovy-console">Implementing Groovy console</h1>
