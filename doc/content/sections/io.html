@@ -98,8 +98,6 @@ src="../../layout/pict/next_page_h21px.png" alt="Next"></a>
 <h1 id="console-io">Console I/O</h1>
 <p>Also see [<a class="ref" href="ref/references.html#groovy_api">groovy_api</a>: <a href="https://docs.groovy-lang.org/latest/html/gapi/groovy/io/LineColumnReader.html#readLine()">readLine()</a>,
 <a href="https://docs.groovy-lang.org/latest/html/gapi/org/codehaus/groovy/runtime/DefaultGroovyMethods.html#printf(java.lang.Object,%20java.lang.String,%20java.lang.Object)">printf()</a>].</p>
-<div class="blockSrc">io.groovy</div>
-
 <pre class="highlight"><code class="language-groovy">print "Enter your name: "
 def name = System.console().readLine()
 println "Hello $name!"
@@ -112,11 +110,13 @@ Hello Bob!</code></pre>
 <p><a name="index_entry_index_files_reader_delete_files_files_delete_iterate_fil"></a></p>
 <h1 id="files">Files</h1>
 <p>The following file is going to be used:</p>
-<div class="blockSrc">data.txt</div>
+<div class="blockSrc">project1/data.txt</div>
 
 <pre class="highlight"><code>Line 1
 Line 2
 Line 3</code></pre>
+<div class="blockSrc">project1/io.groovy</div>
+
 <pre class="highlight"><code class="language-groovy">File inputFile = new File("data.txt")
 
 println inputFile.isFile()       // true

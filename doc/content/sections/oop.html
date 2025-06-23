@@ -104,8 +104,8 @@ are different in Groovy compared to Java.</p>
 <hr />
 <p><a name="index_entry_index_modules"></a></p>
 <h1 id="implicit-module-class">Implicit module class</h1>
-<p>Modules are implicitly compiles into classes:</p>
-<div class="blockSrc">modules.groovy</div>
+<p>Modules are implicitly compiled into classes:</p>
+<div class="blockSrc">project1/modules.groovy</div>
 
 <pre class="highlight"><code class="language-groovy">package my.pack // doesn't need to have a specific file location
 
@@ -114,7 +114,7 @@ println this.getClass() // class my.pack.modules</code></pre>
 <p><a name="index_entry_index_getters_setters"></a></p>
 <h1 id="implicit-getters-and-setters">Implicit getters and setters</h1>
 <p>No need for Lombok!</p>
-<div class="blockSrc">getters_and_setters.groovy</div>
+<div class="blockSrc">project1/getters_and_setters.groovy</div>
 
 <pre class="highlight"><code class="language-groovy">class Animal {
     String name   // must be declared with no access modifier
@@ -132,7 +132,7 @@ println animal.getWeight()  // 12.7</code></pre>
 <h1 id="traits">Traits</h1>
 <p>This is just a very small introduction to traits. For much more details see
 [<a class="ref" href="ref/references.html#groovy_site">groovy_site</a>, <a href="https://docs.groovy-lang.org/latest/html/documentation/#_traits">1.4.5. Traits</a>].</p>
-<div class="blockSrc">traits.groovy</div>
+<div class="blockSrc">project1/traits.groovy</div>
 
 <pre class="highlight"><code class="language-groovy">trait Flying {
     String fly() { "I believe I can fly!" }

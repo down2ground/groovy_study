@@ -11,8 +11,6 @@ https://docs.groovy-lang.org/latest/html/gapi/groovy/io/LineColumnReader.html#re
 [printf()](
 https://docs.groovy-lang.org/latest/html/gapi/org/codehaus/groovy/runtime/DefaultGroovyMethods.html#printf(java.lang.Object,%20java.lang.String,%20java.lang.Object))].
 
-<div class="blockSrc">io.groovy</div>
-
 ````groovy
 print "Enter your name: "
 def name = System.console().readLine()
@@ -33,11 +31,13 @@ Hello Bob!
 
 The following file is going to be used:
 
-<div class="blockSrc">data.txt</div>
+<div class="blockSrc">project1/data.txt</div>
 
 ````
 <!--include project1/data.txt-->
 ````
+
+<div class="blockSrc">project1/io.groovy</div>
 
 ````groovy
 <!--include project1/io.groovy-->

@@ -14,9 +14,9 @@ are different in Groovy compared to Java.
 <!--index ["modules"]-->
 # Implicit module class
 
-Modules are implicitly compiles into classes:
+Modules are implicitly compiled into classes:
 
-<div class="blockSrc">modules.groovy</div>
+<div class="blockSrc">project1/modules.groovy</div>
 
 ````groovy
 <!--include project1/modules.groovy-->
@@ -28,7 +28,7 @@ Modules are implicitly compiles into classes:
 
 No need for Lombok!
 
-<div class="blockSrc">getters_and_setters.groovy</div>
+<div class="blockSrc">project1/getters_and_setters.groovy</div>
 
 ````groovy
 <!--include project1/getters_and_setters.groovy-->
@@ -41,7 +41,7 @@ No need for Lombok!
 This is just a very small introduction to traits. For much more details see
 [<!--ref groovy_site-->, [1.4.5. Traits](https://docs.groovy-lang.org/latest/html/documentation/#_traits)].
 
-<div class="blockSrc">traits.groovy</div>
+<div class="blockSrc">project1/traits.groovy</div>
 
 ````groovy
 <!--include project1/traits.groovy-->

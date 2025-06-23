@@ -10,7 +10,7 @@
 Also see [<!--ref groovy_site-->, [1.2.7. Regular expression operators](
 https://docs.groovy-lang.org/latest/html/documentation/#_regular_expression_operators)].
 
-<div class="blockSrc">regex.groovy</div>
+<div class="blockSrc">project1/regex.groovy</div>
 
 ````groovy
 <!--include project1/regex.groovy-->
