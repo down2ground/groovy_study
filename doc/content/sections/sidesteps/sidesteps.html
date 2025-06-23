@@ -118,7 +118,7 @@ reasons:</p>
 <ul>
 <li><a name="groovyc_usage"></a>Compile our Groovy script: <code>groovyc myscript.groovy</code></li>
 <li>Run CFR (other decompilers &mdash; like <a href="https://github.com/fesh0r/fernflower">Fernflower</a> and
-    <a href="https://java-decompiler.github.io/">JD</a> &mdash; may be also by tried) to decompile the
+    <a href="https://java-decompiler.github.io/">JD</a> &mdash; may be also tried) to decompile the
     <code>myscript.class</code> file</li>
 <li>Delete the class file to clean up: <code>del myscript.class</code></li>
 </ul>
@@ -190,6 +190,17 @@ extends Script {
 <li><code>groovyc --help</code></li>
 </ul>
 <p>to know how to specify the input and output directories for better code organization.</p>
+<p>Also see the following options to control the decompilation process:</p>
+<pre class="highlight"><code>--hidebridgemethods true --innerclasses false --decodelambdas false --comments false</code></pre>
+<p>Here are explanations given by Chat GPT [<a class="ref" href="../ref/references.html#chat_gpt">chat_gpt</a>]:</p>
+<ul>
+<li><code>--hidebridgemethods</code> &mdash; suppresses synthetic bridge methods (Java/Groovy creates these for
+    type compatibility)</li>
+<li><code>--innerclasses</code> &mdash; prevents CFR from showing nested/inner classes inline in the parent class</li>
+<li><code>--decodelambdas</code> &mdash; avoids reconstructing lambdas and closures as if they were written inline
+    (useful if Groovy uses <code>invokedynamic</code>)</li>
+<li><code>--comments</code> &mdash; suppresses extra helpful comments added by CFR, so it looks cleaner</li>
+</ul>
 <hr />
 <h1 id="running_by_java_runtime">Running by Java runtime</h1>
 <p>As it's shown <a href="#groovyc_usage">above</a> Groovy compiler can compile a normal Java class file.
@@ -208,8 +219,8 @@ hello_world.class
 Hello world!
 
 &gt;del hello_world.class</code></pre>
-<p>The <code>GROOVY_HOME</code> environment variable should point to the Groovy installation directory or the
-certain path may be used.</p>
+<p>The <code>GROOVY_HOME</code> environment variable should point to the Groovy installation directory (or the
+certain path may be used).</p>
 <p>&nbsp;</p>
 <hr />
 

@@ -201,10 +201,10 @@ the `myName` variable. So when it's invoked it can access the `myName` variable.
     `closures_scopes$_run_closure1.class` and inside the "main" class file `closures_scopes.class`
     (recall that they were decompiled). There's code duplication there.
     
-    This is very likely caused by inner class inlining by ether `groovyc` or decompiler. In actual 
-    bytecode there may probably be a top-level class for the closure and a reference to it in the 
-    script class. If actually inlining was done then the meaning of this investigation are still
-    the same, they are just less clear.
+    This is very likely caused by the inner class **inlining** by ether `groovyc` or decompiler.
+    In actual bytecode there may probably be a top-level class for the closure and a reference
+    to it in the script class. But even if actually inlining was done then the meaning of this
+    investigation are still the same, they are just less clear.
 
 The full decompiled Java files are:
 [closures_scopes.java](<!--wrap_java project1/closures_scopes_classes/closures_scopes.java-->) and

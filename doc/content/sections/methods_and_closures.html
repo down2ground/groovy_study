@@ -316,10 +316,10 @@ the <code>myName</code> variable. So when it's invoked it can access the <code>m
 <p>As we can see the closure <code>_run_closure1</code> is defined twice: in its own class file
 <code>closures_scopes$_run_closure1.class</code> and inside the "main" class file <code>closures_scopes.class</code>
 (recall that they were decompiled). There's code duplication there.</p>
-<p>This is very likely caused by inner class inlining by ether <code>groovyc</code> or decompiler. In actual 
-bytecode there may probably be a top-level class for the closure and a reference to it in the 
-script class. If actually inlining was done then the meaning of this investigation are still
-the same, they are just less clear.</p>
+<p>This is very likely caused by the inner class <strong>inlining</strong> by ether <code>groovyc</code> or decompiler.
+In actual bytecode there may probably be a top-level class for the closure and a reference
+to it in the script class. But even if actually inlining was done then the meaning of this
+investigation are still the same, they are just less clear.</p>
 </div>
 <p>The full decompiled Java files are:
 <a href="../code/project1/closures_scopes_classes/closures_scopes.java.html">closures_scopes.java</a> and
